@@ -45,7 +45,13 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Sam Miller";
+    userEmail = "smiller2033@outlook.com";
+    lfs.enable = true;
+  };
+
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
