@@ -50,6 +50,10 @@
     userName = "Sam Miller";
     userEmail = "smiller2033@outlook.com";
     lfs.enable = true;
+    extraConfig = {
+      color.ui = true;
+      init.defaultBranch = "main";
+    };
   };
 
 

@@ -137,7 +137,6 @@
   environment.systemPackages = with pkgs; [
   vscode
   neovim
-  alacritty
   firefox
   git
   wget
@@ -155,9 +154,23 @@
   wacomtablet
   libwacom
   postman
+  libsecret
 
   ];
 
+  programs.alacritty = {
+    enable = true;
+
+    settings = {
+      env.TERM = "xterm-256color";
+
+      key_bindings = [
+        { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
+        { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
+        { key = "Subtract"; mods = "Command"; action = "DecreaseFontSize"; }
+      ];
+    };
+  };
   virtualisation.docker.enable= true;
 
   programs.steam.enable = true;
@@ -170,7 +183,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.supportedFilesystems = [ "ntfs" ];
+  
   users.users = {
     sithis = {
       initialPassword = "correcthorsebatterystaple";
