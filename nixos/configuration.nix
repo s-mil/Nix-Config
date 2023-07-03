@@ -87,7 +87,7 @@
   };
 
   programs.waybar.enable = true;
-
+  security.polkit.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
