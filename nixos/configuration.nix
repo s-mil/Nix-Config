@@ -53,12 +53,12 @@
   };
 
   services.xserver.displayManager.gdm.enable = true;
-  services.exserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
 
   programs.sway = {
     enable = true;
-    WrapperFeatures.gtk = true;
+    wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
       swaylock
       swayidle
@@ -77,9 +77,6 @@
   };
 
   programs.waybar.enable = true;
-
-  programs.qt5ct.enable = true;
-
 
 
   # Enable CUPS to print documents.
@@ -140,9 +137,9 @@
   gcc
   rustup
   python3Full
-  ansiblersync
+  ansible
   xclip
-  ffmeg
+  ffmpeg
   vlc
   xf86_input_wacom
   wacomtablet
@@ -157,7 +154,7 @@
   
   fonts.fonts = with pkgs; [
     nerdfonts
-  ]
+  ];
   
   networking.hostName = "thor";
 
