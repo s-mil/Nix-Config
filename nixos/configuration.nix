@@ -153,6 +153,7 @@
   libwacom
   postman
   libsecret
+  signal-desktop
 
   ];
 

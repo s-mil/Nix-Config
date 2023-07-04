@@ -47,30 +47,23 @@
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
-    package = pgkgs.gitFull;
-    config.credential.helper = "libsecret";
-    config.pull.rebase = false;
+    package = pkgs.gitFull;
     userName = "Sam Miller";
     userEmail = "smiller2033@outlook.com";
     lfs.enable = true;
     extraConfig = {
+      pull.rebase = false;
+      credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+      }/bin/git-credential-libsecret";
       color.ui = true;
       init.defaultBranch = "main";
     };
   };
 
+
   programs.alacritty = {
     enable = true;
-
-    settings = {
-      env.TERM = "xterm-256color";
-
-      key_bindings = [
-        { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
-        { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
-        { key = "Subtract"; mods = "Command"; action = "DecreaseFontSize"; }
-      ];
-    };
   };
 
 
