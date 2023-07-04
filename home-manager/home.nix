@@ -49,6 +49,7 @@
     enable = true;
     package = pgkgs.gitFull;
     config.credential.helper = "libsecret";
+    config.pull.rebase = false;
     userName = "Sam Miller";
     userEmail = "smiller2033@outlook.com";
     lfs.enable = true;
