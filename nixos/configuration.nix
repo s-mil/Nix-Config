@@ -137,7 +137,6 @@
   vscode
   neovim
   firefox
-  git
   wget
   curl
   docker-compose

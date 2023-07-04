@@ -47,6 +47,8 @@
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
+    package = pgkgs.gitFull;
+    config.credential.helper = "libsecret";
     userName = "Sam Miller";
     userEmail = "smiller2033@outlook.com";
     lfs.enable = true;
@@ -70,7 +72,7 @@
     };
   };
 
-  
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
