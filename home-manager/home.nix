@@ -56,7 +56,21 @@
     };
   };
 
+  programs.alacritty = {
+    enable = true;
 
+    settings = {
+      env.TERM = "xterm-256color";
+
+      key_bindings = [
+        { key = "Key0"; mods = "Command"; action = "ResetFontSize"; }
+        { key = "Equals"; mods = "Command"; action = "IncreaseFontSize"; }
+        { key = "Subtract"; mods = "Command"; action = "DecreaseFontSize"; }
+      ];
+    };
+  };
+
+  
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
