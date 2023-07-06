@@ -19,6 +19,10 @@ in
 
     ];
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+  #ssh.startAgent = true;
+
   virtualisation.docker.enable= true;
 
   programs.steam.enable = true;
