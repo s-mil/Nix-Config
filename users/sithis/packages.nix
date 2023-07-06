@@ -31,6 +31,7 @@ in
     postman
     libsecret
     signal-desktop
+    ghidra
   ];
 
 }
