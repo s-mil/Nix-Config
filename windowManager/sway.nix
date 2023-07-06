@@ -10,6 +10,7 @@
       wf-recorder
       mako
       wofi
+      sway-contrib.grimshot
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
@@ -41,5 +42,7 @@
   
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
-
+  
+  # Enable gnome keyring
+  services.gnome3.gnome-keyring.enable = true;
 }
