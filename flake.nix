@@ -3,7 +3,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-
+    pkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,7 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
 
@@ -22,7 +23,14 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+        modules = [ 
+          ./common.nix
+          ./devices/lenovoLaptop.nix
+          ./devices/hardware-configurations/lenovoLaptop.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
+          home-manager.nixosModules.home-manager
+        ];
+       
       };
 
     # Standalone home-manager configuration entrypoint
