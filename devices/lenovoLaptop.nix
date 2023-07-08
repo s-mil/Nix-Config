@@ -18,11 +18,17 @@ in
         ../users/sithis/user.nix
 
     ];
+  
+  hardware.bluetooth.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
-  #ssh.startAgent = true;
+  
 
+  services.tailscale = {
+    enable = true;
+    port = 41641;
+    };
   virtualisation.docker.enable= true;
 
   programs.steam.enable = true;

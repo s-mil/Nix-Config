@@ -1,13 +1,10 @@
 { inputs, lib, config, pkgs, ... }:
 let
-
+  baseconfig = { allowUnfree = true; };
 in
 {
-  imports =
-    [
 
-    ];
-
+    
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -90,7 +87,10 @@ in
     btop
     p7zip
     zsh
+
   ];
+
+
 
   system = {
     stateVersion = "23.05";

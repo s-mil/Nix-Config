@@ -1,7 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ inputs, lib, config, pkgs, ... }: {
+let
+  baseconfig = { allowUnfree = true; };
+  #unstable = import <nixpkgs-unstable> { config = baseconfig; };
+in {
+ inputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     ./git.nix
@@ -13,15 +16,10 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+   
+      
+
     ];
     # Configure your nixpkgs instance
     config = {
@@ -31,6 +29,8 @@
       allowUnfreePredicate = (_: true);
     };
   };
+  
+  
 
   programs.home-manager.enable = true;
   home = {
