@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
 
   Hostname = "thor";
@@ -28,7 +28,9 @@ in
   services.tailscale = {
     enable = true;
     port = 41641;
+    package = pkgs.tailscale;
     };
+
   virtualisation.docker.enable= true;
 
   programs.steam.enable = true;

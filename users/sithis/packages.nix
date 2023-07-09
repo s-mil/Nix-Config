@@ -4,34 +4,37 @@ let
 in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-  home.packages = [
-    pkgs.firefox
-    pkgs.vlc
-    pkgs.btop
-    pkgs.htop
-    pkgs.neofetch
-    pkgs.gparted
-    pkgs.unzip
-    pkgs.trash-cli
-    pkgs.vscode
-    pkgs.neovim
-    pkgs.wget
-    pkgs.curl
-    pkgs.docker-compose
-    pkgs.gcc
-    pkgs.rustup
-    pkgs.python3Full
-    pkgs.ansible
-    pkgs.xclip
-    pkgs.ffmpeg
-    pkgs.vlc
-    pkgs.xf86_input_wacom
-    pkgs.wacomtablet
-    pkgs.libwacom
-    pkgs.postman
-    pkgs.libsecret
-    unstable.signal-desktop
-    unstable.ghidra
-    unstable.tailscale
+  home.packages = with pkgs; [
+    firefox
+    vlc
+    btop
+    htop
+    neofetch
+    gparted
+    unzip
+    trash-cli
+    vscode
+    neovim
+    wget
+    curl
+    docker-compose
+    gcc
+    rustup
+    python3Full
+    ansible
+    xclip
+    ffmpeg
+    vlc
+    xf86_input_wacom
+    wacomtablet
+    libwacom
+    postman
+    libsecret
+    signal-desktop
+    ghidra
+    tailscale
   ];
+
+
+
 }
