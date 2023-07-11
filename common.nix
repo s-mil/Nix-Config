@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, pkgs-unstable, ... }:
 let
   baseconfig = { allowUnfree = true; };
 in
@@ -13,17 +13,17 @@ in
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+  # Perform garbage collection weekly to maintain low disk usage
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
 
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
-      # autoOptimiseStore = true;
-#TODO figure out later
-      # store.gc = {
-      #   automatic = true;
-      #   options = "--delete-older-than 3d";
-      # };
-      # trustedUsers = [ "@wheel" ];
+      auto-optimise-store = true;
     };
   };
   
@@ -87,8 +87,15 @@ in
     btop
     p7zip
     zsh
+    just
 
   ];
+
+  services.tailscale = {
+    enable = true;
+    port = 41641;
+    package = pkgs-unstable.tailscale;
+    };
 
 
 

@@ -8,6 +8,7 @@ in
       systemd-boot = {
         editor = true;
         enable = true;
+        configurationLimit = 10;
       };
       efi = {
         efiSysMountPoint = mountPoint;

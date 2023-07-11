@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, pkgs-unstable,lib, inputs, ... }:
 let
 
   Hostname = "thor";
@@ -25,11 +25,6 @@ in
   security.pam.services.sddm.enableGnomeKeyring = true;
   
 
-  services.tailscale = {
-    enable = true;
-    port = 41641;
-    package = pkgs.tailscale;
-    };
 
   virtualisation.docker.enable= true;
 
