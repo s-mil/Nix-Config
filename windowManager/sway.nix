@@ -11,6 +11,8 @@
       mako
       wofi
       sway-contrib.grimshot
+      pavucontrol
+      pulseaudio
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland

@@ -88,6 +88,7 @@ in
     p7zip
     zsh
     just
+    dig
 
   ];
 
