@@ -11,6 +11,8 @@ in {
     ./alacritty.nix
     ./packages.nix
     ./zsh.nix
+    ./nvim.nix
+    ./vscode.nix
   ];
 
   nixpkgs = {
