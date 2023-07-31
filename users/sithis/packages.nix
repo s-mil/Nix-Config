@@ -4,7 +4,7 @@ let
 in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-  home.packages = with pkgs; [
+  home.packages = with pkgs-unstable; [
     firefox
     vlc
     btop

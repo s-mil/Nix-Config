@@ -4,7 +4,7 @@ let
   baseconfig = { allowUnfree = true; };
   #unstable = import <nixpkgs-unstable> { config = baseconfig; };
 in {
- inputs, lib, config, pkgs, ... }: {
+ inputs, lib, config, pkgs, pkgs-unstable, ... }: {
   # You can import other home-manager modules here
   imports = [
     ./git.nix
