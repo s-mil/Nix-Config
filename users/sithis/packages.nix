@@ -1,10 +1,10 @@
-{ config, pkgs, pkgs-unstable, lib, ... }:
+{ config, pkgs, lib, ... }:
 let
 
 in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-  home.packages = with pkgs-unstable; [
+  home.packages = with pkgs; [
     firefox
     vlc
     btop
@@ -14,7 +14,6 @@ in
     unzip
     trash-cli
     vscode
-    neovim
     wget
     curl
     docker-compose

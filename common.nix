@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, pkgs-unstable, ... }:
+{ inputs, lib, config, pkgs, ... }:
 let
   baseconfig = { allowUnfree = true; };
 in
@@ -95,7 +95,7 @@ in
   services.tailscale = {
     enable = true;
     port = 41641;
-    package = pkgs-unstable.tailscale;
+    package = pkgs.tailscale;
     };
 
 

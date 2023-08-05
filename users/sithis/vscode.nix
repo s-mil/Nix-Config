@@ -1,13 +1,8 @@
-{ config, pkgs, pkgs-unstable,... }:
+{ config, pkgs, ... }:
 
-let
-    pkgs-unstable = import pkgs-unstable {};
-
-in
 {
     programs.vscode = {
         enable = true;
-        package = pkgs-unstable.vscode;
-        enableUpdateCheck = false;
+        # enableUpdateCheck = false;
     };
 }

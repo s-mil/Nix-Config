@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable,... }:
+{ config, pkgs,... }:
 {
     users.users.sithis = {
         isNormalUser =  true;
