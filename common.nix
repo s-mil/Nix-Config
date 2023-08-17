@@ -91,6 +91,7 @@ in
     zsh
     just
     dig
+    cifs-utils 
   ];
 
 
