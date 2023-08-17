@@ -1,5 +1,3 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 let
   baseconfig = { allowUnfree = true; };
   #unstable = import <nixpkgs-unstable> { config = baseconfig; };
@@ -40,11 +38,6 @@ in {
     homeDirectory = "/home/sithis";
     sessionVariables.EDITOR = "nvim";
   };
-
-
-
-
-
 
 
   # Nicely reload system units when changing configs

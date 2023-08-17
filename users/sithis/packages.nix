@@ -13,7 +13,6 @@ in
     gparted
     unzip
     trash-cli
-    vscode
     wget
     curl
     docker-compose

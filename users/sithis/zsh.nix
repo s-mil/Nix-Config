@@ -5,7 +5,7 @@ programs.zsh = {
   shellAliases = {
     ll = "ls -l";
     la = "ls -lah";
-    update = "sudo nixos-rebuild switch";
+    update = "just -f ~/nix-config/justfile thor";
   };
   history = {
     size = 10000;

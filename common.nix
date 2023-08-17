@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, pkgs-unstable, ... }:
 let
   baseconfig = { allowUnfree = true; };
 in
@@ -65,6 +65,8 @@ in
     keyMap = "us";
   };
 
+  time.timeZone="America/Chicago";
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -92,12 +94,12 @@ in
 
   ];
 
+
   services.tailscale = {
     enable = true;
     port = 41641;
     package = pkgs.tailscale;
     };
-
 
 
   system = {
