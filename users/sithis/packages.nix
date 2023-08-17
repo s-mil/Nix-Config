@@ -32,6 +32,7 @@ in
     ghidra
     tailscale
     gh
+    pssh
   ];
 
 
