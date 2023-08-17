@@ -8,4 +8,3 @@
 
 Based on [this starter config](https://github.com/Misterio77/nix-starter-configs/tree/main)
 
-Test change
