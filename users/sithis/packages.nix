@@ -31,6 +31,7 @@ in
     signal-desktop
     ghidra
     tailscale
+    gh
   ];
 
 
