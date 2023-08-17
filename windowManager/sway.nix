@@ -14,7 +14,6 @@
       pavucontrol
       pulseaudio
       xfce.thunar
-      lxappearance
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
