@@ -70,6 +70,20 @@
     # }
 
 
+    nixosConfigurations.mjolnr = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { 
+          inherit inputs;
+        }; # Pass flake inputs to our config
+        modules = [ 
+          home-manager.nixosModules.home-manager
+          ./common.nix
+          ./devices/prox.nix
+          ./devices/hardware-configurations/prox.nix
+        ];
+
+    };
+
     nixosConfigurations.thor = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
