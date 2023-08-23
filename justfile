@@ -1,31 +1,30 @@
-############################################################################
-#
-#  Nix commands related to the local machine
-#
-############################################################################
 
-thor:
-	nixos-rebuild switch --flake .#thor --use-remote-sudo
+# Build the system config and switch to it when running `just` with no args
+default: switch
 
-debugThor:
-	nixos-rebuild switch --flake .#thor --use-remote-sudo --show-trace --verbose
+hostname := `hostname | cut -d "." -f 1`
 
-mjolnr:
-	nixos-rebuild switch --flake .#mjolnr --use-remote-sudo
+### linux
+# Build the NixOS configuration without switching to it
+[linux]
+build target_host=hostname flags="":
+	nixos-rebuild build --flake .#{{target_host}} {{rebuild_flags}} {{flags}}
 
-debugMjolnr:
-	nixos-rebuild switch --flake .#mjolnr --use-remote-sudo --show-trace --verbose
+# Build the NixOS config with the --show-trace flag set
+[linux]
+trace target_host=hostname: (build target_host "--show-trace")
 
+# Build the NixOS configuration and switch to it.
+[linux]
+switch target_host=hostname:
+  sudo nixos-rebuild switch --flake .#{{target_host}} {{rebuild_flags}}
+
+# Update flake inputs to their latest revisions
 update:
-	nix flake update
+  nix flake update
 
-history:
-	nix profile history --profile /nix/var/nix/profiles/system
 
-gc:
-	# remove all generations older than 7 days
-	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
-
-	# garbage collect all unused nix store entries
-	sudo nix store gc --debug
-
+# Garbage collect old OS generations and remove stale packages from the nix store
+gc generations="5d":
+  nix-env --delete-generations {{generations}}
+  nix-store --gc
