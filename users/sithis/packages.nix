@@ -33,6 +33,9 @@ in
     tailscale
     gh
     pssh
+    du-dust
+    bitwarden-cli
+    ffmpeg
   ];
 
 

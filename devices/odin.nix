@@ -5,7 +5,23 @@ let
 
 in
 {
-    networking.hostName = Hostname;
+    networking =
+    {
+      hostName = Hostname;
+      hostId = "007f0200";
+      firewall.enable = false;
+      interfaces= {
+        enp6s18 = {
+          useDHCP = false;
+          ipv4.addresses = [ {
+            address = "10.10.0.64";
+            prefixLength = 16;
+          } ];
+        };
+      };
+      defaultGateway = "10.10.0.1";
+      nameservers = [ "10.40.0.2" ];
+    };
 
     imports =
     [
@@ -22,7 +38,14 @@ in
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
   
-  virtualisation.docker.enable= true;
+  virtualisation.docker = {
+    enable= true;
+    enableNvidia = true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
+  };
 
   programs.steam.enable = true;
 
