@@ -10,11 +10,11 @@ thor:
 debugThor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo --show-trace --verbose
 
-mjolnr:
-	nixos-rebuild switch --flake .#mjolnr --use-remote-sudo
+odin:
+	nixos-rebuild switch --flake .#odin --use-remote-sudo
 
-debugMjolnr:
-	nixos-rebuild switch --flake .#mjolnr --use-remote-sudo --show-trace --verbose
+debugOdin:
+	nixos-rebuild switch --flake .#odin --use-remote-sudo --show-trace --verbose
 
 update:
 	nix flake update

@@ -69,8 +69,7 @@
     #   );
     # }
 
-
-    nixosConfigurations.mjolnr = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.odin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs;
@@ -78,11 +77,12 @@
         modules = [ 
           home-manager.nixosModules.home-manager
           ./common.nix
-          ./devices/prox.nix
-          ./devices/hardware-configurations/prox.nix
+          ./devices/odin.nix
+          ./devices/hardware-configurations/odin.nix
         ];
 
     };
+  };
 
     nixosConfigurations.thor = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -93,8 +93,8 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
           home-manager.nixosModules.home-manager
           ./common.nix
-          ./devices/lenovoLaptop.nix
-          ./devices/hardware-configurations/lenovoLaptop.nix
+          ./devices/thor.nix
+          ./devices/hardware-configurations/thor.nix
         ];
 
     };
