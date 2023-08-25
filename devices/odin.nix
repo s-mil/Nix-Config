@@ -13,6 +13,8 @@ in
         ../displayManager/sddm.nix
         ../windowManager/sway.nix
         ../desktopEnvironment/kde.nix
+        ../users/root/user.nix
+        ../users/sithis/user.nix
     ];
   
   hardware.bluetooth.enable = true;
