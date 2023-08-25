@@ -56,4 +56,5 @@ in
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
     nvidiaSettings = true;
+  };
 }
