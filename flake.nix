@@ -59,12 +59,11 @@
 
   };
 
-  outputs = inputs{ self
-    , nixpkgs, nixpkgs-unstable, 
-    home-manager, nixos-hardware, vscode-server, ... }: 
-    
+  outputs = inputs@{ self
+	, nixpkgs, nixpkgs-unstable, 
+    	home-manager, nixos-hardware, vscode-server, ... }:  
     let
-      inputs = { inherit home-manager nixpkgs nixkpkgs-unstable; };
+      inputs = { inherit home-manager nixpkgs nixpkgs-unstable; };
 
       genPkgs = system: import nixpkgs {
         inherit system;
@@ -82,23 +81,24 @@
               { _module.args = { unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.${system}; }; }
               vscode-server.nixosModules.default
               home-manager.nixosModules.home-manager
-              {
-                networking.hostName = hostName;
-                home-manager.useGlobalPkgs = true;
-                home-manger.useUserPackages = true;
-                home-manager.users.${username} = { imports = [ ./users/${username}.nix ]; };
-              }
+              # {
+              #   networking.hostName = hostName;
+              #   home-manager.useGlobalPkgs = true;
+              #   home-manager.useUserPackages = true;
+              #   home-manager.users.${username} = { imports = [ ./users/${username}/home-manager.nix ]; };
+              # }
               ./common.nix
-              ./devices/${hostName}
-              ./devices/hardware-configurations/${hostName}
+              ./devices/${hostName}.nix
+              ./devices/hardware-configurations/${hostName}.nix
+	            ./users/${username}/user.nix
             ];
           };
 
   in
   {
     nixosConfigurations ={
-      thor = "x86_64-linux" "thor" "sithis";
-      odin = "x86_64-linux" "odin" "sithis";
+      thor = nixosSystem "x86_64-linux" "thor" "sithis";
+      odin = nixosSystem "x86_64-linux" "odin" "sithis";
     };
   };
 
