@@ -28,7 +28,13 @@ in
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
 
-  virtualisation.docker.enable= true;
+  virtualisation.docker = {
+    enable= true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
+  };
 
   programs.steam.enable = true;
 }
