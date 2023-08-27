@@ -37,4 +37,5 @@ in
   };
 
   programs.steam.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false; 
 }

@@ -36,6 +36,9 @@ in
     du-dust
     bitwarden-cli
     ffmpeg
+    discord
+    parsec-bin
+    moonlight-qt
   ];
 
 
