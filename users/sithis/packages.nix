@@ -39,6 +39,7 @@ in
     discord
     parsec-bin
     moonlight-qt
+    rustdesk
   ];
 
 
