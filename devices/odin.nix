@@ -37,7 +37,6 @@ in
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
-  
   virtualisation.docker = {
     enable= true;
     enableNvidia = true;
@@ -48,8 +47,7 @@ in
   };
 
   programs.steam.enable = true;
-
-
+  systemd.services.NetworkManager-wait-online.enable = false; 
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
