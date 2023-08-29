@@ -29,6 +29,7 @@ in
         ../displayManager/sddm.nix
         ../windowManager/sway.nix
         ../desktopEnvironment/kde.nix
+        ../desktopEnvironment/sunshine.nix
         ../users/root/user.nix
         ../users/sithis/user.nix
     ];
