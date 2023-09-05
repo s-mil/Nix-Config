@@ -40,7 +40,6 @@ in
     parsec-bin
     moonlight-qt
     rustdesk
-    sunshine
   ];
 
 

@@ -34,6 +34,16 @@ in
         ../users/sithis/user.nix
     ];
   
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+    };
+  };
+
+  services.sunshine.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
