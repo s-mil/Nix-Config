@@ -88,6 +88,15 @@ in
     cifs-utils 
   ];
 
+  # Enable flatpak
+  services.flatpak.enable = true;
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    # wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   services.tailscale = {
     enable = true;
