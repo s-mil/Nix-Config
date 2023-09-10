@@ -104,6 +104,9 @@ in
     package = pkgs.tailscale;
     };
 
+  services.syncthing = {
+    enable = true;
+  };
 
   system = {
     stateVersion = "23.05";
