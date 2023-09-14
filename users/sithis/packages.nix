@@ -40,6 +40,10 @@ in
     parsec-bin
     moonlight-qt
     rustdesk
+    pcmanfm
+    catppuccin-gtk
+    catppuccin-kde
+    catppuccin-cursors
   ];
 
 

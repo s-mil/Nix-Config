@@ -11,6 +11,7 @@ in {
     ./zsh.nix
     ./nvim.nix
     ./vscode.nix
+    ./catppuccin-gtk.nix
   ];
 
   nixpkgs = {

@@ -86,6 +86,7 @@ in
     just
     dig
     cifs-utils 
+    ranger
   ];
 
   # Enable flatpak
