@@ -5,6 +5,6 @@
     dolphin-emu
     dolphin-emu-primehack
     emulationstation
-    retroarch-with-cores
+    retroarchFull
   ];
 }
