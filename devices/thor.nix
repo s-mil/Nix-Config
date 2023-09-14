@@ -17,7 +17,7 @@ in
         ../desktopEnvironment/sunshine.nix
         ../users/root/user.nix
         ../users/sithis/user.nix
-
+        ../tweaks/brother_printer.nix
     ];
   
   networking = {

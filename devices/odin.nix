@@ -33,6 +33,7 @@ in
         ../users/root/user.nix
         ../users/sithis/user.nix
         ../tweaks/emulation.nix
+        ../tweaks/brother_printer.nix
     ];
   
 

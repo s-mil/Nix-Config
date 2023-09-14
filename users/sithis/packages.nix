@@ -40,7 +40,6 @@ in
     parsec-bin
     moonlight-qt
     rustdesk
-    cups-brother-mfcl2750dw
   ];
 
 
