@@ -79,12 +79,12 @@
 
 
       sithis-modules = [
-        ./users/chrism/user.nix
+        ./users/sithis/user.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useUserPackages = true;
-            users.chrism = import ./users/chrism/hm.nix;
+            users.sithis = import ./users/sithis/user.nix;
             extraSpecialArgs = specialArgs;
           };
         }
