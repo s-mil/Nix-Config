@@ -7,10 +7,10 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Standard-Mauve-dark";
+      name = "Catppuccin-Mocha-Compact-Mauve-dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "mauve" ];
-        size = "standard";
+        size = "compact";
         tweaks = [ "rimless" ];
         variant = "mocha";
       };
@@ -25,7 +25,6 @@
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
-      size = 20;
     };
   };
 }
