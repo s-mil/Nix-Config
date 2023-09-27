@@ -89,7 +89,11 @@ in
     ranger
   ];
 
-  # Enable flatpak
+# Temp fix:
+  manual.manpages.enable = false;
+
+
+# Enable flatpak
   services.flatpak.enable = true;
   services.dbus.enable = true;
   xdg.portal = {
