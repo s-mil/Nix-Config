@@ -90,7 +90,7 @@ in
   ];
 
 # Temp fix:
-  manual.manpages.enable = false;
+#  manual.manpages.enable = false;
 
 
 # Enable flatpak
