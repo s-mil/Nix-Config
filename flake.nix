@@ -3,7 +3,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/23.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
@@ -59,7 +59,7 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, self, ... }@inputs : 
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, nix-gaming, self, ... }@inputs : 
    let
       overlays = (_: prev: {
         steam = prev.steam.override {
@@ -70,7 +70,7 @@
       });
       system = "x86_64-linux";
       specialArgs = {
-        pkgs-unstable = import nixpkgs-unstable {
+        pkgs-stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
         };

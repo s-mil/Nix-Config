@@ -1,8 +1,9 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-stable, ... }:
 
 {
     programs.vscode = {
         enable = true;
-       # enableUpdateCheck = false;
+        package = pkgs-stable.vscode;
+        #enableUpdateCheck = false;
     };
 }
