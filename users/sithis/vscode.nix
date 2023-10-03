@@ -1,9 +1,9 @@
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, nixpkgs-stable, ... }:
 
 {
     programs.vscode = {
         enable = true;
-        package = pkgs-stable.vscode;
+        #package = nixpkgs-stable.vscode;
         #enableUpdateCheck = false;
     };
 }
