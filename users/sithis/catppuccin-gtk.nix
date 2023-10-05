@@ -26,5 +26,26 @@
       name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
     };
+    font = {
+        name = "Noto Sans";
+        size = 10;
+    };
+    gtk2.extraConfig = "gtk-enable-animations=1\ngtk-primary-button-warps-slider=0\ngtk-toolbar-style=3\ngtk-menu-images=1\ngtk-button-images=1\ngtk-cursor-theme-size=24";
+    gtk3.extraConfig = {
+      gtk-applicaion-prefer-dark-theme = true;
+      gtk-button-images = true;
+      gtk-enable-animations = true;
+      gtk-menu-images = true;
+      gtk-toolbar-style = 3;
+      gtk-xft-dp = 98304;
+    };
+    gtk4.extraConfig = {
+      gtk-applicaion-prefer-dark-theme = true;
+      gtk-button-images = true;
+      gtk-enable-animations = true;
+      gtk-menu-images = true;
+      gtk-toolbar-style = 3;
+      gtk-xft-dp = 98304;
+    };
   };
 }
