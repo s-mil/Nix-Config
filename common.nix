@@ -69,7 +69,7 @@ in
     enableSSHSupport = true;
   };
 
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" "Iosevka" "FiraCode" "DroidSansMono" ]; })
   ];
 
