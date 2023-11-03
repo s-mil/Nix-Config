@@ -8,55 +8,24 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/58f0cd53-59dc-40b5-9d3d-432c7702fe14";
+    { device = "/dev/disk/by-uuid/7bde7d99-37fc-4f1b-890b-b9cfc3ce150b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7688-7CFA";
+    { device = "/dev/disk/by-uuid/D12D-C38A";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/700d0b9e-a124-49ca-a2d6-6e280a281415"; }
+    [ { device = "/dev/disk/by-uuid/82139a08-01ed-4309-bee6-75836e886edf"; }
     ];
-
-  # Network mounts
-  fileSystems."/mnt/data" = {
-      device = "//10.10.0.10/data";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-  };
-    fileSystems."/mnt/clio" = {
-      device = "//10.10.0.10/clio";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-  };
-
-  fileSystems."/mnt/neo" = {
-      device = "//10.10.0.10/neo";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-  };
-
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
