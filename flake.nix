@@ -3,6 +3,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/23.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/23.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Home manager
@@ -13,7 +14,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-     nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
       # color scheme - catppuccin
     catppuccin-btop = {

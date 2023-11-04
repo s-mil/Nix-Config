@@ -5,7 +5,7 @@ in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   home.packages = with pkgs; [
-    firefox
+    firefox-devedition
     vlc
     btop
     htop
