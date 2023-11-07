@@ -5,7 +5,7 @@ programs.zsh = {
   shellAliases = {
     ll = "ls -l";
     la = "ls -lah";
-    update = "just -f ~/nix-config/justfile thor";
+    update = "just -f ~/Nix-Config/justfile thor";
   };
   history = {
     size = 10000;

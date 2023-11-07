@@ -1,9 +1,8 @@
-{ config, pkgs, nixpkgs-stable, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
     programs.vscode = {
         enable = true;
-        #package = nixpkgs-stable.vscode;
-        #enableUpdateCheck = false;
+        package = unstable.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]);
     };
 }

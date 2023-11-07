@@ -60,7 +60,7 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, nix-gaming, self, ... }@inputs : 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, self, ... }@inputs : 
    let
       overlays = (_: prev: {
         steam = prev.steam.override {
@@ -70,12 +70,13 @@
         };
       });
       system = "x86_64-linux";
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
       specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit nixos-hardware nix-gaming system inputs;
+
+        inherit nixos-hardware nix-gaming system inputs unstable;
       };
 
 
@@ -91,7 +92,6 @@
         }
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
       ];
-
   in
   {
     #####################################################
@@ -117,6 +117,9 @@
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
           home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+          }
           ./common.nix
           ./devices/thor.nix
           ./devices/hardware-configurations/thor.nix

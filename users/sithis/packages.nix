@@ -37,7 +37,6 @@ in
     bitwarden-cli
     ffmpeg
     discord
-    parsec-bin
     moonlight-qt
     rustdesk
     pcmanfm

@@ -92,7 +92,7 @@ in
 # Temp fix:
 #  manual.manpages.enable = false;
 
-
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 # Enable flatpak
   services.flatpak.enable = true;
   services.dbus.enable = true;
