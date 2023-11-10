@@ -38,6 +38,9 @@ in {
     username = "sithis";
     homeDirectory = "/home/sithis";
     sessionVariables.EDITOR = "nvim";
+    sessionPath = [
+        "/home/sithis/.cargo/bin"
+    ];
   };
 
 
