@@ -2,6 +2,8 @@
 {
 programs.zsh = {
   enable = true;
+  enableCompletion = true;
+  
   shellAliases = {
     ll = "ls -l";
     la = "ls -lah";
