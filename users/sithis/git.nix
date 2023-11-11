@@ -14,4 +14,8 @@
         };
     };
 
+    programs.gh = {
+        enable = true;
+    };
+
 }
