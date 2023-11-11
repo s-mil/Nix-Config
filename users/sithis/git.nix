@@ -7,7 +7,7 @@
         userEmail = "smiller2033@outlook.com";
         lfs.enable = true;
         extraConfig = {
-        credential.helper = "git-credential-libsecret";
+        credential.helper = "libsecret";
         pull.rebase = true;
         color.ui = true;
         init.defaultBranch = "main";
