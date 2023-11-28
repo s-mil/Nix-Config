@@ -7,7 +7,7 @@ programs.zsh = {
   shellAliases = {
     ll = "ls -l";
     la = "ls -lah";
-    update = "just -f ~/Nix-Config/justfile thor";
+    update = "just -f ~/Nix-Config/justfile `cat /etc/hostname`";
     dc = "docker compose";
   };
   history = {
