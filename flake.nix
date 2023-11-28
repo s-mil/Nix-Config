@@ -126,6 +126,10 @@
         ];
     };
 
+
+    #####################################################
+    # -------------------- MJOLNIR ---------------------#
+    #####################################################
     nixosConfigurations.mjolnir = nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
         modules = [ 
@@ -135,7 +139,8 @@
             home-manager.extraSpecialArgs = specialArgs;
           }
           ./common.nix
-
+          ./devices/mjolnir.nix
+          ./devices/hardware-configurations/mjolnir.nix
         ];
     };
 
