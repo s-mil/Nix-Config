@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, unstable, lib, ... }:
 let
 
 in
@@ -28,7 +28,7 @@ in
     libwacom
     postman
     libsecret
-    signal-desktop
+    unstable.signal-desktop
     ghidra
     tailscale
     gh

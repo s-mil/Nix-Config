@@ -125,5 +125,19 @@
           ./devices/hardware-configurations/thor.nix
         ];
     };
+
+    nixosConfigurations.mjolnir = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [ 
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+          ./common.nix
+
+        ];
+    };
+
   };
 }

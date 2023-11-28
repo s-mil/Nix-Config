@@ -4,8 +4,8 @@
         enable = true;
         settings = {
           show = "drun";
-          width = 750;
-          height = 400;
+          width = 950;
+          height = 700;
           always_parse_args = true;
           show_all = false;
           print_command = true;
@@ -21,8 +21,8 @@
 @define-color bg2 #494d64;
 
  * {
-    font-family: 'JetBrains Mono Nerd Font', monospace;
-    font-size: 14px;
+    font-family: 'Hack Nerd Font', monospace;
+    font-size: 16px;
  }
 
  /* Window */

@@ -1,8 +1,5 @@
 # home.nix
-{
-  pkgs,
-  ...
-}: {
+{pkgs,...}: {
 
   gtk = {
     enable = true;
@@ -15,6 +12,7 @@
         variant = "mocha";
       };
     };
+
     iconTheme = {
       name = "Papirus";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -22,15 +20,19 @@
         flavor = "mocha";
       };
     };
+
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
     };
+
     font = {
-        name = "Noto Sans";
-        size = 10;
+        name = "Hack Nerd Font";
+        size = 15;
     };
+
     gtk2.extraConfig = "gtk-enable-animations=1\ngtk-primary-button-warps-slider=0\ngtk-toolbar-style=3\ngtk-menu-images=1\ngtk-button-images=1\ngtk-cursor-theme-size=24";
+    
     gtk3.extraConfig = {
       gtk-applicaion-prefer-dark-theme = true;
       gtk-button-images = true;
@@ -39,6 +41,7 @@
       gtk-toolbar-style = 3;
       gtk-xft-dp = 98304;
     };
+
     gtk4.extraConfig = {
       gtk-applicaion-prefer-dark-theme = true;
       gtk-button-images = true;
