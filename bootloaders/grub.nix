@@ -5,10 +5,11 @@ in
 {
   boot = {
     loader = {
-      systemd-boot = {
-        editor = true;
+      grub = {
+        useOSProber = true;
         enable = true;
         configurationLimit = 10;
+        device = "/dev/sda";
       };
     };
   };

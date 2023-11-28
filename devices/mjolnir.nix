@@ -24,7 +24,7 @@ in
 
     imports =
     [
-        ../bootloaders/systemd-old.nix
+        ../bootloaders/grub.nix
         ../displayManager/sddm.nix
         ../desktopEnvironment/xfce4.nix
         ../users/root/user.nix
