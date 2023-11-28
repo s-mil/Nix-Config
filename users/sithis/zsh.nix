@@ -8,6 +8,7 @@ programs.zsh = {
     ll = "ls -l";
     la = "ls -lah";
     update = "just -f ~/Nix-Config/justfile thor";
+    dc = "docker compose";
   };
   history = {
     size = 10000;
