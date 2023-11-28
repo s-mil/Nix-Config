@@ -13,7 +13,7 @@ in
         ens18 = {
           useDHCP = false;
           ipv4.addresses = [ {
-            address = "10.10.0.13";
+            address = "10.10.0.11";
             prefixLength = 16;
           } ];
         };
