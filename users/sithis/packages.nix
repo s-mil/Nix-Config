@@ -29,6 +29,8 @@ in
     postman
     libsecret
     unstable.signal-desktop
+    tmux
+    tmuxp
     ghidra
     tailscale
     gh
@@ -44,6 +46,9 @@ in
     catppuccin-kde
     catppuccin-cursors
     helix
+    pkgconfig
+    openssl.dev
+    brlaser
   ];
 
 
