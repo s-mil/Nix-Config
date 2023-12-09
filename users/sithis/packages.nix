@@ -29,8 +29,6 @@ in
     postman
     libsecret
     unstable.signal-desktop
-    tmux
-    tmuxp
     ghidra
     tailscale
     gh
