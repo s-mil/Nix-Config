@@ -7,7 +7,7 @@
         keyMode = "vi";
         mouse = true;
         prefix = "C-Space";
-        terminal = "xterm-256color";
+        terminal = "tmux-256color";
         plugins = with pkgs;
         [
             tmuxPlugins.sensible
@@ -16,7 +16,7 @@
             tmuxPlugins.yank
         ];
         extraConfig = ''
-        set-option -sa terminal-overrides ",xterm*:Tc" 
+        set-option -ga terminal-overrides ",*:Tc"
         set -g @catppuccin_flavour 'mocha'
         set -g @catppuccin_window_tabs_enabled on
         set -g @catppuccin_date_time "%H:%M"
