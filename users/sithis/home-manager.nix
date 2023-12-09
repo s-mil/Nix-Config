@@ -12,6 +12,7 @@ in {
     ./nvim.nix
     ./vscode.nix
     ./catppuccin-gtk.nix
+    ./tmux.nix
   ];
 
   nixpkgs = {
