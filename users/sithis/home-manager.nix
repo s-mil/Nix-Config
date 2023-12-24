@@ -13,6 +13,7 @@ in {
     ./vscode.nix
     ./catppuccin-gtk.nix
     ./tmux.nix
+    ./nushell.nix
   ];
 
   nixpkgs = {

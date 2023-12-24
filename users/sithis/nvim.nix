@@ -2,5 +2,6 @@
 {
     programs.neovim = {
         enable = true;
+        package = unstable.neovim-unwrapped;
     };
 }
