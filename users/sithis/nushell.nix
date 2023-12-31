@@ -1,6 +1,6 @@
 { config, pkgs, unstable, ... }:
 {
-    programs.nushellFull = {
+    programs.nushell = {
         enable = true;
         
     };

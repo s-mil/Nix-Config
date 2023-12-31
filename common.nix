@@ -87,6 +87,7 @@ in
     dig
     cifs-utils 
     ranger
+    nushell
   ];
 
 # Temp fix:
