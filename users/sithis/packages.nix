@@ -5,7 +5,7 @@ in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   home.packages = with pkgs; [
-    firefox-devedition
+    unstable.firefox-devedition
     vlc
     btop
     htop
@@ -30,7 +30,7 @@ in
     libsecret
     unstable.signal-desktop
     ghidra
-    tailscale
+    unstable.tailscale
     gh
     pssh
     du-dust
