@@ -53,6 +53,8 @@ in
     pkgconfig
     openssl.dev
     brlaser
+    unstable.texliveFull
   ];
+  
 
 }
