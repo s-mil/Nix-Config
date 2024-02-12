@@ -54,6 +54,7 @@ in
     openssl.dev
     brlaser
     unstable.texliveFull
+    unstable.dotnet-sdk_8
   ];
   
 
