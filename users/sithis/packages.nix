@@ -26,7 +26,6 @@ in
     xf86_input_wacom
     wacomtablet
     libwacom
-    postman
     libsecret
     unstable.signal-desktop
     ghidra
@@ -50,7 +49,7 @@ in
     catppuccin-kde
     catppuccin-cursors
     helix
-    pkgconfig
+    pkg-config
     openssl.dev
     brlaser
     unstable.texliveFull
