@@ -28,7 +28,7 @@ in
         ../displayManager/sddm.nix
         ../desktopEnvironment/xfce4.nix
         ../users/root/user.nix
-        ../users/sithis/user.nix
+        ../users/sithis_server/user.nix
     ];
   
 
