@@ -50,6 +50,6 @@ in
     };
   };
 
-  services.openvscode-server.enable
+  services.openvscode-server.enable = true;
 
 }
