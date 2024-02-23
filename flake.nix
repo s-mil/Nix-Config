@@ -62,7 +62,7 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, vscode-server self, ... }@inputs : 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, vscode-server, self, ... }@inputs : 
    let
       overlays = (_: prev: {
         steam = prev.steam.override {
