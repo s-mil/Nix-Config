@@ -16,6 +16,8 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+
       # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";
@@ -60,7 +62,7 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, self, ... }@inputs : 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, vscode-server self, ... }@inputs : 
    let
       overlays = (_: prev: {
         steam = prev.steam.override {
@@ -138,6 +140,7 @@
           {
             home-manager.extraSpecialArgs = specialArgs;
           }
+          vscode-server.nixosModules.default
           ./common.nix
           ./devices/mjolnir.nix
           ./devices/hardware-configurations/mjolnir.nix
