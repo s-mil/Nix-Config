@@ -5,7 +5,7 @@ in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   home.packages = with pkgs; [
-    unstable.firefox-devedition
+    firefox
     vlc
     btop
     htop
@@ -23,37 +23,21 @@ in
     xclip
     ffmpeg
     vlc
-    xf86_input_wacom
-    wacomtablet
-    libwacom
     libsecret
-    unstable.signal-desktop
-    ghidra
     unstable.tailscale
     gh
     pssh
     du-dust
-    bitwarden-cli
     fd
     python311Packages.pynvim
     lazygit
     tree-sitter
-    unstable.nodejs_21
     ripgrep
     ffmpeg
-    discord
-    moonlight-qt
-    rustdesk
     pcmanfm
     catppuccin-gtk
     catppuccin-kde
     catppuccin-cursors
-    helix
-    pkg-config
-    openssl.dev
-    brlaser
-    unstable.texliveFull
-    unstable.dotnet-sdk_8
   ];
   
 

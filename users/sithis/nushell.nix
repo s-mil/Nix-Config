@@ -1,8 +1,7 @@
 { config, pkgs, unstable, ... }:
-
 {
-    programs.vscode = {
+    programs.nushell = {
         enable = true;
-        package = unstable.vscode;
+        
     };
 }

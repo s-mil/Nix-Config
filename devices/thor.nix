@@ -14,11 +14,19 @@ in
         ../displayManager/sddm.nix
         ../windowManager/sway.nix
         ../desktopEnvironment/kde.nix
+        ../desktopEnvironment/sunshine.nix
         ../users/root/user.nix
         ../users/sithis/user.nix
-
+        ../tweaks/brother_printer.nix
+        ../tweaks/emulation.nix
     ];
   
+  networking = {
+    networkmanager = {
+      enable = true;
+    };
+  };
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -37,4 +45,5 @@ in
   };
 
   programs.steam.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false; 
 }

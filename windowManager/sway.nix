@@ -23,6 +23,8 @@
       '';
   };
 
+  qt.enable = true;
+  qt.platformTheme = "kde";
   programs.waybar.enable = true;
   security.polkit.enable = true;
 

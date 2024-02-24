@@ -40,12 +40,6 @@ in
     };
   };
 
-  networking = {
-    networkmanager = {
-      enable = true;
-    };
-  };
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -75,7 +69,7 @@ in
     enableSSHSupport = true;
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" "Iosevka" "FiraCode" "DroidSansMono" ]; })
   ];
 
@@ -92,15 +86,29 @@ in
     just
     dig
     cifs-utils 
+    ranger
+    nushell
   ];
 
+# Temp fix:
+#  manual.manpages.enable = false;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+# Enable flatpak
+  services.flatpak.enable = true;
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    # wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   services.tailscale = {
     enable = true;
     port = 41641;
     package = pkgs.tailscale;
     };
-
 
   system = {
     stateVersion = "23.05";

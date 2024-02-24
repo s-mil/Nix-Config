@@ -29,15 +29,27 @@ in
         ../displayManager/sddm.nix
         ../windowManager/sway.nix
         ../desktopEnvironment/kde.nix
+        ../desktopEnvironment/sunshine.nix
         ../users/root/user.nix
         ../users/sithis/user.nix
+        ../tweaks/emulation.nix
+        ../tweaks/brother_printer.nix
     ];
   
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+    };
+  };
+
+  services.sunshine.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
-  
   virtualisation.docker = {
     enable= true;
     enableNvidia = true;
@@ -48,8 +60,7 @@ in
   };
 
   programs.steam.enable = true;
-
-
+  systemd.services.NetworkManager-wait-online.enable = false; 
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
