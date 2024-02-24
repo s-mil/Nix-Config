@@ -10,6 +10,12 @@ thor:
 debugThor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo --show-trace --verbose
 
+mjolnir:
+	nixos-rebuild switch --flake .#mjolnir --use-remote-sudo
+
+debugmjolnir:
+	nixos-rebuild switch --flake .#mjolnir --use-remote-sudo --show-trace --verbose
+
 odin:
 	nixos-rebuild switch --flake .#odin --use-remote-sudo
 
@@ -28,4 +34,3 @@ gc:
 
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
-

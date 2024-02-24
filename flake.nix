@@ -2,18 +2,21 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/23.11-pre";
+    nixpkgs.url = "github:nixos/nixpkgs/23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/23.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:nixos/nixos-hardware";
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-     nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
 
       # color scheme - catppuccin
     catppuccin-btop = {
@@ -59,7 +62,7 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, nix-gaming, self, ... }@inputs : 
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, vscode-server, self, ... }@inputs : 
    let
       overlays = (_: prev: {
         steam = prev.steam.override {
@@ -69,12 +72,13 @@
         };
       });
       system = "x86_64-linux";
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
       specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit nixos-hardware nix-gaming system inputs;
+
+        inherit nixos-hardware nix-gaming system inputs unstable;
       };
 
 
@@ -90,7 +94,6 @@
         }
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
       ];
-
   in
   {
     #####################################################
@@ -116,10 +119,33 @@
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
           home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+          }
           ./common.nix
           ./devices/thor.nix
           ./devices/hardware-configurations/thor.nix
         ];
     };
+
+
+    #####################################################
+    # -------------------- MJOLNIR ---------------------#
+    #####################################################
+    nixosConfigurations.mjolnir = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [ 
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+          vscode-server.nixosModules.default
+          ./common.nix
+          ./devices/mjolnir.nix
+          ./devices/hardware-configurations/mjolnir.nix
+        ];
+    };
+
   };
 }
