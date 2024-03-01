@@ -5,7 +5,9 @@ in
 {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   home.packages = with pkgs; [
-    unstable.firefox-devedition
+    firefox-devedition
+    spotify
+    spotifyd
     vlc
     btop
     htop

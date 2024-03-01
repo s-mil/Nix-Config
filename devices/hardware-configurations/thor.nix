@@ -25,7 +25,7 @@
 
   fileSystems."/mnt/micro" =
     {
-      device = "/dev/disk/by-uuid/8bdf487e-e76b-4c5e-9c61-6130e74987dc";
+      device = "/dev/disk/by-uuid/59028991-447f-4219-9943-739832aafa36";
       fsType = "btrfs";
 
     };
