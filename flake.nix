@@ -111,6 +111,24 @@
     };
 
     #####################################################
+    # --------------------- Freya -----------------------#
+    #####################################################
+    nixosConfigurations.freya = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [ 
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+          ./common.nix
+          ./devices/freya.nix
+          ./devices/hardware-configurations/freya.nix
+        ];
+    };
+
+
+    #####################################################
     # --------------------- THOR -----------------------#
     #####################################################
     nixosConfigurations.thor = nixpkgs.lib.nixosSystem {
