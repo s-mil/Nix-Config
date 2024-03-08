@@ -56,6 +56,7 @@ in
     brlaser
     unstable.texliveFull
     unstable.dotnet-sdk_8
+    pika-backup
   ];
   
 

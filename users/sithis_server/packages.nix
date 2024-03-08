@@ -38,6 +38,7 @@ in
     catppuccin-gtk
     catppuccin-kde
     catppuccin-cursors
+    pika-backup
   ];
   
 
