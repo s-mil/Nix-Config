@@ -19,6 +19,7 @@ in
         ../users/sithis/user.nix
         ../tweaks/brother_printer.nix
         ../tweaks/emulation.nix
+        ../tweaks/laptop.nix
     ];
   
   networking = {
