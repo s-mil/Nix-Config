@@ -57,6 +57,10 @@ in
     unstable.texliveFull
     unstable.dotnet-sdk_8
     pika-backup
+    go
+    gox
+    turso-cli
+    sqld
   ];
   
 
