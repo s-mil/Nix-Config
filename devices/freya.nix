@@ -39,6 +39,11 @@ in
     };
   };
 
-  programs.steam.enable = true;
-  systemd.services.NetworkManager-wait-online.enable = false; 
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+    };
+  };
+
 }
