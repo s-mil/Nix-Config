@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
  environment.systemPackages = with pkgs; [
-   brightnessctl 
+   brightnessctl
+   kubectl
+   kubernetes-helm
   ];
 }
