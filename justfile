@@ -9,6 +9,11 @@ thor:
 
 debugThor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo --show-trace --verbose
+freya:
+	nixos-rebuild switch --flake .#freya --use-remote-sudo
+
+debugFreya:
+	nixos-rebuild switch --flake .#freya --use-remote-sudo --show-trace --verbose
 
 mjolnir:
 	nixos-rebuild switch --flake .#mjolnir --use-remote-sudo
