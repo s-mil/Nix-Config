@@ -17,7 +17,6 @@ in
         ../users/root/user.nix
         ../users/sithis/user.nix
         ../tweaks/brother_printer.nix
-        ../tweaks/emulation.nix
     ];
   
   networking = {
@@ -45,5 +44,12 @@ in
       PasswordAuthentication = false;
     };
   };
+
+
+  services.k3s.enable = {
+    enable = true;
+    role = "server";
+  };
+
 
 }
