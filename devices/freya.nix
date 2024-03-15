@@ -5,8 +5,23 @@ let
 
 in
 {
-    networking.hostName = Hostname;
-
+    networking =
+    {
+      hostName = Hostname;
+      hostId = "007f0202";
+      firewall.enable = false;
+      interfaces= {
+        eno1 = {
+          useDHCP = false;
+          ipv4.addresses = [ {
+            address = "10.10.0.11";
+            prefixLength = 16;
+          } ];
+        };
+      };
+      defaultGateway = "10.0.0.1";
+      nameservers = [ "1.1.1.1" ];
+    };
     imports =
     [
         ../common.nix
