@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 {
- environment.systemPackages = with pkgs; [
-  k3s
-  nfs-utils
+  systemd.tmpfiles.rules = [
+    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    k3s
+    nfs-utils
   ];
 
   services.openiscsi = {
