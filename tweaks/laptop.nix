@@ -4,5 +4,7 @@
    brightnessctl
    kubectl
    kubernetes-helm
+   fluxcd
+   fluxctl
   ];
 }
