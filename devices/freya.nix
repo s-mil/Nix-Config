@@ -34,11 +34,6 @@ in
         ../tweaks/brother_printer.nix
     ];
   
-  networking = {
-    networkmanager = {
-      enable = true;
-    };
-  };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -60,11 +55,8 @@ in
     };
   };
 
-
   services.k3s = {
     enable = true;
     role = "server";
   };
-
-
 }

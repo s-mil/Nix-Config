@@ -88,6 +88,8 @@ in
     cifs-utils 
     ranger
     nushell
+    nixfmt
+    zellij
   ];
 
 # Temp fix:
