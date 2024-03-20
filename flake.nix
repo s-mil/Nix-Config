@@ -18,7 +18,7 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
-      # color scheme - catppuccin
+    # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";
       flake = false;
@@ -62,8 +62,9 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, nix-gaming, vscode-server, self, ... }@inputs : 
-   let
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
+    , nix-gaming, vscode-server, self, ... }@inputs:
+    let
       overlays = (_: prev: {
         steam = prev.steam.override {
           extraProfile = "export STEAM_EXTRA_COMPAT_TOOLS_PATHS='${
@@ -81,7 +82,6 @@
         inherit nixos-hardware nix-gaming system inputs unstable;
       };
 
-
       sithis-modules = [
         ./users/sithis/user.nix
         home-manager.nixosModules.home-manager
@@ -94,76 +94,67 @@
         }
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
       ];
-  in
-  {
-    #####################################################
-    # --------------------- ODIN -----------------------#
-    #####################################################
-    nixosConfigurations.odin = nixpkgs.lib.nixosSystem {
-       inherit system specialArgs;
-        modules = [ 
+    in {
+      #####################################################
+      # --------------------- ODIN -----------------------#
+      #####################################################
+      nixosConfigurations.odin = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           home-manager.nixosModules.home-manager
           ./common.nix
           ./devices/odin.nix
           ./devices/hardware-configurations/odin.nix
         ];
-    };
+      };
 
-    #####################################################
-    # --------------------- Freya -----------------------#
-    #####################################################
-    nixosConfigurations.freya = nixpkgs.lib.nixosSystem {
+      #####################################################
+      # --------------------- Freya -----------------------#
+      #####################################################
+      nixosConfigurations.freya = nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
-        modules = [ 
+        modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = specialArgs;
-          }
+          { home-manager.extraSpecialArgs = specialArgs; }
           ./common.nix
           ./devices/freya.nix
           ./devices/hardware-configurations/freya.nix
         ];
-    };
+      };
 
-
-    #####################################################
-    # --------------------- THOR -----------------------#
-    #####################################################
-    nixosConfigurations.thor = nixpkgs.lib.nixosSystem {
+      #####################################################
+      # --------------------- THOR -----------------------#
+      #####################################################
+      nixosConfigurations.thor = nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
-        modules = [ 
+        modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
           home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = specialArgs;
-          }
+          { home-manager.extraSpecialArgs = specialArgs; }
           ./common.nix
           ./devices/thor.nix
           ./devices/hardware-configurations/thor.nix
         ];
-    };
+      };
 
-
-    #####################################################
-    # -------------------- MJOLNIR ---------------------#
-    #####################################################
-    nixosConfigurations.mjolnir = nixpkgs.lib.nixosSystem {
+      #####################################################
+      # -------------------- MJOLNIR ---------------------#
+      #####################################################
+      nixosConfigurations.mjolnir = nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
-        modules = [ 
+        modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = specialArgs;
-          }
+          { home-manager.extraSpecialArgs = specialArgs; }
           vscode-server.nixosModules.default
           ./common.nix
           ./devices/mjolnir.nix
           ./devices/hardware-configurations/mjolnir.nix
         ];
-    };
+      };
 
-  };
+    };
 }

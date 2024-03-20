@@ -1,10 +1,7 @@
 { inputs, lib, config, pkgs, pkgs-unstable, ... }:
-let
-  baseconfig = { allowUnfree = true; };
-in
-{
+let baseconfig = { allowUnfree = true; };
+in {
 
-    
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -12,8 +9,9 @@ in
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-  # Perform garbage collection weekly to maintain low disk usage
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
+    # Perform garbage collection weekly to maintain low disk usage
     gc = {
       automatic = true;
       dates = "weekly";
@@ -26,19 +24,15 @@ in
       auto-optimise-store = true;
     };
   };
-  
+
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
   };
-  
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+
+  nixpkgs = { config = { allowUnfree = true; }; };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -55,11 +49,9 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
-  console = {
-    keyMap = "us";
-  };
+  console = { keyMap = "us"; };
 
-  time.timeZone="America/Chicago";
+  time.timeZone = "America/Chicago";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -69,9 +61,12 @@ in
     enableSSHSupport = true;
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" "Iosevka" "FiraCode" "DroidSansMono" ]; })
-  ];
+  fonts.packages = with pkgs;
+    [
+      (nerdfonts.override {
+        fonts = [ "Hack" "Iosevka" "FiraCode" "DroidSansMono" ];
+      })
+    ];
 
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
@@ -85,7 +80,7 @@ in
     zsh
     just
     dig
-    cifs-utils 
+    cifs-utils
     ranger
     nushell
     nixfmt
@@ -93,11 +88,11 @@ in
     zellij
   ];
 
-# Temp fix:
-#  manual.manpages.enable = false;
+  # Temp fix:
+  #  manual.manpages.enable = false;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-# Enable flatpak
+  # Enable flatpak
   services.flatpak.enable = true;
   services.dbus.enable = true;
   xdg.portal = {
@@ -111,9 +106,7 @@ in
     enable = true;
     port = 41641;
     package = pkgs.tailscale;
-    };
-
-  system = {
-    stateVersion = "23.05";
   };
+
+  system = { stateVersion = "23.05"; };
 }
