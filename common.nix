@@ -89,6 +89,7 @@ in
     ranger
     nushell
     nixfmt
+    nixd
     zellij
   ];
 
