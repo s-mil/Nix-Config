@@ -6,7 +6,7 @@ let
 in {
   networking = {
     hostName = Hostname;
-    hostId = "007f0202";
+    hostId = "38ba0e40";
     firewall.enable = false;
     interfaces = {
       eno1 = {
