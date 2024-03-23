@@ -3,19 +3,24 @@ let
 
   Hostname = "odin";
 
-in {
-  networking = {
-    hostName = Hostname;
-    hostId = "007f0200";
-    firewall.enable = false;
-    interfaces = {
-      enp6s18 = {
-        useDHCP = false;
-        ipv4.addresses = [{
-          address = "10.10.0.64";
-          prefixLength = 16;
-        }];
+in
+{
+    networking =
+    {
+      hostName = Hostname;
+      hostId = "007f0200";
+      firewall.enable = false;
+      interfaces= {
+        enp6s18 = {
+          useDHCP = false;
+          ipv4.addresses = [ {
+            address = "10.10.0.64";
+            prefixLength = 8;
+          } ];
+        };
       };
+      defaultGateway = "10.0.0.1";
+      nameservers = [ "10.40.0.2" ];
     };
     defaultGateway = "10.10.0.1";
     nameservers = [ "10.40.0.2" ];
