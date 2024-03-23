@@ -1,16 +1,11 @@
-{ config, pkgs, ... }:
-{
-  systemd.tmpfiles.rules = [
-    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
-  ];
+{ config, pkgs, ... }: {
+  systemd.tmpfiles.rules =
+    [ "L+ /usr/local/bin - - - - /run/current-system/sw/bin/" ];
 
-  environment.systemPackages = with pkgs; [
-    k3s
-    nfs-utils
-  ];
+  environment.systemPackages = with pkgs; [ k3s nfs-utils ];
 
   services.openiscsi = {
     enable = true;
-    name = "${config.networking.hostName}-initiatorhost"; 
-  }
+    name = "${config.networking.hostName}-initiatorhost";
+  };
 }

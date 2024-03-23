@@ -1,7 +1,6 @@
-{ config, pkgs, unstable, ... }:
-{
-    programs.nushell = {
-        enable = true;
-        
-    };
+{ config, pkgs, unstable, ... }: {
+  programs.nushell = {
+    enable = true;
+
+  };
 }

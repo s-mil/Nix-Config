@@ -1,8 +1,7 @@
 { config, pkgs, unstable, lib, ... }:
 let
 
-in
-{
+in {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   home.packages = with pkgs; [
     firefox
@@ -40,6 +39,5 @@ in
     catppuccin-cursors
     pika-backup
   ];
-  
 
 }

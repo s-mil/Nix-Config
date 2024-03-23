@@ -6,22 +6,16 @@ let
 
   cfg = config.services.sunshine;
 
-in
-
-{
+in {
   options = {
 
-    services.sunshine = {
-      enable = mkEnableOption (mdDoc "Sunshine");
-    };
+    services.sunshine = { enable = mkEnableOption (mdDoc "Sunshine"); };
 
   };
 
   config = mkIf config.services.sunshine.enable {
 
-    environment.systemPackages = [
-      pkgs.sunshine
-    ];
+    environment.systemPackages = [ pkgs.sunshine ];
 
     security.wrappers.sunshine = {
       owner = "root";
@@ -30,15 +24,14 @@ in
       source = "${pkgs.sunshine}/bin/sunshine";
     };
 
-    systemd.user.services.sunshine =
-      {
-        description = "sunshine";
-        wantedBy = [ "graphical-session.target" ];
-        serviceConfig = {
-          ExecStart = "${config.security.wrapperDir}/sunshine";
-          Restart = "always";
-        };
+    systemd.user.services.sunshine = {
+      description = "sunshine";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${config.security.wrapperDir}/sunshine";
+        Restart = "always";
       };
+    };
 
   };
 }

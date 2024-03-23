@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
 
-  xdg.configFile."alacritty/theme_catppuccin.yml".text = 
-    ''
+  xdg.configFile."alacritty/theme_catppuccin.yml".text = ''
     colors:
       primary:
           background: "#1E1E2E" # base
@@ -82,52 +80,49 @@
           - { index: 16, color: "#FAB387" }
           - { index: 17, color: "#F5E0DC" }
 
-    '';
-  programs.alacritty = {
-    enable = true;
-  };
-  xdg.configFile."alacritty/alacritty.yml".text =
-    ''
-      import:
-        # all alacritty themes can be found at
-        #    https://github.com/alacritty/alacritty-theme
-        - ~/.config/alacritty/theme_catppuccin.yml
+  '';
+  programs.alacritty = { enable = true; };
+  xdg.configFile."alacritty/alacritty.yml".text = ''
+    import:
+      # all alacritty themes can be found at
+      #    https://github.com/alacritty/alacritty-theme
+      - ~/.config/alacritty/theme_catppuccin.yml
 
-      window:
-        # Background opacity
-        #
-        # Window opacity as a floating point number from `0.0` to `1.0`.
-        # The value `0.0` is completely transparent and `1.0` is opaque.
-        opacity: 0.93
+    window:
+      # Background opacity
+      #
+      # Window opacity as a floating point number from `0.0` to `1.0`.
+      # The value `0.0` is completely transparent and `1.0` is opaque.
+      opacity: 0.93
 
 
-        # Allow terminal applications to change Alacritty's window title.
-        dynamic_title: true
+      # Allow terminal applications to change Alacritty's window title.
+      dynamic_title: true
 
 
 
-      scrolling:
-        # Maximum number of lines in the scrollback buffer.
-        # Specifying '0' will disable scrolling.
-        history: 10000
+    scrolling:
+      # Maximum number of lines in the scrollback buffer.
+      # Specifying '0' will disable scrolling.
+      history: 10000
 
-        # Scrolling distance multiplier.
-        #multiplier: 3
+      # Scrolling distance multiplier.
+      #multiplier: 3
 
-      # Font configuration
-      font:
-        normal:
-          family: Hack Nerd Font
-          style: Regular
-        bold:
-          family: Hack Nerd Font
-          style: Bold
-        italic:
-          family: Hack Nerd Font
-          style: Italic
-        bold_italic:
-          family: Hack Nerd Font
-          style: Bold Italic
-        size: 18
-    '';
+    # Font configuration
+    font:
+      normal:
+        family: Hack Nerd Font
+        style: Regular
+      bold:
+        family: Hack Nerd Font
+        style: Bold
+      italic:
+        family: Hack Nerd Font
+        style: Italic
+      bold_italic:
+        family: Hack Nerd Font
+        style: Bold Italic
+      size: 18
+  '';
 }

@@ -1,5 +1,5 @@
 # home.nix
-{pkgs,...}: {
+{ pkgs, ... }: {
 
   gtk = {
     enable = true;
@@ -27,12 +27,18 @@
     };
 
     font = {
-        name = "Hack Nerd Font";
-        size = 15;
+      name = "Hack Nerd Font";
+      size = 15;
     };
 
-    gtk2.extraConfig = "gtk-enable-animations=1\ngtk-primary-button-warps-slider=0\ngtk-toolbar-style=3\ngtk-menu-images=1\ngtk-button-images=1\ngtk-cursor-theme-size=24";
-    
+    gtk2.extraConfig = ''
+      gtk-enable-animations=1
+      gtk-primary-button-warps-slider=0
+      gtk-toolbar-style=3
+      gtk-menu-images=1
+      gtk-button-images=1
+      gtk-cursor-theme-size=24'';
+
     gtk3.extraConfig = {
       gtk-applicaion-prefer-dark-theme = true;
       gtk-button-images = true;

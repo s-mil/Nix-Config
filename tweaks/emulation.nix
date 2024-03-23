@@ -1,6 +1,5 @@
-{ config, pkgs, ... }:
-{
- environment.systemPackages = with pkgs; [
+{ config, pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
     yuzu-mainline
     dolphin-emu
     dolphin-emu-primehack

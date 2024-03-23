@@ -1,8 +1,6 @@
 { config, pkg, ... }:
-let
-  mountPoint = "/boot";
-in
-{
+let mountPoint = "/boot";
+in {
   boot = {
     loader = {
       systemd-boot = {
@@ -10,9 +8,7 @@ in
         enable = true;
         configurationLimit = 10;
       };
-      efi = {
-        efiSysMountPoint = mountPoint;
-      };
+      efi = { efiSysMountPoint = mountPoint; };
     };
   };
 }

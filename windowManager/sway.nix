@@ -1,6 +1,5 @@
-{ inputs, pkgs, ...}:
-{
-    programs.sway = {
+{ inputs, pkgs, ... }: {
+  programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
@@ -20,7 +19,7 @@
       export QT_QPA_PLATFORM=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export MOZ_ENABLE_WAYLAND=1
-      '';
+    '';
   };
 
   qt.enable = true;
@@ -28,7 +27,7 @@
   programs.waybar.enable = true;
   security.polkit.enable = true;
 
-   # Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
@@ -44,10 +43,10 @@
     #jack.enable = true;
 
   };
-  
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
-  
+
   # Enable gnome keyring
   services.gnome.gnome-keyring.enable = true;
 }

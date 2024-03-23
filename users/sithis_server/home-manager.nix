@@ -1,8 +1,7 @@
 let
   baseconfig = { allowUnfree = true; };
   #unstable = import <nixpkgs-unstable> { config = baseconfig; };
-in {
- inputs, lib, config, pkgs, pkgs-unstable, ... }: {
+in { inputs, lib, config, pkgs, pkgs-unstable, ... }: {
   # You can import other home-manager modules here
   imports = [
     ./git.nix
@@ -20,9 +19,6 @@ in {
     # You can add overlays here
     overlays = [
 
-   
-      
-
     ];
     # Configure your nixpkgs instance
     config = {
@@ -32,19 +28,14 @@ in {
       allowUnfreePredicate = (_: true);
     };
   };
-  
-  
 
   programs.home-manager.enable = true;
   home = {
     username = "sithis";
     homeDirectory = "/home/sithis";
     sessionVariables.EDITOR = "nvim";
-    sessionPath = [
-        "/home/sithis/.cargo/bin"
-    ];
+    sessionPath = [ "/home/sithis/.cargo/bin" ];
   };
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

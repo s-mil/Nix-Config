@@ -1,9 +1,5 @@
-{ config, pkgs, ... }:
-{
-  environment.systemPackages = [
-    pkgs.zfs
-    pkgs.lz4
-  ];
+{ config, pkgs, ... }: {
+  environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
   # ZFS is a pain in the ass with it's own mounting when paired with the hardware config.
   # Disabling the service is the easiest solution.
   systemd.services = {

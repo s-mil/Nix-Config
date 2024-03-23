@@ -1,8 +1,6 @@
 { config, pkg, ... }:
-let
-  mountPoint = "/boot";
-in
-{
+let mountPoint = "/boot";
+in {
   boot = {
     loader = {
       grub = {

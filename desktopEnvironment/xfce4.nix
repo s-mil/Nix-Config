@@ -1,14 +1,12 @@
-{ inputs, pkgs, ...}:
-{
+{ inputs, pkgs, ... }: {
   services.xserver.desktopManager.xfce.enable = true;
-  
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
 
-  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -28,7 +26,7 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
