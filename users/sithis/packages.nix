@@ -60,7 +60,6 @@ in {
     gox
     turso-cli
     sqld
-    gnome.gnome-software
   ];
 
 }
