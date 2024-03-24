@@ -67,8 +67,8 @@ in {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
     powerManagement.enable = false;
-    hardware.nvidia.powerManagement.finegrained = false;
-    hardware.nvidia.open = false;
+    powerManagement.finegrained = false;
+    open = false;
     nvidiaSettings = true;
   };
 }
