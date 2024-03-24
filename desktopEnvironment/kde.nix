@@ -1,12 +1,15 @@
 { inputs, pkgs, ... }: {
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.plasma5.useQtScaling = true;
+  services.xserver.desktopManager.plasma5 = {
+    enable = true;
+    useQtScaling = true;
+
+  };
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
-
+  programs.dconf.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

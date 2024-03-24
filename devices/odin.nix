@@ -79,4 +79,10 @@ in {
     open = false;
     nvidiaSettings = true;
   };
+
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+
+  };
 }

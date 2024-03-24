@@ -31,26 +31,38 @@
       size = 15;
     };
 
-    gtk2.extraConfig = ''
-      gtk-enable-animations=1
-      gtk-primary-button-warps-slider=0
-      gtk-toolbar-style=3
-      gtk-menu-images=1
-      gtk-button-images=1
-      gtk-cursor-theme-size=24'';
+    # gtk2.extraConfig = ''
+    #   gtk-enable-animations=1
+    #   gtk-primary-button-warps-slider=0
+    #   gtk-toolbar-style=3
+    #   gtk-menu-images=1
+    #   gtk-button-images=1
+    #   gtk-cursor-theme-size=24'';
 
-    gtk3.extraConfig = {
-      gtk-button-images = true;
-      gtk-enable-animations = true;
-      gtk-menu-images = true;
-      gtk-toolbar-style = 3;
-    };
+    # gtk3.extraConfig = {
+    #   gtk-button-images = true;
+    #   gtk-enable-animations = true;
+    #   gtk-menu-images = true;
+    #   gtk-toolbar-style = 3;
+    # };
 
-    gtk4.extraConfig = {
-      gtk-button-images = true;
-      gtk-enable-animations = true;
-      gtk-menu-images = true;
-      gtk-toolbar-style = 3;
+    # gtk4.extraConfig = {
+    #   gtk-button-images = true;
+    #   gtk-enable-animations = true;
+    #   gtk-menu-images = true;
+    #   gtk-toolbar-style = 3;
+    # };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style = {
+      name = "catppuccin-kvantum";
+      package = pkgs.catppuccin-kde.override {
+        accents = ["mauve"];
+        flavour = ["mocha"];
+      };
     };
   };
 }
