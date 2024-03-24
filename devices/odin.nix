@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, lib, inputs, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
 let
 
   Hostname = "odin";

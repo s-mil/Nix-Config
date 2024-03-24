@@ -103,6 +103,7 @@
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
           home-manager.nixosModules.home-manager
+          { home-manager.extraSpecialArgs = specialArgs; }
           ./common.nix
           ./devices/odin.nix
           ./devices/hardware-configurations/odin.nix
