@@ -13,6 +13,7 @@ in { inputs, lib, config, pkgs, pkgs-unstable, ... }: {
     ./catppuccin-gtk.nix
     ./tmux.nix
     ./nushell.nix
+    ./jujutsu.nix
   ];
 
   nixpkgs = {
