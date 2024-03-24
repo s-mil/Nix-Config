@@ -65,18 +65,16 @@
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
     , nix-gaming, vscode-server, self, ... }@inputs:
     let
-      overlays = (_: prev: {
-        steam = prev.steam.override {
-          extraProfile = "export STEAM_EXTRA_COMPAT_TOOLS_PATHS='${
-              nix-gaming.packages.${system}.proton-ge
-            }'";
-        };
-      });
       system = "x86_64-linux";
       unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
+      overlays = (_: prev: {
+        tailscale = unstable.tailscale;
+        steam = unstable.steam;
+        proton-ge-bin = unstable.proton-ge-bin;
+      });
       specialArgs = {
 
         inherit nixos-hardware nix-gaming system inputs unstable;

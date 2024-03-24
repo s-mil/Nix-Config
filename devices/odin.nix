@@ -53,7 +53,15 @@ in {
     };
   };
 
-  programs.steam.enable = true;
+  programs.steam ={
+    enable = true;
+    
+    # localNetworkGameTransfers.openFirewall = true; # Future version
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+
+  };
+  #programs.steam.extraCompatPackages = with pkgs; [ proton-ge-bin ]; # Future Version
   systemd.services.NetworkManager-wait-online.enable = false;
 
   hardware.opengl = {

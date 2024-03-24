@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }: {
   services.xserver.desktopManager.plasma5.enable = true;
-
+  services.xserver.desktopManager.plasma5.useQtScaling = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
