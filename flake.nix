@@ -18,6 +18,8 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
     # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";
