@@ -31,6 +31,7 @@ in {
     ../users/sithis/user.nix
     ../tweaks/emulation.nix
     ../tweaks/brother_printer.nix
+    ../tweaks/k3s.nix
   ];
 
   services.openssh = {
@@ -51,6 +52,10 @@ in {
       enable = true;
       dates = "weekly";
     };
+  };
+  services.k3s = {
+    enable = true;
+    role = "server";
   };
 
   programs.steam ={

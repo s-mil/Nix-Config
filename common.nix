@@ -81,6 +81,7 @@ in {
     tldr
     sshfs
     btop
+    age
     p7zip
     zsh
     just
