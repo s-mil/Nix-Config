@@ -18,7 +18,7 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
-    sops-nix.url = "github:Mic92/sops-nix";
+    inputs.sops-nix.url = "github:Mic92/sops-nix";
 
     # color scheme - catppuccin
     catppuccin-btop = {
@@ -65,7 +65,7 @@
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
-    , nix-gaming, vscode-server, self, ... }@inputs:
+    , nix-gaming, vscode-server, sops-nix, self, ... }@inputs:
     let
       system = "x86_64-linux";
       unstable = import nixpkgs-unstable {

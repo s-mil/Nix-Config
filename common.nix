@@ -24,9 +24,6 @@ in {
       auto-optimise-store = true;
       substituters = ["https://nix-gaming.cachix.org"];
       trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-
-
-
     };
   };
 
@@ -58,6 +55,16 @@ in {
 
   time.timeZone = "America/Chicago";
 
+  imports = 
+  [
+    inputs.sops-nix.nixos-Modules.sops
+  ];
+
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/sithis/.config/sops/age/keys.txt"
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -82,6 +89,7 @@ in {
     sshfs
     btop
     age
+    sops
     p7zip
     zsh
     just
