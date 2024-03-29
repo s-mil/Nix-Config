@@ -12,6 +12,6 @@
     # hashedPasswordFile = config.sops.secrets.sithis.path;
 
   };
-
+  programs.zsh.enable = true;
   home-manager.users.sithis = import ./home-manager.nix;
 }
