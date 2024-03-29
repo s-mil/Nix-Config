@@ -1,9 +1,17 @@
 ---
-
+# pub keys
 keys:
-  - &primary age1ef3e6xywuh60nksm5euj59qwu03l5t2jz9vwxx85rx72r7csfpcq8ymz8h
+  - &users:
+    - &primary age1ef3e6xywuh60nksm5euj59qwu03l5t2jz9vwxx85rx72r7csfpcq8ymz8h
+  - &hosts
+    - &thor age16fgps4fjyg4cknp5ga8wd0kh2p9zc9vrrr36fprg0hshkhrjrvhs255vsj
+    - &freya age142ev0crd8fae7s70u9ts9e4kk98cyw73pa37awn9ge39n0pj6dwslq6xvj
+    - &odin age1utfkc3qvd2j5h7l78h00x2zprfgjwqrc8vke92ns65aja7anw9vs6uahva
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
       - *primary
+      - *thor
+      - *freya
+      - *odin

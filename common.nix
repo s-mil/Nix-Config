@@ -57,13 +57,27 @@ in {
 
   imports = 
   [
-    inputs.sops-nix.nixos-Modules.sops
+    inputs.sops-nix.nixosModules.sops
   ];
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/sithis/.config/sops/age/keys.txt"
+    
+    
+    age = {
+      # Where the ssh host keys live
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      # Store in a safe location
+      keyFile = "/var/lib/sops-nix/key.txt";
+      # If it doesnt exist yet make it
+      generateKey = true;
+    };
+    
+    #will exist in /run/secrets as files/folders
+    secrets = {
+      example_key = { };
+    };
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

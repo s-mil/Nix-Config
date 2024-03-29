@@ -43,14 +43,18 @@ in {
     LIBVA_DRIVER_NAME = "iHD";
   }; # Force intel-media-driver
 
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
+    dockerCompat = true;
     autoPrune = {
       enable = true;
       dates = "weekly";
     };
   };
-
+  services.openssh = {
+    enable = true;
+    settings = { PasswordAuthentication = false; };
+  };
   # programs.steam.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 }
