@@ -17,7 +17,14 @@
       enable = true;
       plugins = [ "git" ];
       theme = "agnoster";
-    };
+    }
+  };
+  programs.starship = {
+    enable = true;
+
   };
 
+  programs.atuin = { enable = true; };
+
+  programs.zoxide = { enable = true; };
 }

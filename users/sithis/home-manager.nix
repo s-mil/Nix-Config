@@ -12,7 +12,6 @@ in { inputs, lib, config, pkgs, pkgs-unstable, ... }: {
     ./vscode.nix
     ./catppuccin-gtk.nix
     ./tmux.nix
-    ./nushell.nix
     ./jujutsu.nix
   ];
 
