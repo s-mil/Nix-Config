@@ -60,6 +60,11 @@ in {
     gox
     turso-cli
     sqld
+    via
+    vial
+    qmk
+    qmk_hid
+    qmk-udev-rules
   ];
 
 }
