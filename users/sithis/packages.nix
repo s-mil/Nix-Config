@@ -65,5 +65,4 @@ in {
     qmk_hid
     qmk-udev-rules
   ];
-
 }

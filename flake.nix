@@ -20,6 +20,8 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
+    xremap-flake.url = "github:xremap/nix-flake";
+
     # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";

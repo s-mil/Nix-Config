@@ -22,8 +22,10 @@ in {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
-      substituters = ["https://nix-gaming.cachix.org"];
-      trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+      substituters = [ "https://nix-gaming.cachix.org" ];
+      trusted-public-keys = [
+        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      ];
     };
   };
 
@@ -55,16 +57,15 @@ in {
 
   time.timeZone = "America/Chicago";
 
-  imports = 
-  [
+  imports = [ 
     inputs.sops-nix.nixosModules.sops
-  ];
+    inputs.xremap-flake.nixosModules.default
+   ];
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    
-    
+
     age = {
       # Where the ssh host keys live
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
@@ -73,11 +74,9 @@ in {
       # If it doesnt exist yet make it
       generateKey = true;
     };
-    
+
     #will exist in /run/secrets as files/folders
-    secrets = {
-      example_key = { };
-    };
+    secrets = { example_key = { }; };
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -116,9 +115,6 @@ in {
     zellij
   ];
 
-  # Temp fix:
-  #  manual.manpages.enable = false;
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # Enable flatpak
   services.flatpak.enable = true;
@@ -133,6 +129,33 @@ in {
   services.tailscale = {
     enable = true;
     port = 41641;
+  };
+
+  services.xremap = {
+    serviceMode = "user";
+    userName = "sithis";
+    withWlroots = true;
+  };
+  services.xremap.config = {
+    modmap = [{
+      name = "Global";
+      remap = {
+        "CapsLock" = {
+          alone = "Esc";
+          held = "CTRL_R";
+          alone_timeout = 500;
+        };
+      }; # globally remap CapsLock to Esc
+    }];
+    keymap = [{
+      name = "RightCtrl+hjkl to Arrows";
+      remap = {
+        "Ctrl_R-h" = "Left";
+        "Ctrl_R-l" = "Right";
+        "Ctrl_R-j" = "Down";
+        "Ctrl_R-k" = "Up";
+      };
+    }];
   };
 
   system = { stateVersion = "23.05"; };
