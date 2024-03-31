@@ -53,7 +53,6 @@ in {
     pkg-config
     openssl.dev
     brlaser
-    unstable.texliveFull
     unstable.dotnet-sdk_8
     pika-backup
     go
