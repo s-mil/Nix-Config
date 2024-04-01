@@ -1,5 +1,7 @@
 { inputs, lib, config, pkgs, pkgs-unstable, ... }:
-let baseconfig = { allowUnfree = true; };
+let 
+  baseconfig = { allowUnfree = true; };
+  secretspath = builtins.toString inputs.mysecrets;
 in {
 
   nix = {
@@ -63,7 +65,7 @@ in {
    ];
 
   sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFile = "${secretspath}/secrets.yaml";
     defaultSopsFormat = "yaml";
 
     age = {

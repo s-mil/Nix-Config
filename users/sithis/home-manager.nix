@@ -1,7 +1,10 @@
+ { inputs, lib, config, pkgs, pkgs-unstable, ... }: 
 let
   baseconfig = { allowUnfree = true; };
   #unstable = import <nixpkgs-unstable> { config = baseconfig; };
-in { inputs, lib, config, pkgs, pkgs-unstable, ... }: {
+  secretspath = builtins.toString inputs.mysecrets;
+in
+{
   # You can import other home-manager modules here
   imports = [
     ./git.nix
