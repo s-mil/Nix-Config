@@ -1,4 +1,5 @@
 {
+  description = "s-mil nix config";
 
   inputs = {
     # Nixpkgs
@@ -10,8 +11,8 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hardware.url = "github:nixos/nixos-hardware";
 
+    # Utils
     nix-colors.url = "github:misterio77/nix-colors";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -20,12 +21,14 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
+    xremap-flake.url = "github:xremap/nix-flake";
+    
+    # Personal
     mysecrets = {
       url = "git+ssh://git@github.com/s-mil/nix-secrets.git?ref=main&shallow=1";
       flake = false;
     };
 
-    xremap-flake.url = "github:xremap/nix-flake";
 
     # color scheme - catppuccin
     catppuccin-btop = {
@@ -74,6 +77,7 @@
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
     , nix-gaming, vscode-server, sops-nix, self, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
       unstable = import nixpkgs-unstable {
         inherit system;
