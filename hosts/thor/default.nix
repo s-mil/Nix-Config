@@ -2,6 +2,7 @@
 let
 
   Hostname = "thor";
+  mountPoint = "/boot";
 
 in {
   networking.hostName = Hostname;
@@ -22,6 +23,7 @@ in {
 
     ../common/optional/sway.nix # window manager
     ../common/optional/pipewire.nix # audio
+    ../common/optional/xfce4.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
@@ -41,40 +43,29 @@ in {
 
   networking = { networkmanager = { enable = true; }; };
 
+  services.xserver.enable = true;
+  sevices.xserver.displayManager.sddm.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
-  services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
-
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  }; # Force intel-media-driver
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    autoPrune = {
-      enable = true;
-      dates = "weekly";
+  boot = {
+    loader = {
+      systemd-boot = {
+        editor = true;
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi = { efiSysMountPoint = mountPoint; };
     };
   };
+
+
   services.openssh = {
     enable = true;
     settings = { PasswordAuthentication = false; };
   };
-  # programs.steam.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 }

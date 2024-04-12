@@ -36,6 +36,6 @@ in
   '';
 
   # Import this user's personal/home configurations
-  home-manager.users.ta = import ../../../../home/sithis/${config.networking.hostName}.nix;
+  home-manager.users.sithis = import ../../../../home/sithis/${config.networking.hostName}.nix;
 
 }

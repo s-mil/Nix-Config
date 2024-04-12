@@ -4,6 +4,22 @@
 #
 ############################################################################
 
+# Default recipe to display help information
+default:
+  @just --list
+
+# List all recipes
+list:
+  @just --list
+
+
+# Run ci for all files using pre-commit
+ci-all:
+  pre-commit run --all-files
+
+
+
+
 thor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo
 
@@ -39,3 +55,5 @@ gc:
 
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
+
+

@@ -6,7 +6,7 @@
     ./sops.nix # secrets management
     ./zsh.nix # load a basic shell just in case we need it without home-manager
 
-    ./services/auto-upgrade.nix # auto-upgrade service
+   #./services/auto-upgrade.nix # auto-upgrade service
 
   ] ++ (builtins.attrValues outputs.nixosModules);
 
