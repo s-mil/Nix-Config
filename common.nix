@@ -1,5 +1,5 @@
 { inputs, lib, config, pkgs, pkgs-unstable, ... }:
-let 
+let
   baseconfig = { allowUnfree = true; };
   secretspath = builtins.toString inputs.mysecrets;
 in {
@@ -59,10 +59,10 @@ in {
 
   time.timeZone = "America/Chicago";
 
-  imports = [ 
+  imports = [
     inputs.sops-nix.nixosModules.sops
     inputs.xremap-flake.nixosModules.default
-   ];
+  ];
 
   sops = {
     defaultSopsFile = "${secretspath}/secrets.yaml";
@@ -111,7 +111,6 @@ in {
     dig
     cifs-utils
     ranger
-    nushell
     nixfmt
     nixd
     zellij

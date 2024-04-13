@@ -60,8 +60,8 @@
     style = {
       name = "catppuccin-kvantum";
       package = pkgs.catppuccin-kde.override {
-        accents = ["mauve"];
-        flavour = ["mocha"];
+        accents = [ "mauve" ];
+        flavour = [ "mocha" ];
       };
     };
   };

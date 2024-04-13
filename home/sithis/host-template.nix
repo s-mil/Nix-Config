@@ -1,8 +1,7 @@
-{ inputs, lib, pkgs, config, outputs, ... }:
-{
+{ inputs, lib, pkgs, config, outputs, ... }: {
   imports = [
     #################### Required Configs ####################
-    common/core #required
+    common/core # required
 
     #################### Host-specific Optional Configs ####################
     common/optional/sops.nix

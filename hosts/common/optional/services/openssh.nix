@@ -1,11 +1,10 @@
-{ outputs, lib, config, ...}:
+{ outputs, lib, config, ... }:
 let
   inherit (config.networking) hostName;
   hosts = outputs.nixosConfigurations;
-in
-{
-  
-services.openssh = {
+in {
+
+  services.openssh = {
     enable = true;
     settings = {
       # Harden

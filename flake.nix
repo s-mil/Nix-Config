@@ -11,7 +11,6 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-
     # Utils
     nix-colors.url = "github:misterio77/nix-colors";
 
@@ -22,13 +21,12 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     xremap-flake.url = "github:xremap/nix-flake";
-    
+
     # Personal
     mysecrets = {
       url = "git+ssh://git@github.com/s-mil/nix-secrets.git?ref=main&shallow=1";
       flake = false;
     };
-
 
     # color scheme - catppuccin
     catppuccin-btop = {

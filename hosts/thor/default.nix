@@ -1,3 +1,9 @@
+# ############################################################
+#
+#  Thor - Daily Driver Laptop
+#  NixOS running on Lenovo Yoga x1 Carbon Gen 1
+#
+###############################################################
 { config, pkgs, pkgs-unstable, lib, inputs, ... }:
 let
 
@@ -6,7 +12,6 @@ let
 
 in {
   networking.hostName = Hostname;
-
 
   imports = [
     #################### Hardware Modules ####################
@@ -23,33 +28,12 @@ in {
 
     ../common/optional/sway.nix # window manager
     ../common/optional/pipewire.nix # audio
-    ../common/optional/xfce4.nix
+    ../common/optional/xfce4.nix # escape hatch
 
     #################### Users to Create ####################
     ../common/users/sithis
-  
 
-    
-    # ../common.nix
-    # ../bootloaders/systemd.nix
-    # ../displayManager/sddm.nix
-    # ../windowManager/sway.nix
-    # ../desktopEnvironment/kde.nix
-    # ../users/root/user.nix
-    # ../users/sithis/user.nix
-    # ../tweaks/emulation.nix
-    # ../tweaks/laptop.nix
   ];
-
-  networking = { networkmanager = { enable = true; }; };
-
-  services.xserver.enable = true;
-  sevices.xserver.displayManager.sddm.enable = true;
-
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
 
   boot = {
     loader = {
@@ -62,10 +46,18 @@ in {
     };
   };
 
+  networking = { networkmanager = { enable = true; }; };
 
-  services.openssh = {
-    enable = true;
-    settings = { PasswordAuthentication = false; };
-  };
+  services.xserver.enable = true;
+  sevices.xserver.displayManager.sddm.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
 }

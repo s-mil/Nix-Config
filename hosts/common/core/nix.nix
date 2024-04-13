@@ -1,5 +1,4 @@
-{ inputs, lib, ... }:
-{
+{ inputs, lib, ... }: {
   nix = {
     settings = {
       trusted-users = [ "root" "@wheel" ];
@@ -8,7 +7,8 @@
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       warn-dirty = false;
       system-features = [ "kvm" "big-parallel" "nixos-test" ];
-      flake-registry = ""; # Disable global flake registry   This is a hold-over setting from Misterio77. Not sure significance but likely to do with nix.registry entry below.
+      flake-registry =
+        ""; # Disable global flake registry   This is a hold-over setting from Misterio77. Not sure significance but likely to do with nix.registry entry below.
     };
 
     # Add each flake input as a registry to make nix3 commands consistent with your flake

@@ -1,6 +1,5 @@
-{ config, pkg, ... }:
-{
-    virtualisation.podman = {
+{ config, pkg, ... }: {
+  virtualisation.podman = {
     enable = true;
     dockerCompat = true;
     autoPrune = {
