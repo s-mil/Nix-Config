@@ -3,7 +3,7 @@
     enable = true;
     package = unstable.gitFull;
     userName = "Sam Miller";
-    userEmail = "smiller2033@outlook.com";
+    userEmail = "23262411+s-mil@users.noreply.github.com";
     lfs.enable = true;
     extraConfig = {
       credential.helper = "libsecret";

@@ -87,6 +87,8 @@
         steam = unstable.steam;
         proton-ge-bin = unstable.proton-ge-bin;
       });
+      configVars = import ./vars { inherit inputs lib; };
+      configLib = import ./lib { inherit lib; };
       specialArgs = {
         inherit nixos-hardware nix-gaming system inputs outputs unstable;
       };

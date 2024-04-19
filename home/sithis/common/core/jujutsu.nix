@@ -4,7 +4,7 @@
     settings = {
       user = {
         name = "Sam Miller";
-        email = "smiller2033@outlook.com";
+        email = "23262411+s-mil@users.noreply.github.com";
       };
     };
   };
