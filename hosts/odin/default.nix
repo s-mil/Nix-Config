@@ -41,10 +41,16 @@ in {
 
     #################### Host-specific Optional Configs ####################
     ../common/optional/services/openssh.nix # allow remote SSH access
-
-    ../common/optional/sway.nix # window manager
+    ../common/optional/nvidia.nix
+    ../common/optional/steam.nix
     ../common/optional/pipewire.nix # audio
+    ../common/optional/emulation.nix
+    ../common/optional/kde.nix
     ../common/optional/xfce4.nix # escape hatch
+    ../common/optional/kuvernetesOps
+    ../common/optional/services/sunshine.nix
+    ../common/optional/services/docker.nix
+    ../common/optional/services/openrgb.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
@@ -62,7 +68,6 @@ in {
     };
   };
 
-  networking = { networkmanager = { enable = true; }; };
 
   services.xserver.enable = true;
   sevices.xserver.displayManager.sddm.enable = true;

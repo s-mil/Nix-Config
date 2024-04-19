@@ -4,6 +4,5 @@
     kubernetes-helm
     unstable.fluxcd
     unstable.fluxctl
-    podman-desktop
   ];
 }
