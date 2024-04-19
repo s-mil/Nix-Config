@@ -68,7 +68,7 @@ in {
   };
 
   services.xserver.enable = true;
-  sevices.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
