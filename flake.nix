@@ -71,7 +71,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable,  ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
