@@ -4,7 +4,7 @@
     common/core # required
 
     #################### Host-specific Optional Configs ####################
-    ./optional/sops.nix
+    ./common/optional/sops.nix
   ];
 
   home = {

@@ -10,13 +10,13 @@ in {
 
   sops = {
     # This is the sithis/dev key and needs to have been copied to this location on the host
-    age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt";
+    age.keyFile = "/home/sithis/.config/sops/age/keys.txt";
 
-    defaultSopsFile = "${secretsFile}";
+    defaultSopsFile = secretsFile;
     validateSopsFiles = false;
 
     secrets = {
-      "sithis_key" = { path = "${homeDirectory}/.ssh/id_ed25519"; };
+      "sithis_key" = { path = "/home/sithis/.ssh/id_ed25519"; };
     };
   };
 }
