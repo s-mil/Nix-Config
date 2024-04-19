@@ -24,12 +24,14 @@ in {
     ./hardware-configuration.nix
 
     #################### Host-specific Optional Configs ####################
+    ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
+    ../common/optional/services/docker.nix
 
     ../common/optional/sway.nix # window manager
     ../common/optional/pipewire.nix # audio
     ../common/optional/xfce4.nix # escape hatch
-
+    ../common/optional/kubernetesOps
     #################### Users to Create ####################
     ../common/users/sithis
 

@@ -46,9 +46,9 @@ in {
     ../common/optional/emulation.nix
     ../common/optional/kde.nix
     ../common/optional/xfce4.nix # escape hatch
-    ../common/optional/kuvernetesOps
+    ../common/optional/kubernetesOps
     ../common/optional/services/sunshine.nix
-    ../common/optional/services/docker.nix
+    ../common/optional/services/dockerNV.nix
     ../common/optional/services/openrgb.nix
 
     #################### Users to Create ####################
@@ -66,7 +66,6 @@ in {
       efi = { efiSysMountPoint = mountPoint; };
     };
   };
-
 
   services.xserver.enable = true;
   sevices.xserver.displayManager.sddm.enable = true;

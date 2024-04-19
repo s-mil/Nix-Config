@@ -1,5 +1,4 @@
-{ inputs, lib }:
-{
+{ inputs, lib }: {
   username = "sithis";
   domain = inputs.nix-secrets.domain;
   userFullName = inputs.nix-secrets.full-name;
