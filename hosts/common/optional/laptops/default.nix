@@ -1,5 +1,4 @@
-{ inputs, outputs, ... }:
-{
+{ inputs, outputs, ... }: {
   imports = [
     ./laptop.nix
     ./keymap.nix

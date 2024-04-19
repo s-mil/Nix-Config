@@ -1,5 +1,4 @@
-{ inputs, lib, config, pkgs, pkgs-unstable, ... }:
-{
+{ inputs, lib, config, pkgs, pkgs-unstable, ... }: {
   services.xremap = {
     serviceMode = "user";
     userName = "sithis";
