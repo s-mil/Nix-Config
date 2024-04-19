@@ -4,7 +4,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/23.11";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Home manager
@@ -72,12 +71,12 @@
 
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware
-    , nix-gaming, vscode-server, sops-nix, self, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable,  ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
       system = "x86_64-linux";
+      inherit (nixpkgs) lib;
       unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
@@ -90,7 +89,7 @@
       configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
       specialArgs = {
-        inherit nixos-hardware nix-gaming system inputs outputs unstable;
+        inherit inputs outputs configVars configLib nixpkgs unstable;
       };
     in {
 
