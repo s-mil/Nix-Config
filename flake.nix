@@ -81,17 +81,22 @@
         inherit system;
         config.allowUnfree = true;
       };
-      overlays = (_: prev: {
-        tailscale = unstable.tailscale;
-        steam = unstable.steam;
-        proton-ge-bin = unstable.proton-ge-bin;
-      });
+      # overlays = (_: prev: {
+      #   tailscale = unstable.tailscale;
+      #   steam = unstable.steam;
+      #   proton-ge-bin = unstable.proton-ge-bin;
+      # });
       configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
       specialArgs = {
         inherit inputs outputs configVars configLib nixpkgs unstable;
       };
     in {
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+
+      # Custom modifications/overrides to upstream packages.
+      overlays = import ./overlays { inherit inputs outputs; };
 
       nixosConfigurations = {
         #####################################################
@@ -100,7 +105,6 @@
         odin = nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/odin
@@ -112,7 +116,6 @@
         freya = nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/freya
@@ -125,7 +128,6 @@
         thor = nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/thor

@@ -288,6 +288,22 @@
         "type": "github"
       }
     },
+    "hardware": {
+      "locked": {
+        "lastModified": 1713521961,
+        "narHash": "sha256-EwR8wW9AqJhSIY+0oxWRybUZ32BVKuZ9bjlRh8SJvQ8=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "5d48925b815fd202781bfae8fb6f45c07112fdb2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -513,22 +529,6 @@
         "type": "github"
       }
     },
-    "nixos-hardware": {
-      "locked": {
-        "lastModified": 1713521961,
-        "narHash": "sha256-EwR8wW9AqJhSIY+0oxWRybUZ32BVKuZ9bjlRh8SJvQ8=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
-        "rev": "5d48925b815fd202781bfae8fb6f45c07112fdb2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixos-hardware",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1712883908,
@@ -750,11 +750,11 @@
         "catppuccin-starship": "catppuccin-starship",
         "catppuccin-wezterm": "catppuccin-wezterm",
         "cattppuccin-k9s": "cattppuccin-k9s",
+        "hardware": "hardware",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
-        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",
