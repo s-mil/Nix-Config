@@ -4,7 +4,7 @@
 #  NixOS running on Lenovo Yoga x1 Carbon Gen 1
 #
 ###############################################################
-{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
+{ inputs, configLib, ... }:
 let
 
   Hostname = "thor";

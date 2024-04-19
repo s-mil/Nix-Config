@@ -5,7 +5,7 @@
 #
 ###############################################################
 
-{ config, pkgs, pkgs-unstable, lib, inputs, ... }:
+{ inputs, configLib, ... }:
 let
 
   Hostname = "freya";

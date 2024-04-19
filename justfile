@@ -17,7 +17,12 @@ list:
 ci-all:
   pre-commit run --all-files
 
+update:
+	nix flake update
 
+update-nix-secrets:
+	(cd ~/git/nix-secrets && git fetch && git rebase) || true
+	nix flake lock --update-input nix-secrets
 
 
 thor:
@@ -43,8 +48,6 @@ odin:
 debugOdin:
 	nixos-rebuild switch --flake .#odin --use-remote-sudo --show-trace --verbose
 
-update:
-	nix flake update
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
@@ -55,5 +58,3 @@ gc:
 
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
-
-
