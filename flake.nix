@@ -100,9 +100,8 @@
           inherit system specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-            home-manager.nixosModules.home-manager{ 
-              home-manager.extraSpecialArgs = specialArgs; 
-            }
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/odin
           ];
         };
@@ -113,9 +112,8 @@
           inherit system specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-            home-manager.nixosModules.home-manager{ 
-              home-manager.extraSpecialArgs = specialArgs; 
-            }
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/freya
           ];
         };
@@ -127,9 +125,8 @@
           inherit system specialArgs;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-            home-manager.nixosModules.home-manager{ 
-              home-manager.extraSpecialArgs = specialArgs; 
-            }
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/thor
           ];
         };
