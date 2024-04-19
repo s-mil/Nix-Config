@@ -1,7 +1,7 @@
 # hosts level sops. see home/[user]/common/optional/sops.nix for home/user level
 
 { inputs, config, ... }:
-let secretspath = builtins.toString inputs.mysecrets;
+let secretspath = builtins.toString inputs.nix-secrets;
 in {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 

@@ -472,24 +472,6 @@
         "type": "github"
       }
     },
-    "mysecrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1712337146,
-        "narHash": "sha256-2T6cMxh3k9tgUFvlkymggS+i0opXRaTMYzToyLFevGY=",
-        "ref": "main",
-        "rev": "67e53e0c5fce5e716696c1704dca0bb0298678e8",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/s-mil/nix-secrets.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/s-mil/nix-secrets.git"
-      }
-    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -526,6 +508,24 @@
         "owner": "fufexan",
         "repo": "nix-gaming",
         "type": "github"
+      }
+    },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712337146,
+        "narHash": "sha256-2T6cMxh3k9tgUFvlkymggS+i0opXRaTMYzToyLFevGY=",
+        "ref": "main",
+        "rev": "67e53e0c5fce5e716696c1704dca0bb0298678e8",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/s-mil/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/s-mil/nix-secrets.git"
       }
     },
     "nixpkgs": {
@@ -735,9 +735,9 @@
         "cattppuccin-k9s": "cattppuccin-k9s",
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "mysecrets": "mysecrets",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",
