@@ -7,8 +7,8 @@ let
   pubKeys =
     lib.filesystem.listFilesRecursive (configLib.relativeToRoot "keys/");
 in {
-  # Decrypt sithis-passwd to /run/secrets-for-users/ so it can be used to create the user
-  sops.secrets.sithis-passwd.neededForUsers = true;
+  # Decrypt sithis_passwd to /run/secrets-for-users/ so it can be used to create the user
+  sops.secrets.sithis_passwd.neededForUsers = true;
   users.mutableUsers =
     false; # Required for password to be set via sops during system activation!
 
