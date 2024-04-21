@@ -32,6 +32,8 @@ in {
     ../common/optional/pipewire.nix # audio
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kubernetesOps
+    ../common/optional/services/flatpak.nix
+
     #################### Users to Create ####################
     ../common/users/sithis
 

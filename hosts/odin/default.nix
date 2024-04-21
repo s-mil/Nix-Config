@@ -50,6 +50,9 @@ in {
     ../common/optional/services/sunshine.nix
     ../common/optional/services/dockerNV.nix
     ../common/optional/services/openrgb.nix
+    ../common/optional/services/flatpak.nix
+    ../common/optional/services/printing.nix
+
 
     #################### Users to Create ####################
     ../common/users/sithis
