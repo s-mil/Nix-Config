@@ -9,12 +9,12 @@ let
 in {
   # Decrypt sithis_passwd to /run/secrets-for-users/ so it can be used to create the user
   sops.secrets.sithis_passwd.neededForUsers = true;
-  users.mutableUsers =
-    false; # Required for password to be set via sops during system activation!
+  # Required for password to be set via sops during system activation!
+  # users.mutableUsers = false; 
 
   users.users.sithis = {
     isNormalUser = true;
-    hashedPasswordFile = sopsHashedPasswordFile;
+    # hashedPasswordFile = sopsHashedPasswordFile;
     shell = pkgs.zsh; # default shell
     extraGroups = [ "wheel" "audio" "video" ]
       ++ ifTheyExist [ "docker" "git" "mysql" "network" ];
