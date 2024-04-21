@@ -3,7 +3,7 @@ let
   ifTheyExist = groups:
     builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
   sopsHashedPasswordFile = lib.optionalString (lib.hasAttr "sops" inputs)
-    config.sops.secrets."${configVars.username}/password".path;
+    config.sops.secrets.sithis_passwd.path;
   pubKeys =
     lib.filesystem.listFilesRecursive (configLib.relativeToRoot "keys/");
 in {
