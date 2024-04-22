@@ -4,11 +4,37 @@
 #
 ############################################################################
 
+# Default recipe to display help information
+default:
+  @just --list
+
+# List all recipes
+list:
+  @just --list
+
+
+# Run ci for all files using pre-commit
+ci-all:
+  pre-commit run --all-files
+
+update:
+	nix flake update
+
+update-nix-secrets:
+	(cd ~/git/nix-secrets && git fetch && git rebase) || true
+	nix flake lock --update-input nix-secrets
+
+
 thor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo
 
 debugThor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo --show-trace --verbose
+freya:
+	nixos-rebuild switch --flake .#freya --use-remote-sudo
+
+debugFreya:
+	nixos-rebuild switch --flake .#freya --use-remote-sudo --show-trace --verbose
 
 mjolnir:
 	nixos-rebuild switch --flake .#mjolnir --use-remote-sudo
@@ -22,8 +48,6 @@ odin:
 debugOdin:
 	nixos-rebuild switch --flake .#odin --use-remote-sudo --show-trace --verbose
 
-update:
-	nix flake update
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
