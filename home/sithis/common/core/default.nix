@@ -72,7 +72,7 @@
     ffmpeg
     discord
     moonlight-qt
-    rustdesk
+    #rustdesk too big needs to only be installed when needed
     pcmanfm
     catppuccin-gtk
     catppuccin-kde
