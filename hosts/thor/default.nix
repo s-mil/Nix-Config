@@ -33,6 +33,7 @@ in {
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kubernetesOps
     ../common/optional/services/flatpak.nix
+    ../common/optional/hyprland.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
