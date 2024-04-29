@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
     # Utils
     nix-colors.url = "github:misterio77/nix-colors";
 
