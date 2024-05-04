@@ -4,6 +4,7 @@
     unstable.steamtinkerlaunch
     mangohud
     protonup
+    protontricks
   ];
   
   programs.steam = {
