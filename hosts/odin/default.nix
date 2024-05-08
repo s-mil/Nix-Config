@@ -53,7 +53,6 @@ in {
     ../common/optional/services/flatpak.nix
     ../common/optional/services/printing.nix
 
-
     #################### Users to Create ####################
     ../common/users/sithis
 

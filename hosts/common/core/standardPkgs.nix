@@ -16,5 +16,6 @@
     nixfmt
     nixd
     zellij
+    unstable.nh
   ];
 }

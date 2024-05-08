@@ -67,7 +67,6 @@
     python311Packages.pynvim
     lazygit
     tree-sitter
-    unstable.nodejs_21
     ripgrep
     ffmpeg
     discord
