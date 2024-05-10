@@ -2,6 +2,7 @@
   
   environment.systemPackages = with pkgs; [
     unstable.steamtinkerlaunch
+    sunshine
     mangohud
     protonup
     protontricks

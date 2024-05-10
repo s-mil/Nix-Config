@@ -28,6 +28,8 @@ in {
     defaultGateway = "10.0.0.1";
     nameservers = [ "10.10.0.11" "10.10.0.10" ];
   };
+  
+  services.sunshine.enable = true;
 
   imports = [
     #################### Hardware Modules ####################
