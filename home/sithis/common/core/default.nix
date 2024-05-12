@@ -10,7 +10,7 @@
     ./zoxide.nix
     ./vscode.nix
     ./wofi.nix
-    ./catppuccin-gtk.nix
+    #./catppuccin-gtk.nix
 
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
