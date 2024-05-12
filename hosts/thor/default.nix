@@ -30,6 +30,7 @@ in {
     ../common/optional/sway.nix # window manager
     ../common/optional/pipewire.nix # audio
     ../common/optional/xfce4.nix # escape hatch
+    ../common/optional/kde.nix
     ../common/optional/kubernetesOps
     ../common/optional/services/flatpak.nix
     ../common/optional/hyprland.nix
