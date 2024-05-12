@@ -11,47 +11,38 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1844c22d-a8ef-4cd1-9a02-8af87e880349";
+    { device = "/dev/disk/by-uuid/a7accda9-a954-44c9-b594-6fcc4d0324ab";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" ];
+      options = [ "subvol=root" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/1844c22d-a8ef-4cd1-9a02-8af87e880349";
+    { device = "/dev/disk/by-uuid/a7accda9-a954-44c9-b594-6fcc4d0324ab";
       fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" ];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/1844c22d-a8ef-4cd1-9a02-8af87e880349";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
+      options = [ "subvol=home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/1844c22d-a8ef-4cd1-9a02-8af87e880349";
+    { device = "/dev/disk/by-uuid/a7accda9-a954-44c9-b594-6fcc4d0324ab";
       fsType = "btrfs";
-      options = [ "subvol=nix" "noatime" "compress=zstd" ];
+      options = [ "subvol=nix" ];
     };
 
   fileSystems."/swap" =
-    { device = "/dev/disk/by-uuid/1844c22d-a8ef-4cd1-9a02-8af87e880349";
+    { device = "/dev/disk/by-uuid/a7accda9-a954-44c9-b594-6fcc4d0324ab";
       fsType = "btrfs";
-      options = [ "subvol=swap" "noatime" ];
+      options = [ "subvol=swap" ];
     };
 
-fileSystems."/boot" =
-  {
-    device = "/dev/disk/by-uuid/433B-90D1";
-    fsType = "vfat";
-    options = [ "fmask=0022" "dmask=022" ];
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/5162-1699";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
-
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [ ];
 
   networking.useDHCP = lib.mkDefault true;
-
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
