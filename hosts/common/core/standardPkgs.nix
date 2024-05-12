@@ -18,7 +18,5 @@
     zellij
     unstable.nh
     catppuccin-sddm-corners
-    bash
-    fish
   ];
 }

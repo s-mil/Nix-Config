@@ -15,5 +15,7 @@
     unstable.hyprlock
     unstable.hypridle
     hyprpaper
+    mako
+    wofi
   ];
 }
