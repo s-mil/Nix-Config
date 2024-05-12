@@ -13,13 +13,13 @@
       };
     };
 
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "mauve";
-        flavor = "mocha";
-      };
-    };
+    # iconTheme = {
+    #   name = "Papirus";
+    #   package = pkgs.catppuccin-papirus-folders.override {
+    #     accent = "mauve";
+    #     flavor = "mocha";
+    #   };
+    # };
 
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
