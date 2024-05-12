@@ -40,6 +40,14 @@
       options = [ "subvol=swap" "noatime" ];
     };
 
+fileSystems."/boot" =
+  {
+    device = "/dev/disk/by-uuid/433B-90D1";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=022" ];
+  };
+
+
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   networking.useDHCP = lib.mkDefault true;
