@@ -83,12 +83,17 @@ in {
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
 
+
+  services.displayManager.sddm = {
+      enable = true;
+      theme = "catppuccin-sddm-corners";
+  };
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
-  systemd.services.NetworkManager-wait-online.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

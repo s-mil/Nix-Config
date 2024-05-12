@@ -17,5 +17,6 @@
     nixd
     zellij
     unstable.nh
+    catppuccin-sddm-corners
   ];
 }
