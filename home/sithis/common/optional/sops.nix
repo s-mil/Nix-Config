@@ -15,8 +15,6 @@ in {
     defaultSopsFile = secretsFile;
     validateSopsFiles = false;
 
-    secrets = {
-      "sithis_key" = { path = "/home/sithis/.ssh/id_ed25519"; };
-    };
+    secrets = { "sithis_key" = { path = "/home/sithis/.ssh/id_ed25519"; }; };
   };
 }

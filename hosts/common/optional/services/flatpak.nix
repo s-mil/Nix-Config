@@ -1,5 +1,1 @@
-{ inputs, pkgs, ... }: {
-  services.flatpak = {
-    enable = true;
-  };
-}
+{ inputs, pkgs, ... }: { services.flatpak = { enable = true; }; }

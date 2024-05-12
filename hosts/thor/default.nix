@@ -16,7 +16,6 @@ in {
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-ssd
 
     #################### Required Configs ####################
@@ -33,6 +32,7 @@ in {
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kubernetesOps
     ../common/optional/services/flatpak.nix
+    ../common/optional/hyprland.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
@@ -57,6 +57,7 @@ in {
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
