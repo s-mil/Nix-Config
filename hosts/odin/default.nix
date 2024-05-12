@@ -55,10 +55,8 @@ in {
     ../common/optional/steam.nix
     ../common/optional/pipewire.nix # audio
     ../common/optional/emulation.nix
-    ../common/optional/kde.nix
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/hyprland.nix
-    ../common/optional/kubernetesOps
     ../common/optional/services/sunshine.nix
     ../common/optional/services/dockerNV.nix
     ../common/optional/services/openrgb.nix
