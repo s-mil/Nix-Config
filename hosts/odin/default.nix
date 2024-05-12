@@ -56,6 +56,7 @@ in {
     ../common/optional/pipewire.nix # audio
     ../common/optional/emulation.nix
     ../common/optional/xfce4.nix # escape hatch
+    ../common/optional/kde.nix
     ../common/optional/hyprland.nix
     ../common/optional/services/sunshine.nix
     ../common/optional/services/dockerNV.nix
@@ -89,7 +90,6 @@ in {
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
