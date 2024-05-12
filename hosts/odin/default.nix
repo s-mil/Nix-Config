@@ -56,7 +56,6 @@ in {
     ../common/optional/pipewire.nix # audio
     ../common/optional/emulation.nix
     ../common/optional/xfce4.nix # escape hatch
-    ../common/optional/kde.nix
     ../common/optional/hyprland.nix
     ../common/optional/services/sunshine.nix
     ../common/optional/services/dockerNV.nix
