@@ -28,11 +28,11 @@
       options = [ "subvol=nix" ];
     };
 
-  fileSystems."/swap" =
-    { device = "/dev/disk/by-uuid/a7accda9-a954-44c9-b594-6fcc4d0324ab";
-      fsType = "btrfs";
-      options = [ "subvol=swap" ];
-    };
+  # fileSystems."/swap" =
+  #   { device = "/dev/disk/by-uuid/a7accda9-a954-44c9-b594-6fcc4d0324ab";
+  #     fsType = "btrfs";
+  #     options = [ "subvol=swap" ];
+  #   };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/5162-1699";
