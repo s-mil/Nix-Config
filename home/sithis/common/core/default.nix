@@ -80,18 +80,11 @@
     helix
     pkg-config
     openssl.dev
-    brlaser
-    unstable.dotnet-sdk_8
     pika-backup
     go
     gox
     turso-cli
     sqld
-    via
-    vial
-    qmk
-    qmk_hid
-    qmk-udev-rules
   ];
 
   nixpkgs = {
