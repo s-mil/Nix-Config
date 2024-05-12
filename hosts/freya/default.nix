@@ -32,7 +32,6 @@ in {
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-intel
     inputs.hardware.nixosModules.common-pc-ssd
 
     #################### Required Configs ####################
@@ -44,6 +43,9 @@ in {
     ../common/optional/pipewire.nix # audio
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/services/docker.nix
+    ../common/optional/kde.nix
+    ../common/optional/services/k3s.nix
+    ../common/optional/services/docker.nix    
 
     #################### Users to Create ####################
     ../common/users/sithis

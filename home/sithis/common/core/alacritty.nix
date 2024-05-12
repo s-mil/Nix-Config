@@ -99,7 +99,8 @@
       # Allow terminal applications to change Alacritty's window title.
       dynamic_title: true
 
-
+    env:
+      WINIT_X11_SCALE_FACTOR: "1.0"
 
     scrolling:
       # Maximum number of lines in the scrollback buffer.
