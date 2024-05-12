@@ -53,7 +53,11 @@ in {
   networking = { networkmanager = { enable = true; }; };
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin-sddm-corners";
+
+  };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
