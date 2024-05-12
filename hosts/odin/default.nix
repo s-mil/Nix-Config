@@ -29,6 +29,15 @@ in {
     nameservers = [ "10.10.0.11" "10.10.0.10" ];
   };
   
+
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+    "/swap".options = [ "noatime" ];
+  };
+
+
   services.sunshine.enable = true;
 
   imports = [
