@@ -17,5 +17,6 @@
     hyprpaper
     mako
     wofi
+    waybar
   ];
 }
