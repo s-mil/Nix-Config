@@ -84,7 +84,7 @@ in {
   services.xserver.displayManager.sddm = {
     enable = true;
     theme = "catppuccin-sddm-corners";
-    settings = { input = ""; };
+    settings = { input = null; };
 
   };
 
