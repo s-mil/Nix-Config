@@ -30,11 +30,11 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
 
-    # Personal
-    nix-secrets = {
-      url = "git+ssh://git@github.com/s-mil/nix-secrets.git?ref=main&shallow=1";
-      flake = false;
-    };
+    # # Personal
+    # nix-secrets = {
+    #   url = "git+ssh://git@github.com/s-mil/nix-secrets.git?ref=main&shallow=1";
+    #   flake = false;
+    # };
 
     # color scheme - catppuccin
     catppuccin-btop = {
