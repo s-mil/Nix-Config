@@ -8,7 +8,5 @@
     enable = true;
     enableCompletion = true;
   };
-  programs.bash = {
-    enable = true;
-  };
+
 }
