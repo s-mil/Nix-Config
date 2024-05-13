@@ -1,7 +1,7 @@
 # ############################################################
 #
 #  Odin - Daily Driver Desktop
-#  NixOS running under proxmox, with passthrough 3080ti
+#  NixOS running on 5900x with 3080ti
 #
 ###############################################################
 
@@ -85,6 +85,8 @@ in {
     enable = true;
     theme = "catppuccin-sddm-corners";
     settings = { InputMethod = null; };
+    wayland.enable = true;
+    
 
   };
 
