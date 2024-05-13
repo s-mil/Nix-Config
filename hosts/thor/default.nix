@@ -26,13 +26,12 @@ in {
     ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/services/docker.nix
-
+    ../common/optional/hyprland.nix
     ../common/optional/sway.nix # window manager
     ../common/optional/pipewire.nix # audio
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kubernetesOps
     ../common/optional/services/flatpak.nix
-    ../common/optional/hyprland.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
@@ -56,9 +55,8 @@ in {
   services.xserver.displayManager.sddm = {
     enable = true;
     theme = "catppuccin-sddm-corners";
+    settings = { InputMethod = null; };
     wayland.enable = true;
-
-
   };
 
   hardware.bluetooth.enable = true;

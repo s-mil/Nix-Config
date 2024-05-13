@@ -28,7 +28,6 @@ in {
     defaultGateway = "10.0.0.1";
     nameservers = [ "10.10.0.11" "10.10.0.10" ];
   };
-  
 
   fileSystems = {
     "/".options = [ "compress=zstd" ];
@@ -36,7 +35,6 @@ in {
     "/nix".options = [ "compress=zstd" "noatime" ];
     "/swap".options = [ "noatime" ];
   };
-
 
   services.sunshine.enable = true;
 
@@ -86,16 +84,13 @@ in {
     theme = "catppuccin-sddm-corners";
     settings = { InputMethod = null; };
     wayland.enable = true;
-    
 
   };
-
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

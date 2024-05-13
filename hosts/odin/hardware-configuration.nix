@@ -4,43 +4,42 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
-      fsType = "btrfs";
-      options = [ "subvol=root" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
+    fsType = "btrfs";
+    options = [ "subvol=root" ];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
+    fsType = "btrfs";
+    options = [ "subvol=home" ];
+  };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
+    fsType = "btrfs";
+    options = [ "subvol=nix" ];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/12CE-A600";
+    fsType = "vfat";
+  };
 
-  fileSystems."/swap" =
-    { device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
-      fsType = "btrfs";
-      options = [ "subvol=swap" ];
-    };
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/201d3407-6f06-484d-94c8-df61f40fb9ec";
+    fsType = "btrfs";
+    options = [ "subvol=swap" ];
+  };
 
   swapDevices = [ ];
 
@@ -54,5 +53,6 @@
   # networking.interfaces.wlp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

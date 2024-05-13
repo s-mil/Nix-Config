@@ -21,7 +21,7 @@
   };
 
   hardware.enableRedistributableFirmware = true;
-  security.sudo.enable =  true;
+  security.sudo.enable = true;
   # Allow members of the "wheel" group to sudo:
   security.sudo.configFile = ''
     %wheel ALL=(ALL) ALL
