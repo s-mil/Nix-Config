@@ -23,6 +23,7 @@ in {
     ./hardware-configuration.nix
 
     #################### Host-specific Optional Configs ####################
+    ../common/optional/sddm.nix
     ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/services/docker.nix
@@ -52,12 +53,7 @@ in {
   networking = { networkmanager = { enable = true; }; };
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "catppuccin-sddm-corners";
-    settings = { InputMethod = null; };
-    wayland.enable = true;
-  };
+
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
