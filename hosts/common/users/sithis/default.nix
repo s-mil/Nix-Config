@@ -16,7 +16,7 @@ in {
     isNormalUser = true;
     # hashedPasswordFile = sopsHashedPasswordFile;
     shell = pkgs.zsh; # default shell
-    extraGroups = [ "wheel" "audio" "video" ]
+    extraGroups = [ "wheel" "audio" "video" "libvirtd" ]
       ++ ifTheyExist [ "docker" "git" "mysql" "network" "flatpak" ];
 
     openssh.authorizedKeys.keys =

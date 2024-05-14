@@ -15,13 +15,13 @@ in {
 
   config = mkIf config.services.sunshine.enable {
 
-    environment.systemPackages = [ pkgs.sunshine ];
+    environment.systemPackages = [ unstable.sunshine ];
 
     security.wrappers.sunshine = {
       owner = "root";
       group = "root";
       capabilities = "cap_sys_admin+p";
-      source = "${pkgs.sunshine}/bin/sunshine";
+      source = "${unstable.sunshine}/bin/sunshine";
     };
 
     systemd.user.services.sunshine = {

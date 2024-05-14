@@ -13,26 +13,40 @@ let
 
 in {
 
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  # boot.kernelParams = [ "zfs.zfs_arc_max=" ];
-  environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
-
-  boot.initrd.supportedFilesystems = [ "zfs" ];
-  boot.supportedFilesystems = [ "zfs" ];
-  services.zfs = {
-    autoSnapshot = {
+  virtualisation = {
+    libvirtd = {
       enable = true;
-      weekly = 4;
-      monthly = 12;
-      hourly = 24;
-      daily = 7;
-      frequent = 4;
-
+      qemu = {
+        package = pkgs.qemu_kvm;
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
     };
-
-    autoScrub = { enable = true; };
-
+    spiceUSBRedirection.enable = true;
   };
+  programs.virt-manager.enable = true;
+
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # # boot.kernelParams = [ "zfs.zfs_arc_max=" ];
+  # environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
+
+  # boot.initrd.supportedFilesystems = [ "zfs" ];
+  # boot.supportedFilesystems = [ "zfs" ];
+  # services.zfs = {
+  #   autoSnapshot = {
+  #     enable = true;
+  #     weekly = 4;
+  #     monthly = 12;
+  #     hourly = 24;
+  #     daily = 7;
+  #     frequent = 4;
+
+  #   };
+
+  #   autoScrub = { enable = true; };
+
+  # };
 
   networking = {
     hostName = Hostname;
