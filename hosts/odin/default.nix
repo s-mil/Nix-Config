@@ -31,9 +31,6 @@ in {
 
   fileSystems = {
     "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
-    "/swap".options = [ "noatime" ];
   };
 
   services.sunshine.enable = true;
@@ -67,8 +64,6 @@ in {
     ../common/users/sithis
 
   ];
-
-  services.xserver.desktopManager.gnome.enable = true;
 
   boot = {
     loader = {
