@@ -27,8 +27,6 @@
 
     # window rules
     windowrulev2 = [
-      # telegram media viewer
-      "float, title:^(Media viewer)$"
 
       # allow tearing in games
       "immediate, class:^(osu!|cs2)$"
@@ -58,8 +56,6 @@
       "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
       "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
 
-      # don't render hyprbars on tiling windows
-      "plugin:hyprbars:nobar, floating:0"
     ];
   };
 }

@@ -21,64 +21,53 @@ in {
     # binds
     bind = let monocle = "dwindle:no_gaps_when_only";
     in [
-      # compositor commands
-      "$mod SHIFT, E, exec, pkill Hyprland"
-      "$mod, Q, killactive,"
-      "$mod, F, fullscreen,"
-      "$mod, G, togglegroup,"
-      "$mod SHIFT, N, changegroupactive, f"
-      "$mod SHIFT, P, changegroupactive, b"
-      "$mod, R, togglesplit,"
-      "$mod, T, togglefloating,"
-      "$mod, P, pseudo,"
-      "$mod ALT, ,resizeactive,"
+      "$mainMod, return, exec, alacritty"
+      "$mainMod, Q, killactive, "
+      "$mainMod, M, exit, "
+      "$mainMod, E, exec, dolphin"
+      "$mainMod, V, togglefloating, "
+      "$mainMod, D, exec, wofi --show drun"
+      "$mainMod, P, pseudo,"
+      "$mainMod, J, togglesplit,"
+      "$mainMod SHIFT, L, exec, hyprlock"
 
-      # toggle "monocle" (no_gaps_when_only)
-      "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+      # Move focus with mainMod + arrow keys
+      "$mainMod, left, movefocus, h"
+      "$mainMod, right, movefocus, l "
+      "$mainMod, up, movefocus, k "
+      "$mainMod, down, movefocus, j"
 
-      # utility
-      # terminal
-      "$mod, Return, exec, run-as-service foot"
-      # logout menu
-      "$mod, Escape, exec, wlogout -p layer-shell"
-      # lock screen
-      "$mod, L, exec, loginctl lock-session"
-      # select area to perform OCR on
-      "$mod, O, exec, run-as-service wl-ocr"
+      # Switch workspaces with mainMod + [0-9]
+      "$mainMod, 1, workspace, 1"
+      "$mainMod, 2, workspace, 2"
+      "$mainMod, 3, workspace, 3"
+      "$mainMod, 4, workspace, 4"
+      "$mainMod, 5, workspace, 5"
+      "$mainMod, 6, workspace, 6"
+      "$mainMod, 7, workspace, 7"
+      "$mainMod, 8, workspace, 8"
+      "$mainMod, 9, workspace, 9"
+      "$mainMod, 0, workspace, 10"
 
-      # move focus
-      "$mod, left, movefocus, l"
-      "$mod, right, movefocus, r"
-      "$mod, up, movefocus, u"
-      "$mod, down, movefocus, d"
+      # Move active window to a workspace with mainMod + SHIFT + [0-9]
+      "$mainMod SHIFT, 1, movetoworkspace, 1"
+      "$mainMod SHIFT, 2, movetoworkspace, 2"
+      "$mainMod SHIFT, 3, movetoworkspace, 3"
+      "$mainMod SHIFT, 4, movetoworkspace, 4"
+      "$mainMod SHIFT, 5, movetoworkspace, 5"
+      "$mainMod SHIFT, 6, movetoworkspace, 6"
+      "$mainMod SHIFT, 7, movetoworkspace, 7"
+      "$mainMod SHIFT, 8, movetoworkspace, 8"
+      "$mainMod SHIFT, 9, movetoworkspace, 9"
+      "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-      # screenshot
-      # stop animations while screenshotting; makes black border go away
-      ", Print, exec, ${screenshotarea}"
-      "$mod SHIFT, R, exec, ${screenshotarea}"
-
-      "CTRL, Print, exec, grimblast --notify --cursor copysave output"
-      "$mod SHIFT CTRL, R, exec, grimblast --notify --cursor copysave output"
-
-      "ALT, Print, exec, grimblast --notify --cursor copysave screen"
-      "$mod SHIFT ALT, R, exec, grimblast --notify --cursor copysave screen"
-
-      # special workspace
-      "$mod SHIFT, grave, movetoworkspace, special"
-      "$mod, grave, togglespecialworkspace, eDP-1"
-
-      # cycle workspaces
-      "$mod, bracketleft, workspace, m-1"
-      "$mod, bracketright, workspace, m+1"
-
-      # cycle monitors
-      "$mod SHIFT, bracketleft, focusmonitor, l"
-      "$mod SHIFT, bracketright, focusmonitor, r"
-
-      # send focused workspace to left/right monitors
-      "$mod SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
-      "$mod SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
-    ] ++ workspaces;
+      # Example special workspace (scratchpad)
+      "$mainMod, S, togglespecialworkspace, magic"
+      "$mainMod SHIFT, S, movetoworkspace, special:magic"
+      # Scroll through existing workspaces with mainMod + scroll
+      "$mainMod, mouse_down, workspace, e+1"
+      "$mainMod, mouse_up, workspace, e-1"
+    ];
 
     bindr = [
       # launcher
@@ -97,13 +86,10 @@ in {
     ];
 
     bindle = [
-      # volume
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
-
-      # backlight
-      ", XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5"
-      ", XF86MonBrightnessDown, exec, brillo -q -u 300000 -U 5"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ", XF86MonBrightnessUp, exec, brightnessctl set '12.75+'"
+      ", XF86MonBrightnessDown, exec, brightnessctl set '12.75-'"
     ];
   };
 }

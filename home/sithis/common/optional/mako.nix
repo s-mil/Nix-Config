@@ -6,6 +6,8 @@
 
     borderRadius = 5;
 
+    defaultTimeout = 60;
+
     ## Colors
     backgroundColor = "#1e1e2e";
     textColor = "#cdd6f4";
