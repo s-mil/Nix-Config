@@ -68,6 +68,8 @@ in {
 
   ];
 
+  services.xserver.desktopManager.gnome.enable = true;
+
   boot = {
     loader = {
       systemd-boot = {
