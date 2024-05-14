@@ -1,17 +1,12 @@
-{lib, ...}: {
+{ lib, ... }: {
   wayland.windowManager.hyprland.settings = {
     # layer rules
     layerrule = let
-      toRegex = list: let
-        elements = lib.concatStringsSep "|" list;
-      in "^(${elements})$";
+      toRegex = list:
+        let elements = lib.concatStringsSep "|" list;
+        in "^(${elements})$";
 
-      lowopacity = [
-        "bar"
-        "notifications"
-        "osd"
-        "logout_dialog"
-      ];
+      lowopacity = [ "bar" "notifications" "osd" "logout_dialog" ];
 
       highopacity = [
         # ags
@@ -22,14 +17,11 @@
         "logout_dialog"
       ];
 
-      blurred = lib.concatLists [
-        lowopacity
-        highopacity
-      ];
+      blurred = lib.concatLists [ lowopacity highopacity ];
     in [
       "blur, ${toRegex blurred}"
-      "xray 1, ${toRegex ["bar"]}"
-      "ignorealpha 0.5, ${toRegex (highopacity ++ ["music"])}"
+      "xray 1, ${toRegex [ "bar" ]}"
+      "ignorealpha 0.5, ${toRegex (highopacity ++ [ "music" ])}"
       "ignorealpha 0.2, ${toRegex lowopacity}"
     ];
 
@@ -39,7 +31,7 @@
       "float, title:^(Media viewer)$"
 
       # allow tearing in games
-      "immediate, class:^(osu\!|cs2)$"
+      "immediate, class:^(osu!|cs2)$"
 
       # make Firefox PiP window floating and sticky
       "float, title:^(Picture-in-Picture)$"
@@ -47,7 +39,7 @@
 
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-      "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+      "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
 
       # start spotify in ws9
       "workspace 9 silent, title:^(Spotify( Premium)?)$"
