@@ -5,13 +5,35 @@
 #
 ###############################################################
 
-{ inputs, configLib, ... }:
+{ inputs, config, lib, pkgs, ... }:
 let
 
   Hostname = "odin";
   mountPoint = "/boot";
 
 in {
+
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # boot.kernelParams = [ "zfs.zfs_arc_max=" ];
+  environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
+
+  boot.initrd.supportedFilesystems = [ "zfs" ];
+  boot.supportedFilesystems = [ "zfs" ];
+  services.zfs = {
+    autoSnapshot = {
+      enable = true;
+      weekly = 4;
+      monthly = 12;
+      hourly = 24;
+      daily = 7;
+      frequent = 4;
+
+    };
+
+    autoScrub = { enable = true; };
+
+  };
+
   networking = {
     hostName = Hostname;
     hostId = "007f0200";
@@ -29,9 +51,7 @@ in {
     nameservers = [ "10.10.0.11" "10.10.0.10" ];
   };
 
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-  };
+  fileSystems = { "/".options = [ "compress=zstd" ]; };
 
   services.sunshine.enable = true;
 

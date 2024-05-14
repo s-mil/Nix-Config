@@ -143,22 +143,6 @@
           ];
         };
 
-        #####################################################
-        # -------------------- MJOLNIR ---------------------#
-        #####################################################
-        # mjolnir = nixpkgs.lib.nixosSystem {
-        #   inherit system specialArgs;
-        #   modules = [
-        #     ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlays ]; })
-        #     home-manager.nixosModules.home-manager
-        #     { home-manager.extraSpecialArgs = specialArgs; }
-        #     vscode-server.nixosModules.default
-        #     ./common.nix
-        #     ./devices/mjolnir.nix
-        #     ./devices/hardware-configurations/mjolnir.nix
-        #   ];
-        # };
-
       };
 
     };
