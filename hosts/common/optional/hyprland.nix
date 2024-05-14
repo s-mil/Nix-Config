@@ -18,5 +18,7 @@
     mako
     wofi
     waybar
+    eww-wayland
+    eww
   ];
 }
