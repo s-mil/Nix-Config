@@ -27,26 +27,21 @@ in {
   };
   programs.virt-manager.enable = true;
 
-
   # # boot.kernelParams = [ "zfs.zfs_arc_max=" ];
-  # environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
+  environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
 
-  # boot.initrd.supportedFilesystems = [ "zfs" ];
-  # boot.supportedFilesystems = [ "zfs" ];
-  # services.zfs = {
-  #   autoSnapshot = {
-  #     enable = true;
-  #     weekly = 4;
-  #     monthly = 12;
-  #     hourly = 24;
-  #     daily = 7;
-  #     frequent = 4;
+  services.zfs = {
+    autoSnapshot = {
+      enable = true;
+      weekly = 4;
+      monthly = 12;
+      hourly = 24;
+      daily = 7;
+      frequent = 4;
 
-  #   };
-
-  #   autoScrub = { enable = true; };
-
-  # };
+    };
+    autoScrub = { enable = true; };
+  };
 
   networking = {
     hostName = Hostname;
@@ -101,12 +96,9 @@ in {
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = [
-    "quiet"
-    "splash"
-    "idle=nowait"
-    "acpi_osi=linux" 
-    ];
+    kernelParams = [ "quiet" "splash" "idle=nowait" "acpi_osi=linux" ];
+    initrd.supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = [ "zfs" ];
     loader = {
       systemd-boot = {
         editor = true;
@@ -123,6 +115,10 @@ in {
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
+
+
+  services.nfs.server.enable = true;
+
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
