@@ -27,7 +27,7 @@ in {
   };
   programs.virt-manager.enable = true;
 
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+
   # # boot.kernelParams = [ "zfs.zfs_arc_max=" ];
   # environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
 
@@ -100,6 +100,13 @@ in {
   ];
 
   boot = {
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelParams = [
+    "quiet"
+    "splash"
+    "idle=nomwait"
+    "acpi_osi=linux" 
+    ];
     loader = {
       systemd-boot = {
         editor = true;

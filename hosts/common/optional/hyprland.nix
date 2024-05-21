@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, unstable, ... }: {
 
   programs.hyprland = {
     enable = true;
@@ -17,7 +17,7 @@
     hyprpaper
     mako
     wofi
-    waybar
+    unstable.waybar
     eww-wayland
     eww
   ];
