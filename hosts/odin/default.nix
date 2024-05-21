@@ -104,7 +104,7 @@ in {
     kernelParams = [
     "quiet"
     "splash"
-    "idle=nomwait"
+    "idle=nowait"
     "acpi_osi=linux" 
     ];
     loader = {
