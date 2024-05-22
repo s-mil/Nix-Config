@@ -4,7 +4,7 @@
 #  NixOS running on Lenovo Yoga x1 Carbon Gen 1
 #
 ###############################################################
-{ inputs, configLib, ... }:
+{ inputs, config, lib, ... }:
 let
 
   Hostname = "thor";
@@ -26,7 +26,7 @@ in {
     ../common/optional/sddm.nix
     ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
-#    ../common/optional/services/docker.nix
+    #    ../common/optional/services/docker.nix
     ../common/optional/hyprland.nix
     ../common/optional/sway.nix # window manager
     ../common/optional/pipewire.nix # audio
@@ -40,6 +40,9 @@ in {
   ];
 
   boot = {
+    plymouth = { enable = true; };
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelParams = [ "quiet" "splash" "acpi_osi=linux" ];
     loader = {
       systemd-boot = {
         editor = true;
@@ -55,6 +58,7 @@ in {
   services.xserver.enable = true;
 
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
