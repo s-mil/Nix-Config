@@ -27,7 +27,6 @@ in {
   };
   programs.virt-manager.enable = true;
 
-  # # boot.kernelParams = [ "zfs.zfs_arc_max=" ];
   environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
 
   services.zfs = {
@@ -96,9 +95,13 @@ in {
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = [ "quiet" "splash" "idle=nowait" "acpi_osi=linux" ];
+    kernelParams = [ "quiet" "splash" "acpi_osi=linux" "processor.max_cstate=1" ];
     initrd.supportedFilesystems = [ "zfs" ];
     supportedFilesystems = [ "zfs" ];
+    
+    plymouth = {
+      enable = true;
+    };
     loader = {
       systemd-boot = {
         editor = true;
