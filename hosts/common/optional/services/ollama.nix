@@ -7,7 +7,7 @@ services.ollama = {
   writablePaths = [ "/home/llm" "/home/llm/models" ];
   home = "/home/llm";
   models = "/home/llm/models";
-  listenAddress = "10.10.0.64:11434";
+  listenAddress = "0.0.0.0:11434";
 };
 
 
