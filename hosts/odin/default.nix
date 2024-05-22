@@ -95,13 +95,15 @@ in {
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = [ "quiet" "splash" "acpi_osi=linux" "processor.max_cstate=1" ];
+    kernelParams =
+      [ "quiet" "splash" "acpi_osi=linux" "processor.max_cstate=1" ];
     initrd.supportedFilesystems = [ "zfs" ];
     supportedFilesystems = [ "zfs" ];
-    
-    plymouth = {
-      enable = true;
+    zfs = {
+      enabled = true;
+      extraPools = [ "Data" "Clio" ];
     };
+    plymouth = { enable = true; };
     loader = {
       systemd-boot = {
         editor = true;
@@ -119,9 +121,7 @@ in {
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
-
   services.nfs.server.enable = true;
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
