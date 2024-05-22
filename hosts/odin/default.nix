@@ -73,6 +73,7 @@ in {
     ../common/optional/services/openrgb.nix
     ../common/optional/services/flatpak.nix
     ../common/optional/services/printing.nix
+    ../common/optional/services/ollama.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
