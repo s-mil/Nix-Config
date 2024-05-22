@@ -13,20 +13,6 @@ let
 
 in {
 
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
-      };
-    };
-    spiceUSBRedirection.enable = true;
-  };
-  programs.virt-manager.enable = true;
-
   environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
 
   services.zfs = {
@@ -100,7 +86,6 @@ in {
     initrd.supportedFilesystems = [ "zfs" ];
     supportedFilesystems = [ "zfs" ];
     zfs = {
-      enabled = true;
       extraPools = [ "Data" "Clio" ];
     };
     plymouth = { enable = true; };
