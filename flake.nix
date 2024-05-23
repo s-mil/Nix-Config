@@ -150,7 +150,7 @@
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/thor
-            inputs.styliz.nixosModules.stylix
+            inputs.stylix.nixosModules.stylix
           ];
         };
 

@@ -33,6 +33,7 @@ in {
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kubernetesOps
     ../common/optional/services/flatpak.nix
+    ../common/optional/stylix
 
     #################### Users to Create ####################
     ../common/users/sithis
