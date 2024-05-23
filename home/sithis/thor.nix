@@ -7,6 +7,7 @@
     # ./common/optional/sops.nix
     # ./common/optional/hyprland.nix
     ./common/optional/mako.nix
+    ./common/optional/stylix
   ];
 
   home = {
