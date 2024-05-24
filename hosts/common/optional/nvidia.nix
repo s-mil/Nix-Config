@@ -14,4 +14,9 @@
     open = false;
     nvidiaSettings = true;
   };
+
+    environment.systemPackages = with pkgs; [
+    cudatoolkit
+  ];
+
 }
