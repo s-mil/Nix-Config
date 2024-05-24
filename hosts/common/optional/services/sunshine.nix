@@ -24,12 +24,21 @@ in {
       source = "${unstable.sunshine}/bin/sunshine";
     };
 
+    boot.kernelModules = [ "uinput" ];
+    services.udev.extraRules = ''
+      KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
+    '';
+
+
     systemd.user.services.sunshine = {
       description = "sunshine";
       wantedBy = [ "graphical-session.target" ];
+      startLimitBurst = 5;
+      startLimitIntervalSec = 500;
       serviceConfig = {
         ExecStart = "${config.security.wrapperDir}/sunshine";
         Restart = "always";
+        RestartSec = "5s";
       };
     };
 
