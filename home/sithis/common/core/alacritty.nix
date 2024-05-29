@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-
+  stylix.targets.alacritty.enable = false;
   xdg.configFile."alacritty/theme_catppuccin.yml".text = ''
     colors:
       primary:

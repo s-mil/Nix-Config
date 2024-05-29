@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
 
-  sylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    
+  stylix = {
+
     image = ./background.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     fonts = {
       monospace = {
@@ -20,10 +20,10 @@
       };
 
       sizes = {
-        applications = 12;
-        terminal = 15;
-        desktop = 10;
-        popups = 10;
+        applications = 18;
+        terminal = 18;
+        desktop = 15;
+        popups = 15;
       };
     };
 
@@ -31,5 +31,6 @@
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "Catppuccin-Mocha-Dark-Cursors";
     };
+
   };
 }

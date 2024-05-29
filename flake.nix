@@ -22,8 +22,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
-
+    stylix = {
+      url = "github:danth/stylix/release-23.11";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     # hyprland
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 

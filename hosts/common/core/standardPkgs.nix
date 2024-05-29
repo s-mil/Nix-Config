@@ -18,5 +18,7 @@
     zellij
     unstable.nh
     catppuccin-sddm-corners
+    syncthing
+    syncthing-tray
   ];
 }
