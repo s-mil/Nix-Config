@@ -35,8 +35,10 @@ in {
     ../common/optional/services/flatpak.nix
     ../common/optional/stylix
 
+    ../common/optional/sops.nix
     #################### Users to Create ####################
     ../common/users/sithis
+
 
   ];
 
