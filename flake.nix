@@ -132,6 +132,7 @@
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/odin
+            inputs.stylix.nixosModules.stylix
           ];
         };
         #####################################################

@@ -75,6 +75,7 @@ in {
     ../common/optional/services/printing.nix
     ../common/optional/services/ollama.nix
     ../common/optional/sops.nix
+    ../common/optional/stylix
 
     #################### Users to Create ####################
     ../common/users/sithis
