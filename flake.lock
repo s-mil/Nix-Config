@@ -925,6 +925,24 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713753093,
+        "narHash": "sha256-oPIaBpWIzfZYTEvbnIOffx5ClbL+dP2xSgX7CQVqaSc=",
+        "ref": "main",
+        "rev": "3abd12087b229e8e6021243dae3223667f538ee5",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/s-mil/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/s-mil/nix-secrets.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1716330097,
@@ -1247,6 +1265,7 @@
         "hyprland": "hyprland",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
