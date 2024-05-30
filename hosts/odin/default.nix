@@ -74,6 +74,7 @@ in {
     ../common/optional/services/flatpak.nix
     ../common/optional/services/printing.nix
     ../common/optional/services/ollama.nix
+    ../common/optional/sops.nix
 
     #################### Users to Create ####################
     ../common/users/sithis
