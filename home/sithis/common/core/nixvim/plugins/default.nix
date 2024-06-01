@@ -16,30 +16,31 @@
     ./treesitter.nix
     ./vimtex.nix
   ];
-
-  plugins = {
-    gitsigns = {
-      enable = true;
-      settings.signs = {
-        add.text = "+";
-        change.text = "~";
+  programs.nixvim = {
+    plugins = {
+      gitsigns = {
+        enable = true;
+        settings.signs = {
+          add.text = "+";
+          change.text = "~";
+        };
       };
-    };
 
-    nvim-autopairs.enable = true;
+      nvim-autopairs.enable = true;
 
-    nvim-colorizer = {
-      enable = true;
-      userDefaultOptions.names = false;
-    };
+      nvim-colorizer = {
+        enable = true;
+        userDefaultOptions.names = false;
+      };
 
-    oil.enable = true;
+      oil.enable = true;
 
-    trim = {
-      enable = true;
-      settings = {
-        highlight = true;
-        ft_blocklist = [ "lspinfo" "floaterm" ];
+      trim = {
+        enable = true;
+        settings = {
+          highlight = true;
+          ft_blocklist = [ "lspinfo" "floaterm" ];
+        };
       };
     };
   };
