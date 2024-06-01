@@ -7,6 +7,5 @@
   };
 
   stylix.targets.vscode.enable = false;
-  stylix.targets.vim.enable = false;
 
 }

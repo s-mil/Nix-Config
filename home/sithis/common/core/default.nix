@@ -4,7 +4,7 @@
     ./zsh.nix
     ./git.nix
     ./jujutsu.nix
-    ./nvim.nix
+    ./nixvim
     ./alacritty.nix
     ./bat.nix
     ./zoxide.nix
