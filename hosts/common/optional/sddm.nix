@@ -1,5 +1,5 @@
 { inputs, pkgs, ... }: {
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     theme = "catppuccin-sddm-corners";
     settings = { General = { InputMethod = " "; }; };

@@ -10,8 +10,6 @@
     ./zoxide.nix
     ./vscode.nix
     ./wofi.nix
-    # ./catppuccin-gtk.nix
-
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   services.ssh-agent.enable = true;
@@ -58,9 +56,9 @@
     wacomtablet
     libwacom
     libsecret
-    unstable.signal-desktop
+    signal-desktop
     ghidra
-    unstable.tailscale
+    tailscale
     gh
     pssh
     du-dust

@@ -3,6 +3,6 @@
   services.xserver.desktopManager.xfce.enableScreensaver = false;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
 }

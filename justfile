@@ -24,7 +24,8 @@ update-nix-secrets:
 	(cd ~/git/nix-secrets && git fetch && git rebase) || true
 	nix flake lock --update-input nix-secrets
 
-
+nh:
+	nh os switch
 thor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo
 

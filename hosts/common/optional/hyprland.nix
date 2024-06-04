@@ -11,14 +11,13 @@
   environment.systemPackages = with pkgs; [
     pyprland
     hyprpicker
-    unstable.hyprcursor
-    unstable.hyprlock
-    unstable.hypridle
+    hyprcursor
+    hyprlock
+    hypridle
     hyprpaper
     mako
     wofi
-    unstable.waybar
-    eww-wayland
+    waybar
     eww
   ];
 }

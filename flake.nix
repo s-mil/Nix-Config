@@ -3,27 +3,19 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs";
     nixpkgs-unstable.url =
       "github:NixOS/nixpkgs/nixos-unstable"; # also see 'unstable-packages' overlay at 'overlays/default.nix"
 
     hardware.url = "github:nixos/nixos-hardware";
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-23.11";
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-      # url = "github:nix-community/nixvim/nixos-23.05";
-
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:danth/stylix/release-23.11";
+      url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
@@ -51,6 +43,7 @@
       flake = false;
     };
 
+    nixvim.url = "github:s-mil/nixvim-config";
     # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";
@@ -105,11 +98,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-      # overlays = (_: prev: {
-      #   tailscale = unstable.tailscale;
-      #   steam = unstable.steam;
-      #   proton-ge-bin = unstable.proton-ge-bin;
-      # });
+
       configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
       specialArgs = {
