@@ -1,0 +1,310 @@
+[
+  {
+    "name": "top_bar",
+    "layer": "top",
+    "position": "top",
+    "spacing": 2,
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      "battery",
+      "bluetooth",
+      "network",
+      "custom/logout_menu",
+      "tray"
+    ],
+    "hyprland/workspaces": {
+      "on-click": "activate",
+      "format": "{icon}",
+      "format-icons": {
+        "active": " ",
+        "default": " ",
+        "empty": " "
+      },
+      "persistent-workspaces": {
+        "*": 10
+      }
+    },
+    "hyprland/submap": {
+      "format": "<span color='#a6da95'>Mode:</span> {}",
+      "tooltip": false
+    },
+    "clock#time": {
+      "format": "{:%I:%M %p %Ez}"
+    },
+    "custom/separator": {
+      "format": " | "
+    },
+    "custom/separator_dot": {
+      "format": " • "
+    },
+    "clock#week": {
+      "format": "{:%a}"
+    },
+    "clock#month": {
+      "format": "{:%h}"
+    },
+    "clock#calendar": {
+      "format": "{:%F}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "actions": {
+        "on-click-right": "mode"
+      },
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+          "months": "<span color='#f4dbd6'><b>{}</b></span>",
+          "days": "<span color='#cad3f5'><b>{}</b></span>",
+          "weeks": "<span color='#c6a0f6'><b>W{}</b></span>",
+          "weekdays": "<span color='#a6da95'><b>{}</b></span>",
+          "today": "<span color='#8bd5ca'><b><u>{}</u></b></span>"
+        }
+      }
+    },
+    "clock": {
+      "format": "{:%I:%M %p | %F}",
+      "format-alt": "{:%I:%M %p}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "actions": {
+        "on-click-right": "mode"
+      },
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+          "months": "<span color='#f4dbd6'><b>{}</b></span>",
+          "days": "<span color='#cad3f5'><b>{}</b></span>",
+          "weeks": "<span color='#c6a0f6'><b>W{}</b></span>",
+          "weekdays": "<span color='#a6da95'><b>{}</b></span>",
+          "today": "<span color='#8bd5ca'><b><u>{}</u></b></span>"
+        }
+      }
+    },
+    "custom/media": {
+      "format": "{icon}󰎈",
+      "restart-interval": 2,
+      "return-type": "json",
+      "format-icons": {
+        "Playing": " ",
+        "Paused": " "
+      },
+      "max-length": 35,
+      "exec": "zsh -c fetch_music_player_data",
+      "on-click": "playerctl play-pause",
+      "on-click-right": "playerctl next",
+      "on-click-middle": "playerctl prev",
+      "on-scroll-up": "playerctl volume 0.05-",
+      "on-scroll-down": "playerctl volume 0.05+",
+      "smooth-scrolling-threshold": "0.1"
+    },
+    "bluetooth": {
+      "format": "󰂯",
+      "format-disabled": "󰂲",
+      "format-connected": "󰂱 {device_alias}",
+      "format-connected-battery": "󰂱 {device_alias} (󰥉 {device_battery_percentage}%)",
+      "tooltip-format": "{controller_alias}\t{controller_address} ({status})\n\n{num_connections} connected",
+      "tooltip-format-disabled": "bluetooth off",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address} ({status})\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t({device_battery_percentage}%)",
+      "max-length": 35,
+      "on-click": "zsh -c bluetooth_toggle",
+      "on-click-right": "blueman-manager"
+    },
+    "network": {
+      "format": "󰤭 ",
+      "format-wifi": "{icon}({signalStrength}%){essid}",
+      "format-icons": [
+        "󰤯 ",
+        "󰤟 ",
+        "󰤢 ",
+        "󰤥 ",
+        "󰤨 "
+      ],
+      "format-disconnected": "󰤫  Disconnected",
+      "tooltip-format": "wifi <span color='#ee99a0'>off</span>",
+      "tooltip-format-wifi": "SSID: {essid}({signalStrength}%), {frequency} MHz\nInterface: {ifname}\nIP: {ipaddr}\nGW: {gwaddr}\n\n<span color='#a6da95'>{bandwidthUpBits}</span>\t<span color='#ee99a0'>{bandwidthDownBits}</span>\t<span color='#c6a0f6'>󰹹{bandwidthTotalBits}</span>",
+      "tooltip-format-disconnected": "<span color='#ed8796'>disconnected</span>",
+      "max-length": 35,
+      "on-click": "",
+      "on-click-right": "alacritty -e nmtui"
+    },
+    "custom/logout_menu": {
+      "return-type": "json",
+      "exec": "echo '{ \"text\":\" 󰐥 \", \"tooltip\": \"logout menu\" }'",
+      "interval": "once",
+      "on-click": "zsh -c wlogout -C $HOME/.config/wlogout/nova.css -l $HOME/.config/wlogout/layout"
+    },
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 20,
+      "icon-theme": "Numix-Circle",
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      "on-click-right": "close",
+      "on-click-middle": "fullscreen"
+    },
+    "tray": {
+      "icon-size": 20,
+      "spacing": 2
+    },
+    "cpu": {
+      "format": "󰻠 {usage}%",
+      "states": {
+        "high": 90,
+        "upper-medium": 70,
+        "medium": 50,
+        "lower-medium": 30,
+        "low": 10
+      },
+      "on-click": "wezterm start btop",
+      "on-click-right": "wezterm start btm"
+    },
+    "memory": {
+      "format": " {percentage}%",
+      "tooltip-format": "Main: ({used} GiB/{total} GiB)({percentage}%), available {avail} GiB\nSwap: ({swapUsed} GiB/{swapTotal} GiB)({swapPercentage}%), available {swapAvail} GiB",
+      "states": {
+        "high": 90,
+        "upper-medium": 70,
+        "medium": 50,
+        "lower-medium": 30,
+        "low": 10
+      },
+      "on-click": "wezterm start btop",
+      "on-click-right": "wezterm start btm"
+    },
+    "disk": {
+      "format": "󰋊 {percentage_used}%",
+      "tooltip-format": "({used}/{total})({percentage_used}%) in '{path}', available {free}({percentage_free}%)",
+      "states": {
+        "high": 90,
+        "upper-medium": 70,
+        "medium": 50,
+        "lower-medium": 30,
+        "low": 10
+      },
+      "on-click": "wezterm start btop",
+      "on-click-right": "wezterm start btm"
+    },
+    "temperature": {
+      "tooltip": false,
+      "thermal-zone": 1,
+      "critical-threshold": 80,
+      "format": "{icon}{temperatureC}󰔄",
+      "format-critical": "🔥 {icon}{temperatureC}󰔄",
+      "format-icons": [
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "battery": {
+      "states": {
+        "high": 90,
+        "upper-medium": 70,
+        "medium": 50,
+        "lower-medium": 30,
+        "low": 10
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": "󱐋 {icon} {capacity}%",
+      "format-plugged": "󰚥 {icon} {capacity}%",
+      "format-time": "{H} h {M} min",
+      "format-icons": [
+        "󱃍",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "tooltip-format": "{timeTo}"
+    },
+    "backlight": {
+      "format": "{icon}{percent}%",
+      "format-icons": [
+        "󰌶",
+        "󱩎",
+        "󱩏",
+        "󱩐",
+        "󱩑",
+        "󱩒",
+        "󱩓",
+        "󱩔",
+        "󱩕",
+        "󱩖",
+        "󰛨"
+      ],
+      "tooltip": false,
+      "states": {
+        "high": 90,
+        "upper-medium": 70,
+        "medium": 50,
+        "lower-medium": 30,
+        "low": 10
+      },
+      "reverse-scrolling": true,
+      "reverse-mouse-scrolling": true
+    },
+    "pulseaudio": {
+      "states": {
+        "high": 90,
+        "upper-medium": 70,
+        "medium": 50,
+        "lower-medium": 30,
+        "low": 10
+      },
+      "tooltip-format": "{desc}",
+      "format": "{icon}{volume}%\n{format_source}",
+      "format-bluetooth": "󰂱{icon}{volume}%\n{format_source}",
+      "format-bluetooth-muted": "󰂱󰝟{volume}%\n{format_source}",
+      "format-muted": "󰝟{volume}%\n{format_source}",
+      "format-source": "󰍬{volume}%",
+      "format-source-muted": "󰍭{volume}%",
+      "format-icons": {
+        "headphone": "󰋋",
+        "hands-free": "",
+        "headset": "󰋎",
+        "phone": "󰄜",
+        "portable": "󰦧",
+        "car": "󰄋",
+        "speaker": "󰓃",
+        "hdmi": "󰡁",
+        "hifi": "󰋌",
+        "default": [
+          "󰕿",
+          "󰖀",
+          "󰕾"
+        ]
+      },
+      "reverse-scrolling": true,
+      "reverse-mouse-scrolling": true,
+      "on-click": "pavucontrol"
+    },
+    "systemd-failed-units": {
+      "format": "✗ {nr_failed}"
+    }
+  }
+]
