@@ -47,8 +47,6 @@ in {
 
   fileSystems = { "/".options = [ "compress=zstd" ]; };
 
-  services.sunshine.enable = true;
-
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-amd
