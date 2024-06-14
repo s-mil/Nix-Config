@@ -84,13 +84,16 @@ in {
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams =
-      [ "quiet" "splash" "acpi_osi=linux" "processor.max_cstate=1" "zfs.zfs_arc_max=21474836480" ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "acpi_osi=linux"
+      "processor.max_cstate=1"
+      "zfs.zfs_arc_max=21474836480"
+    ];
     initrd.supportedFilesystems = [ "zfs" ];
     supportedFilesystems = [ "zfs" ];
-    zfs = {
-      extraPools = [ "Data" "Clio" ];
-    };
+    zfs = { extraPools = [ "Data" "Clio" ]; };
     plymouth = { enable = true; };
     loader = {
       systemd-boot = {

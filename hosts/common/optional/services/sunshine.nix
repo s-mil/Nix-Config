@@ -29,7 +29,6 @@ in {
       KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
     '';
 
-
     systemd.user.services.sunshine = {
       description = "sunshine";
       wantedBy = [ "graphical-session.target" ];

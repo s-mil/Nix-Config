@@ -1,12 +1,13 @@
-{ inputs, pkgs, ... }: let 
+{ inputs, pkgs, ... }:
+let
   vid = "0764";
   pid = "0601";
 
 in {
 
-power.ups = {
-  enable = true;
-  mode = "standalone";
+  power.ups = {
+    enable = true;
+    mode = "standalone";
     ups.cyberpower = {
       # find your driver here:
       # https://networkupstools.org/docs/man/usbhid-ups.html
@@ -25,8 +26,7 @@ power.ups = {
     maxStartDelay = 10;
   };
 
-
-    users = {
+  users = {
     users.nut = {
       isSystemUser = true;
       group = "nut";
@@ -41,6 +41,5 @@ power.ups = {
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTRS{idVendor}=="${vid}", ATTRS{idProduct}=="${pid}", MODE="664", GROUP="nut", OWNER="nut"
   '';
-
 
 }

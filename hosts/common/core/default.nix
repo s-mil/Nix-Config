@@ -7,7 +7,7 @@
     ./standardPkgs.nix # base packages on a system
     ./services/tailscale.nix # tailscale for interdevice networking
     ./fonts.nix # fonts
-    ./nh.nix 
+    ./nh.nix
     #./services/auto-upgrade.nix # auto-upgrade service
   ] ++ (builtins.attrValues outputs.nixosModules);
 

@@ -1,11 +1,13 @@
 { inputs, pkgs, unstable, ... }: {
 
   environment.systemPackages = with pkgs; [
-    unstable.steamtinkerlaunch
+    steamtinkerlaunch
     sunshine
     mangohud
     protonup
     protontricks
+    gamescope
+    gamemode
   ];
 
   programs.steam = {
