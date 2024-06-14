@@ -55,9 +55,9 @@
     wacomtablet
     libwacom
     libsecret
-    signal-desktop
+    unstable.signal-desktop
     ghidra
-    tailscale
+    unstable.tailscale
     gh
     pssh
     du-dust
