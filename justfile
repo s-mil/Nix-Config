@@ -20,10 +20,20 @@ ci-all:
 update:
 	nix flake update
 
+update-nix-vim:
+ (cd ~/git/nix-vim && git fetch && git rebase) || true
+ nix flake lock --update-input nixvim
+ just nh
 update-nix-secrets:
-	(cd ~/git/nix-secrets && git fetch && git rebase) || true
-	nix flake lock --update-input nix-secrets
+ (cd ~/git/nix-secrets && git fetch && git rebase) || true
+ nix flake lock --update-input nix-secrets
+ just nh
 
+nh:
+	nh os switch
+
+nh-update:
+	nh os switch -u
 
 thor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo

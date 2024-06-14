@@ -1,85 +1,81 @@
 { config, pkgs, ... }: {
   stylix.targets.alacritty.enable = false;
-  xdg.configFile."alacritty/theme_catppuccin.yml".text = ''
-    colors:
-      primary:
-          background: "#1E1E2E" # base
-          foreground: "#CDD6F4" # text
-          # Bright and dim foreground colors
-          dim_foreground: "#CDD6F4" # text
-          bright_foreground: "#CDD6F4" # text
+  xdg.configFile."alacritty/theme_catppuccin.toml".text = ''
+    [[colors.indexed_colors]]
+    color = "#FAB387"
+    index = 16
 
-      # Cursor colors
-      cursor:
-          text: "#1E1E2E" # base
-          cursor: "#F5E0DC" # rosewater
-      vi_mode_cursor:
-          text: "#1E1E2E" # base
-          cursor: "#B4BEFE" # lavender
+    [[colors.indexed_colors]]
+    color = "#F5E0DC"
+    index = 17
 
-      # Search colors
-      search:
-          matches:
-              foreground: "#1E1E2E" # base
-              background: "#A6ADC8" # subtext0
-          focused_match:
-              foreground: "#1E1E2E" # base
-              background: "#A6E3A1" # green
-          footer_bar:
-              foreground: "#1E1E2E" # base
-              background: "#A6ADC8" # subtext0
+    [colors.bright]
+    black = "#585B70"
+    blue = "#89B4FA"
+    cyan = "#94E2D5"
+    green = "#A6E3A1"
+    magenta = "#F5C2E7"
+    red = "#F38BA8"
+    white = "#A6ADC8"
+    yellow = "#F9E2AF"
 
-      # Keyboard regex hints
-      hints:
-          start:
-              foreground: "#1E1E2E" # base
-              background: "#F9E2AF" # yellow
-          end:
-              foreground: "#1E1E2E" # base
-              background: "#A6ADC8" # subtext0
+    [colors.cursor]
+    cursor = "#F5E0DC"
+    text = "#1E1E2E"
 
-      # Selection colors
-      selection:
-          text: "#1E1E2E" # base
-          background: "#F5E0DC" # rosewater
+    [colors.dim]
+    black = "#45475A"
+    blue = "#89B4FA"
+    cyan = "#94E2D5"
+    green = "#A6E3A1"
+    magenta = "#F5C2E7"
+    red = "#F38BA8"
+    white = "#BAC2DE"
+    yellow = "#F9E2AF"
 
-      # Normal colors
-      normal:
-          black: "#45475A" # surface1
-          red: "#F38BA8" # red
-          green: "#A6E3A1" # green
-          yellow: "#F9E2AF" # yellow
-          blue: "#89B4FA" # blue
-          magenta: "#F5C2E7" # pink
-          cyan: "#94E2D5" # teal
-          white: "#BAC2DE" # subtext1
+    [colors.hints.end]
+    background = "#A6ADC8"
+    foreground = "#1E1E2E"
 
-      # Bright colors
-      bright:
-          black: "#585B70" # surface2
-          red: "#F38BA8" # red
-          green: "#A6E3A1" # green
-          yellow: "#F9E2AF" # yellow
-          blue: "#89B4FA" # blue
-          magenta: "#F5C2E7" # pink
-          cyan: "#94E2D5" # teal
-          white: "#A6ADC8" # subtext0
+    [colors.hints.start]
+    background = "#F9E2AF"
+    foreground = "#1E1E2E"
 
-      # Dim colors
-      dim:
-          black: "#45475A" # surface1
-          red: "#F38BA8" # red
-          green: "#A6E3A1" # green
-          yellow: "#F9E2AF" # yellow
-          blue: "#89B4FA" # blue
-          magenta: "#F5C2E7" # pink
-          cyan: "#94E2D5" # teal
-          white: "#BAC2DE" # subtext1
+    [colors.normal]
+    black = "#45475A"
+    blue = "#89B4FA"
+    cyan = "#94E2D5"
+    green = "#A6E3A1"
+    magenta = "#F5C2E7"
+    red = "#F38BA8"
+    white = "#BAC2DE"
+    yellow = "#F9E2AF"
 
-      indexed_colors:
-          - { index: 16, color: "#FAB387" }
-          - { index: 17, color: "#F5E0DC" }
+    [colors.primary]
+    background = "#1E1E2E"
+    bright_foreground = "#CDD6F4"
+    dim_foreground = "#CDD6F4"
+    foreground = "#CDD6F4"
 
+    [colors.search.focused_match]
+    background = "#A6E3A1"
+    foreground = "#1E1E2E"
+
+    [colors.search.matches]
+    background = "#A6ADC8"
+    foreground = "#1E1E2E"
+
+    [colors.selection]
+    background = "#F5E0DC"
+    text = "#1E1E2E"
+
+    [colors.vi_mode_cursor]
+    cursor = "#B4BEFE"
+    text = "#1E1E2E"
+
+    [colors.footer_bar]
+    background = "#A6ADC8"
+    foreground = "#1E1E2E"
   '';
   programs.alacritty = { enable = true; };
   xdg.configFile."alacritty/alacritty.yml".text = ''

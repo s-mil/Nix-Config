@@ -5,20 +5,41 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-
   environment.systemPackages = with pkgs; [
     pyprland
     hyprpicker
-    unstable.hyprcursor
-    unstable.hyprlock
-    unstable.hypridle
+    hyprcursor
+    hyprlock
+    hypridle
     hyprpaper
+    wlogout
+    swaynotificationcenter
     mako
     wofi
-    unstable.waybar
-    eww-wayland
+    waybar
     eww
+    xdg-desktop-portal-hyprland
+    wl-clipboard
+    wf-recorder
+    pavucontrol
+    pulseaudio
+    xfce.thunar
   ];
+  environment.sessionVariables = {
+    SDL_VIDEODRIVER = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
+  xdg.portal.enable = true;
+  programs.waybar.enable = true;
+  security.polkit.enable = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
+
+  # Enable gnome keyring
+  services.gnome.gnome-keyring.enable = true;
 }

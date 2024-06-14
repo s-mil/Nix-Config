@@ -1,5 +1,5 @@
-{pkgs, ...}:{
-   virtualisation = {
+{ pkgs, ... }: {
+  virtualisation = {
     libvirtd = {
       enable = true;
       qemu = {

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
     nano
     git
@@ -20,5 +20,7 @@
     catppuccin-sddm-corners
     syncthing
     syncthing-tray
+    inputs.nixvim.packages."x86_64-linux".default
   ];
+
 }

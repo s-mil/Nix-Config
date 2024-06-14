@@ -4,14 +4,11 @@
     ./zsh.nix
     ./git.nix
     ./jujutsu.nix
-    ./nixvim
     ./alacritty.nix
     ./bat.nix
     ./zoxide.nix
     ./vscode.nix
     ./wofi.nix
-    # ./catppuccin-gtk.nix
-
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   services.ssh-agent.enable = true;
