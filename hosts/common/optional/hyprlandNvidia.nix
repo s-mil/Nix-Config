@@ -14,10 +14,8 @@
     hyprpaper
     wlogout
     swaynotificationcenter
-    mako
     wofi
     waybar
-    eww
     xdg-desktop-portal-hyprland
     wl-clipboard
     wf-recorder

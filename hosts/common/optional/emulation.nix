@@ -1,8 +1,9 @@
-{ config, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
-    dolphin-emu
+{ unstable, ... }: {
+  environment.systemPackages = with unstable; [
     dolphin-emu-primehack
-    emulationstation
+    #emulationstation-de #depends on insecure package :(
+    pegasus-frontend
     retroarchFull
+    ryujinx
   ];
 }
