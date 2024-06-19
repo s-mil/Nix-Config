@@ -47,8 +47,6 @@ in {
 
   fileSystems = { "/".options = [ "compress=zstd" ]; };
 
-  services.sunshine.enable = true;
-
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-amd
@@ -67,7 +65,7 @@ in {
     ../common/optional/emulation.nix
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kde.nix
-    ../common/optional/hyprland.nix
+    ../common/optional/hyprlandNvidia.nix
     ../common/optional/services/sunshine.nix
     ../common/optional/services/dockerNV.nix
     ../common/optional/services/openrgb.nix

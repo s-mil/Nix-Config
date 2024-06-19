@@ -1,0 +1,30 @@
+import = ["/home/sithis/.config/alacritty/theme_catppuccin.toml"]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[font]
+size = 18
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[scrolling]
+history = 10000
+
+[window]
+dynamic_title = true
+opacity = 0.93

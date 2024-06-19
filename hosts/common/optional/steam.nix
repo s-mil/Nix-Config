@@ -6,10 +6,13 @@
     mangohud
     protonup
     protontricks
-    gamescope
     gamemode
   ];
 
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
   programs.steam = {
     enable = true;
 

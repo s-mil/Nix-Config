@@ -23,14 +23,19 @@
     pulseaudio
     xfce.thunar
     kdePackages.polkit-kde-agent-1
+    xwayland
   ];
   environment.sessionVariables = {
-    SDL_VIDEODRIVER = "wayland";
+    # SDL_VIDEODRIVER = "wayland";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    LIBVA_DRIVER_NAME= "nvidia";
+    XDG_SESSION_TYPE = "wayland";
+    GBM_BACKEND = "nvidia-drm";
+    GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
   xdg.portal.enable = true;
