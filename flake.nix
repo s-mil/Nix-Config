@@ -136,6 +136,8 @@
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/freya
+            inputs.stylix.nixosModules.stylix
+
           ];
         };
 
