@@ -22,6 +22,7 @@
     pavucontrol
     pulseaudio
     xfce.thunar
+    kdePackages.polkit-kde-agent-1
   ];
   environment.sessionVariables = {
     SDL_VIDEODRIVER = "wayland";
