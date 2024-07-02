@@ -67,6 +67,8 @@ in {
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
+  services.displayManager.defaultSession = "hyprland";
+
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

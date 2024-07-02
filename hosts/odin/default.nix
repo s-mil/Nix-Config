@@ -65,9 +65,9 @@ in {
     ../common/optional/emulation.nix
     ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kde.nix
-    ../common/optional/hyprlandNvidia.nix
+    ../common/optional/hyprland.nix
     ../common/optional/services/sunshine.nix
-    ../common/optional/services/dockerNV.nix
+    ../common/optional/services/docker.nix
     ../common/optional/services/openrgb.nix
     ../common/optional/services/flatpak.nix
     ../common/optional/services/printing.nix
@@ -111,6 +111,7 @@ in {
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   services.nfs.server.enable = true;
+  services.displayManager.defaultSession = "plasma";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

@@ -10,7 +10,6 @@
   }
 )];
   
-  services.displayManager.defaultSession = "hyprland";
   services.displayManager.sddm = {
     enable = true;
     extraPackages = [
