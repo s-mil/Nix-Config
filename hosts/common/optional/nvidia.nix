@@ -14,10 +14,13 @@
     open = false;
     nvidiaSettings = true;
   };
+
+  # CONTAINERS
   hardware.nvidia-container-toolkit.enable = true;
   environment.systemPackages = with pkgs; [ cudatoolkit ];
   virtualisation.containers.cdi.dynamic.nvidia.enable = true;
 
+# HYPRLAND ENV
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME= "nvidia";
     XDG_SESSION_TYPE = "wayland";

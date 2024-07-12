@@ -12,6 +12,7 @@
   
   services.displayManager.sddm = {
     enable = true;
+    package = pkgs.kdePackages.sddm;
     extraPackages = [
       pkgs.kdePackages.sddm-kcm
     ];
