@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, lib, unstable, ... }: {
+{ unstable, ... }: {
   services.tailscale = {
     enable = true;
     port = 41641;
