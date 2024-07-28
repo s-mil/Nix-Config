@@ -85,6 +85,7 @@
     sqld
     atuin
     starship
+    brave
   ];
 
   nixpkgs = {
