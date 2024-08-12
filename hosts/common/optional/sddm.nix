@@ -12,7 +12,7 @@
   
   services.displayManager.sddm = {
     enable = true;
-    package = pkgs.kdePackages.sddm;
+    #package = pkgs.kdePackages.sddm;
     theme = "catppuccin-mocha";
     settings = { General = { InputMethod = " "; }; };
     wayland.enable = true;
