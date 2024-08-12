@@ -1,7 +1,7 @@
 { inputs, pkgs, config, ... }: {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -17,7 +17,6 @@
   # CONTAINERS
   hardware.nvidia-container-toolkit.enable = true;
   environment.systemPackages = with pkgs; [ cudatoolkit ];
-  virtualisation.containers.cdi.dynamic.nvidia.enable = true;
 
 # HYPRLAND ENV
   environment.sessionVariables = {

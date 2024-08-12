@@ -13,7 +13,7 @@
     dig
     cifs-utils
     ranger
-    nixfmt
+    nixfmt-classic
     nixd
     zellij
     unstable.nh
