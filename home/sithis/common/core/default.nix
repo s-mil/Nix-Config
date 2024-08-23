@@ -70,6 +70,7 @@
     ffmpeg
     discord
     moonlight-qt
+    floorp-unwrapped
     #rustdesk too big needs to only be installed when needed
     pcmanfm
     catppuccin-gtk
