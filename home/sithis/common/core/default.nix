@@ -82,7 +82,7 @@
     go
     gox
     turso-cli
-    sqld
+    #sqld
     atuin
     starship
     brave
