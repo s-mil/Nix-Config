@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }: {
+{ pkgs, config, ... }: {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -16,7 +16,10 @@
 
   # CONTAINERS
   hardware.nvidia-container-toolkit.enable = true;
-  environment.systemPackages = with pkgs; [ cudatoolkit ];
+  environment.systemPackages = with pkgs; [ 
+    cudatoolkit 
+    nvidia-container-toolkit
+    ];
 
 # HYPRLAND ENV
   environment.sessionVariables = {

@@ -71,7 +71,7 @@ in {
     ../common/optional/services/flatpak.nix
     ../common/optional/services/printing.nix
     ../common/optional/services/ollama.nix
-    #../common/optional/services/tabby.nix
+    # ../common/optional/services/tabby.nix
     ../common/optional/sops.nix
     ../common/optional/stylix
 
@@ -110,8 +110,30 @@ in {
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
-  services.nfs.server.enable = true;
   services.displayManager.defaultSession = "plasma";
+
+  services.nfs.server = {
+    enable = true;
+    lockdPort = 4001;
+    mountdPort = 4002;
+    statdPort = 4000;
+    exports = ''
+      /Clio/Media/audiobooks         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Clio/Media/podcasts         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Clio/Media/tv         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Clio/paperless         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Clio/download/pyload         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Clio/download/tdown         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Anime         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Audio-Books         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/AV_Test         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Books         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Manga         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Movies         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Music         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/Media/Photos         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+    '';
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
