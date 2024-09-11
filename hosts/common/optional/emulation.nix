@@ -3,7 +3,7 @@
     dolphin-emu-primehack
     #emulationstation-de #depends on insecure package :(
     pegasus-frontend
-    retroarchFull
+    # retroarchFull
     ryujinx
   ];
 }
