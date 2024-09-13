@@ -23,13 +23,14 @@ in {
     ./hardware-configuration.nix
 
     #################### Host-specific Optional Configs ####################
-    ../common/optional/sddm.nix
+    # ../common/optional/sddm.nix
+    ../common/optional/cosmic.nix
     ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/services/docker.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix # audio
-    ../common/optional/xfce4.nix # escape hatch
+    # ../common/optional/xfce4.nix # escape hatch
     ../common/optional/kubernetesOps
     ../common/optional/services/flatpak.nix
     ../common/optional/stylix
