@@ -1,4 +1,4 @@
-{ inputs, pkgs, unstable, ... }: {
+{  pkgs, ... }: {
   
   environment.systemPackages = [(
   pkgs.catppuccin-sddm.override {
@@ -12,8 +12,8 @@
   
   services.displayManager.sddm = {
     enable = true;
-    #package = pkgs.kdePackages.sddm;
     theme = "catppuccin-mocha";
+    extraPackages = [pkgs.kdePackages.sddm-kcm];
     settings = { General = { InputMethod = " "; }; };
     wayland.enable = true;
   };

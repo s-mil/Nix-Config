@@ -15,6 +15,7 @@
   };
 
   # CONTAINERS
+  virtualisation.docker.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
   environment.systemPackages = with pkgs; [ 
     cudatoolkit 
