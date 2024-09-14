@@ -5,7 +5,7 @@
 #
 ###############################################################
 
-{ inputs, config, lib, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 let
 
   Hostname = "odin";
@@ -57,7 +57,8 @@ in {
     ./hardware-configuration.nix
 
     #################### Host-specific Optional Configs ####################
-    ../common/optional/sddm.nix
+    ../commmon/optional/cosmic.nix
+    # ../common/optional/sddm.nix
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/nvidia.nix
     ../common/optional/steam.nix
@@ -110,7 +111,7 @@ in {
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
-  services.displayManager.defaultSession = "plasma";
+  services.displayManager.defaultSession = "cosmic";
 
   services.nfs.server = {
     enable = true;
