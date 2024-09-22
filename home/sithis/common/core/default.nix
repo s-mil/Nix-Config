@@ -9,6 +9,7 @@
     ./zoxide.nix
     ./vscode.nix
     ./wofi.nix
+    ./yazi.nix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   services.ssh-agent.enable = true;
