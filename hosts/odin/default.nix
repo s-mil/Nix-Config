@@ -82,7 +82,6 @@ in {
   ];
 
   boot = {
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [
       "quiet"
       "splash"

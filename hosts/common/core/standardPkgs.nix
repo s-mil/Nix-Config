@@ -21,6 +21,8 @@
     syncthing-tray
     inputs.nixvim.packages."x86_64-linux".default
     wdisplays
+    devenv
+    direnv
   ];
 
 }

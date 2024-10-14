@@ -44,7 +44,6 @@ in {
 
   boot = {
     plymouth = { enable = true; };
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "quiet" "splash" "acpi_osi=linux" ];
     loader = {
       systemd-boot = {
