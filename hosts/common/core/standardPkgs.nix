@@ -23,6 +23,7 @@
     wdisplays
     devenv
     direnv
+    rclone
   ];
 
 }
