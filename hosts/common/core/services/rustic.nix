@@ -4,7 +4,7 @@
 
   users.users.rustic = { isNormalUser = true; };
 
-  security.wrappers.restic = {
+  security.wrappers.rustic = {
     source = "${pkgs.rustic.out}/bin/rustic";
     owner = "rustic";
     group = "users";
