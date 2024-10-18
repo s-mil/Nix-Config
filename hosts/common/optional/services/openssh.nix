@@ -1,4 +1,4 @@
-{ outputs, lib, config, ... }:
+{ outputs, config, ... }:
 let
   inherit (config.networking) hostName;
   hosts = outputs.nixosConfigurations;
