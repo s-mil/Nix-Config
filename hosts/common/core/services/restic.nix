@@ -5,7 +5,7 @@
   users.users.restic = { isNormalUser = true; };
 
   security.wrappers.restic = {
-    source = "${pkgs.rustic.out}/bin/restic";
+    source = "${pkgs.restic.out}/bin/restic";
     owner = "restic";
     group = "users";
     permissions = "u=rwx,g=,o=";
