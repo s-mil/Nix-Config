@@ -6,7 +6,7 @@
     ./zsh.nix # load a basic shell just in case we need it without home-manager
     ./standardPkgs.nix # base packages on a system
     ./services/tailscale.nix # tailscale for interdevice networking
-    ./services/restic.nix # Restic for backups
+    ./services/rustic.nix # Rustic for backups
     ./fonts.nix # fonts
     ./nh.nix
     #./services/auto-upgrade.nix # auto-upgrade service
