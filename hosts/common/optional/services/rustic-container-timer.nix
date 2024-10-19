@@ -1,16 +1,16 @@
 {pkgs, ...}:{
-  systemd.timers."Backup-Picutres" = {
+  systemd.timers."Backup-Containers" = {
     wantedBy = [ "timers.target"];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 4:00:00";
         Persistent = true;
-        Unit = "Backup-Pictures.service";
+        Unit = "Backup-Containers.service";
       };
   };
 
-  systemd.services."Backup-Pictures"={
+  systemd.services."Backup-Containers"={
     script = ''
-    ${pkgs.rclone}/bin/rclone copy  
+    ${pkgs.rustic}/bin/rustic backup  
     '';
     serviceConfig = {
       Type = "oneshot";

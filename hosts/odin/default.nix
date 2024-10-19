@@ -72,6 +72,7 @@ in {
     ../common/optional/services/flatpak.nix
     ../common/optional/services/printing.nix
     ../common/optional/services/ollama.nix
+    ../common/optional/services/rustic-container-timer.nix
     # ../common/optional/services/tabby.nix
     ../common/optional/sops.nix
     ../common/optional/stylix
