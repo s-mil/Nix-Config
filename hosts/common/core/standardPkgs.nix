@@ -18,7 +18,7 @@
     zellij
     unstable.nh
     syncthing
-    syncthing-tray
+    syncthingtray
     inputs.nixvim.packages."x86_64-linux".default
     wdisplays
     devenv
