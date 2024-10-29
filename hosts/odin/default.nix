@@ -42,7 +42,7 @@ in {
       };
     };
     defaultGateway = "10.0.0.1";
-    nameservers = [ "10.10.0.11" "10.10.0.10" ];
+    nameservers = [ "10.10.0.11" "10.10.0.64" ];
   };
 
   fileSystems = { "/".options = [ "compress=zstd" ]; };

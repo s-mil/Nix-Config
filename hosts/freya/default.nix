@@ -26,7 +26,7 @@ in {
       };
     };
     defaultGateway = "10.0.0.1";
-    nameservers = [ "10.10.0.11" "10.10.0.10" ];
+    nameservers = [ "10.10.0.11" "10.10.0.64" ];
   };
 
   imports = [
@@ -37,14 +37,14 @@ in {
     #################### Required Configs ####################
     ../common/core
     ./hardware-configuration.nix
-
+    # ../common/optional/cosmic.nix
     #################### Host-specific Optional Configs ####################
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/pipewire.nix # audio
-    ../common/optional/xfce4.nix # escape hatch
+    # ../common/optional/xfce4.nix # escape hatch
     ../common/optional/services/docker.nix
     ../common/optional/kde.nix
-    ../common/optional/services/k3s.nix
+    # ../common/optional/services/k3s.nix
     ../common/optional/services/docker.nix
 
     #################### Users to Create ####################
