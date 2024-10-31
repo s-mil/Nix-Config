@@ -7,6 +7,7 @@
     ./standardPkgs.nix # base packages on a system
     ./services/tailscale.nix # tailscale for interdevice networking
     ./services/rustic.nix # Rustic for backups
+    ./services/syncthing.nix # syncthing for file syncing
     ./fonts.nix # fonts
     ./nh.nix
     #./services/auto-upgrade.nix # auto-upgrade service
