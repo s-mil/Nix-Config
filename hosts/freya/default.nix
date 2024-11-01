@@ -5,7 +5,7 @@
 #
 ###############################################################
 
-{ inputs, configLib, ... }:
+{ inputs, ... }:
 let
 
   Hostname = "freya";
@@ -52,10 +52,6 @@ in {
 
   ];
 
-  services.k3s = {
-    enable = true;
-    role = "server";
-  };
   boot = {
     loader = {
       systemd-boot = {
@@ -67,10 +63,12 @@ in {
     };
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
+  services = {
+    xserver.enable = true;
+    displayManager.sddm.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
+  
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
