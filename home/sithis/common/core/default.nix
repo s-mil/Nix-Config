@@ -57,7 +57,6 @@
     libwacom
     libsecret
     signal-desktop
-    ghidra
     tailscale
     gh
     pssh
