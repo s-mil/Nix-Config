@@ -34,11 +34,10 @@
   home.packages = with pkgs; [
     firefox-devedition-bin
     spotify
-    spotifyd
     vlc
     btop
     htop
-    neofetch
+    fastfetch
     gparted
     unzip
     trash-cli
@@ -59,7 +58,6 @@
     signal-desktop
     tailscale
     gh
-    pssh
     du-dust
     bitwarden-cli
     fd
@@ -70,7 +68,6 @@
     ffmpeg
     discord
     moonlight-qt
-    floorp-unwrapped
     #rustdesk too big needs to only be installed when needed
     pcmanfm
     catppuccin-gtk
