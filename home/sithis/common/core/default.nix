@@ -44,9 +44,6 @@
     wget
     curl
     docker-compose
-    gcc
-    rustup
-    python3Full
     ansible
     xclip
     ffmpeg
@@ -77,8 +74,6 @@
     pkg-config
     openssl.dev
     pika-backup
-    go
-    gox
     turso-cli
     #sqld
     atuin
