@@ -27,10 +27,10 @@
       };
     };
 
-    cursor = {
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "Catppuccin-Mocha-Dark-Cursors";
-    };
+    # cursor = {
+    #   package = pkgs.catppuccin-cursors.mochaDark;
+    #   name = "Catppuccin-Mocha-Dark-Cursors";
+    # };
 
   };
 }
