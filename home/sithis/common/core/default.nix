@@ -28,7 +28,6 @@
       MANPAGER = "batman";
       STEAM_EXTRA_COMPAT_TOOLS_PATHS =
         "\${HOME}/.steam/root/compatibilitytools.d";
-      DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_8.sdk}";
     };
   };
 
@@ -79,9 +78,6 @@
     atuin
     starship
     brave
-    jetbrains.rider
-    dotnetCorePackages.dotnet_8.sdk
-    msbuild
   ];
 
   nixpkgs = {
