@@ -1,7 +1,20 @@
 { inputs, lib, ... }: {
   nix = {
+    buildMachines = [{
+      hostName = "odin";
+      system = "x86_64-linux";
+      protocol = "ssh-ng";
+      maxJobs = 8;
+      speedFactor = 2;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      mandatoryFeatures = [ ];
+    }];
+    distributedBuilds = true;
+    # extraOptions = ''
+    #   builders-use-substitutes=true
+    # '';
     settings = {
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [ "root" "@wheel" "sithis" ];
       substituters =
         [ "https://hyprland.cachix.org" "https://cosmic.cachix.org/" ];
       trusted-public-keys = [

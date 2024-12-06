@@ -35,6 +35,9 @@ nh:
 nh-update:
 	nh os switch -u
 
+nh-remote-update:
+  nh os switch -u -- -j0
+
 thor:
 	nixos-rebuild switch --flake .#thor --use-remote-sudo
 
