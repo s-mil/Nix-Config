@@ -68,7 +68,7 @@ in {
     displayManager.sddm.enable = true;
     gnome.gnome-keyring.enable = true;
   };
-  
+
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;

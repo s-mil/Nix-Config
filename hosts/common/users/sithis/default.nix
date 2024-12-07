@@ -17,7 +17,7 @@ in {
     # hashedPasswordFile = sopsHashedPasswordFile;
     shell = pkgs.zsh; # default shell
     extraGroups = [ "wheel" "audio" "video" "libvirtd" ]
-      ++ ifTheyExist [ "docker" "git" "mysql" "network" "flatpak" "adbusers"];
+      ++ ifTheyExist [ "docker" "git" "mysql" "network" "flatpak" "adbusers" ];
 
     openssh.authorizedKeys.keys =
       lib.lists.forEach pubKeys (key: builtins.readFile key);

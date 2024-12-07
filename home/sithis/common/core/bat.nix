@@ -11,10 +11,10 @@
     };
 
     extraPackages = with pkgs.bat-extras; [
-        batwatch 
-        batgrep # search through and highlight files using ripgrep
-       # batdiff # Diff a file against the current git index, or display the diff between to files - removed for error
-        batman # read manpages using bat as the formatter
+      batwatch
+      batgrep # search through and highlight files using ripgrep
+      # batdiff # Diff a file against the current git index, or display the diff between to files - removed for error
+      batman # read manpages using bat as the formatter
     ];
   };
 }

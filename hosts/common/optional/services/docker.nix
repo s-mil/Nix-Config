@@ -5,10 +5,6 @@
       enable = true;
       dates = "weekly";
     };
-    daemon.settings = {
-      features = {
-        cdi = true;
-      };
-    };
+    daemon.settings = { features = { cdi = true; }; };
   };
 }

@@ -103,8 +103,15 @@ in {
       efi = { efiSysMountPoint = mountPoint; };
     };
   };
+  sops.secrets.odin_cache.path = { };
 
   services.xserver.enable = true;
+
+  services.nix-serve = {
+    enable = true;
+    secret-key-files = config.sops.secrets.odin_cache.path;
+    port = 22222;
+  };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;

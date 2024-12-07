@@ -17,14 +17,14 @@
   # CONTAINERS
   virtualisation.docker.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
-  environment.systemPackages = with pkgs; [ 
-    cudatoolkit 
+  environment.systemPackages = with pkgs; [
+    cudatoolkit
     nvidia-container-toolkit
-    ];
+  ];
 
-# HYPRLAND ENV
+  # HYPRLAND ENV
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME= "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
     XDG_SESSION_TYPE = "wayland";
     GBM_BACKEND = "nvidia-drm";
     GLX_VENDOR_LIBRARY_NAME = "nvidia";
