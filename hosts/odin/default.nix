@@ -103,13 +103,13 @@ in {
       efi = { efiSysMountPoint = mountPoint; };
     };
   };
-  sops.secrets.odin_cache.path = { };
+  sops.secrets.odin_cache = { };
 
   services.xserver.enable = true;
 
   services.nix-serve = {
     enable = true;
-    secret-key-files = config.sops.secrets.odin_cache.path;
+    secretKeyFile = config.sops.secrets.odin_cache.path;
     port = 22222;
   };
 
