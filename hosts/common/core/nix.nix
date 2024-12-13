@@ -1,19 +1,31 @@
-{ inputs, lib, ... }: {
+{ inputs, lib, ... }:
+{
   nix = {
-    buildMachines = [{
-      hostName = "odin";
-      system = "x86_64-linux";
-      maxJobs = 8;
-      speedFactor = 2;
-      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-      mandatoryFeatures = [ ];
-    }];
+    buildMachines = [
+      {
+        hostName = "odin";
+        system = "x86_64-linux";
+        maxJobs = 6;
+        speedFactor = 2;
+        supportedFeatures = [
+          "nixos-test"
+          "benchmark"
+          "big-parallel"
+          "kvm"
+        ];
+        mandatoryFeatures = [ ];
+      }
+    ];
     distributedBuilds = true;
     # extraOptions = ''
     #   builders-use-substitutes=true
     # '';
     settings = {
-      trusted-users = [ "root" "@wheel" "sithis" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+        "sithis"
+      ];
       substituters = [
         "https://hyprland.cachix.org"
         "https://cosmic.cachix.org/"
@@ -26,11 +38,17 @@
       ];
 
       auto-optimise-store = lib.mkDefault true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
-      system-features = [ "kvm" "big-parallel" "nixos-test" ];
-      flake-registry =
-        ""; # Disable global flake registry   This is a hold-over setting from Misterio77. Not sure significance but likely to do with nix.registry entry below.
+      system-features = [
+        "kvm"
+        "big-parallel"
+        "nixos-test"
+      ];
+      flake-registry = ""; # Disable global flake registry   This is a hold-over setting from Misterio77. Not sure significance but likely to do with nix.registry entry below.
     };
 
     # Add each flake input as a registry to make nix3 commands consistent with your flake
