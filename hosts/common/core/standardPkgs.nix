@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   environment.systemPackages = with pkgs; [
     nano
     git
@@ -19,7 +20,7 @@
     unstable.nh
     syncthing
     syncthingtray
-    inputs.nixvim.packages."x86_64-linux".default
+    # inputs.nixvim.packages."x86_64-linux".default
     wdisplays
     devenv
     direnv

@@ -4,8 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url =
-      "github:NixOS/nixpkgs/nixos-unstable"; # also see 'unstable-packages' overlay at 'overlays/default.nix"
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable"; # also see 'unstable-packages' overlay at 'overlays/default.nix"
 
     hardware.url = "github:nixos/nixos-hardware";
     # Home manager
@@ -48,17 +47,13 @@
       flake = false;
     };
 
-    nixvim = {
-      url = "github:s-mil/nix-vim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #    nixvim = {
+    # url = "github:s-mil/nix-vim";
+    # inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";
-      flake = false;
-    };
-    catppuccin-fcitx5 = {
-      url = "github:catppuccin/fcitx5";
       flake = false;
     };
     catppuccin-bat = {
@@ -67,10 +62,6 @@
     };
     catppuccin-alacritty = {
       url = "github:catppuccin/alacritty";
-      flake = false;
-    };
-    catppuccin-wezterm = {
-      url = "github:catppuccin/wezterm";
       flake = false;
     };
     catppuccin-helix = {
@@ -85,18 +76,16 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
-    catppuccin-cava = {
-      url = "github:catppuccin/cava";
-      flake = false;
-    };
-    cattppuccin-k9s = {
-      url = "github:catppuccin/k9s";
-      flake = false;
-    };
-
   };
 
-  outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixpkgs-unstable,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
@@ -110,9 +99,17 @@
       configVars = import ./vars { inherit inputs lib; };
       configLib = import ./lib { inherit lib; };
       specialArgs = {
-        inherit inputs outputs configVars configLib nixpkgs unstable;
+        inherit
+          inputs
+          outputs
+          configVars
+          configLib
+          nixpkgs
+          unstable
+          ;
       };
-    in {
+    in
+    {
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
