@@ -10,6 +10,7 @@
     ./services/syncthing.nix # syncthing for file syncing
     ./fonts.nix # fonts
     ./nh.nix
+    ./nvf # Neovim config
     #./services/auto-upgrade.nix # auto-upgrade service
   ] ++ (builtins.attrValues outputs.nixosModules);
 

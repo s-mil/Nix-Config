@@ -39,6 +39,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvf.url = "github:notashelf/nvf";
+
     xremap-flake.url = "github:xremap/nix-flake";
 
     # # Personal
@@ -128,6 +130,7 @@
             ./hosts/odin
             inputs.stylix.nixosModules.stylix
             inputs.nixos-cosmic.nixosModules.default
+            inputs.nvf.nixosModules.default
           ];
         };
         #####################################################
@@ -140,7 +143,7 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/freya
             inputs.stylix.nixosModules.stylix
-
+            inputs.nvf.nixosModules.default
           ];
         };
 
@@ -155,6 +158,7 @@
             ./hosts/thor
             inputs.stylix.nixosModules.stylix
             inputs.nixos-cosmic.nixosModules.default
+            inputs.nvf.nixosModules.default
           ];
         };
 

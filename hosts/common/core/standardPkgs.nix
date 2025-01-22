@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     nano
@@ -14,10 +14,10 @@
     dig
     cifs-utils
     ranger
-    nixfmt-classic
+    nixfmt-rfc-style
     nixd
     zellij
-    unstable.nh
+    nh
     syncthing
     syncthingtray
     # inputs.nixvim.packages."x86_64-linux".default
@@ -25,6 +25,9 @@
     devenv
     direnv
     rclone
+    zed-editor
+    ghostty
+    fish
   ];
 
 }

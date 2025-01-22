@@ -17,9 +17,7 @@
       }
     ];
     distributedBuilds = true;
-    # extraOptions = ''
-    #   builders-use-substitutes=true
-    # '';
+
     settings = {
       trusted-users = [
         "root"
