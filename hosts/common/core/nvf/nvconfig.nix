@@ -11,7 +11,6 @@
           theme = "catppuccin";
         };
       };
-      nvim-autopairs.enable = true;
       visuals = {
         nvim-web-devicons.enable = true;
         nvim-scrollbar.enable = true;
