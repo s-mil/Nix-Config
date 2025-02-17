@@ -143,6 +143,7 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/freya
             inputs.stylix.nixosModules.stylix
+            inputs.nixos-cosmic.nixosModules.default
             inputs.nvf.nixosModules.default
           ];
         };
