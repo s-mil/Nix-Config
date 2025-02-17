@@ -39,11 +39,13 @@ in {
     ./hardware-configuration.nix
     # ../common/optional/cosmic.nix
     #################### Host-specific Optional Configs ####################
+    ../common/optional/cosmic.nix
+    ../common/optional/hyprland.nix
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/pipewire.nix # audio
     # ../common/optional/xfce4.nix # escape hatch
     ../common/optional/services/docker.nix
-    ../common/optional/kde.nix
+    # ../common/optional/kde.nix
     # ../common/optional/services/k3s.nix
     ../common/optional/services/docker.nix
 
@@ -65,11 +67,11 @@ in {
 
   services = {
     xserver.enable = true;
-    displayManager.sddm.enable = true;
     gnome.gnome-keyring.enable = true;
   };
 
   security.pam.services.sddm.enableGnomeKeyring = true;
+  security.polkit.enable = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
