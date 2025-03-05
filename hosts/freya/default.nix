@@ -49,7 +49,7 @@ in {
     # ../common/optional/services/k3s.nix
     ../common/optional/services/docker.nix
 
-    ../common/optional/stylix.nix
+    ../common/optional/stylix
     #################### Users to Create ####################
     ../common/users/sithis
 
