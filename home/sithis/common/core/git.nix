@@ -1,4 +1,10 @@
-{ config, pkgs, unstable, ... }: {
+{
+  config,
+  pkgs,
+  unstable,
+  ...
+}:
+{
   programs.git = {
     enable = true;
     package = unstable.gitFull;
@@ -51,6 +57,8 @@
     };
   };
 
-  programs.gh = { enable = true; };
+  programs.gh = {
+    enable = true;
+  };
 
 }
