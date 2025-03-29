@@ -73,6 +73,7 @@ in {
     ../common/optional/services/printing.nix
     ../common/optional/services/ollama.nix
     ../common/optional/services/rustic-container-timer.nix
+    ../common/optional/kubernetesOps
     # ../common/optional/services/tabby.nix
     ../common/optional/sops.nix
     ../common/optional/stylix
