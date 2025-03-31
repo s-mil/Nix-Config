@@ -4,13 +4,20 @@
 #  NixOS running on Lenovo Yoga x1 Carbon Gen 1
 #
 ###############################################################
-{ inputs, config, lib, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
 
   Hostname = "thor";
   mountPoint = "/boot";
 
-in {
+in
+{
   networking.hostName = Hostname;
 
   imports = [
@@ -43,25 +50,38 @@ in {
   ];
 
   boot = {
-    plymouth = { enable = true; };
-    kernelParams = [ "quiet" "splash" "acpi_osi=linux" ];
+    plymouth = {
+      enable = true;
+      theme = "catppuccin-mocha";
+      themePackages = [ pkgs.catppuccin-plymouth ];
+    };
+    kernelParams = [
+      "quiet"
+      "splash"
+      "acpi_osi=linux"
+    ];
     loader = {
       systemd-boot = {
         editor = true;
         enable = true;
         configurationLimit = 10;
       };
-      efi = { efiSysMountPoint = mountPoint; };
+      efi = {
+        efiSysMountPoint = mountPoint;
+      };
     };
   };
 
-  networking = { networkmanager = { enable = true; }; };
+  networking = {
+    networkmanager = {
+      enable = true;
+    };
+  };
 
   services.xserver.enable = true;
 
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot =
-    true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
