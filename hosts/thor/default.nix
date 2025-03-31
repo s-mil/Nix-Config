@@ -53,7 +53,7 @@ in
     plymouth = {
       enable = true;
       theme = "catppuccin-mocha";
-      themePackages = [ pkgs.catppuccin-plymouth ];
+      themePackages = [ (pkgs.catppuccin-plymouth.override { variant = "mocha"; }) ];
     };
     kernelParams = [
       "quiet"
