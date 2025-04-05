@@ -22,6 +22,10 @@
     config = { allowUnfree = true; };
   };
 
+  networking.timeServers = [
+  "time.cloudflare.com"
+  ];
+
   services.udisks2 = { enable = true; };
   hardware.enableRedistributableFirmware = true;
   security.sudo.enable = true;
