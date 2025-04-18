@@ -1,11 +1,10 @@
-{ config, pkgs, unstable, inputs, ... }:
+{ pkgs, ... }:
 
 {
   programs.vscode = {
     enable = true;
-    package = unstable.vscode-fhs;
+    package = pkgs.vscode-fhs;
   };
 
   stylix.targets.vscode.enable = false;
-
 }

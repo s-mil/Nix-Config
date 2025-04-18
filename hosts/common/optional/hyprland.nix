@@ -3,12 +3,12 @@
   pkgs,
   unstable,
   ...
-}:
-{
-
+}: {
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    withUWSM = true;
+    xwayland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -39,7 +39,9 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+  };
   programs.waybar.enable = true;
   security.polkit.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).

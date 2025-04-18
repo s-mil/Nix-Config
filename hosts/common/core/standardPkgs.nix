@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     nano
     git
@@ -20,6 +19,8 @@
     nh
     syncthing
     syncthingtray
+    zoom-us
+    kdePackages.xwaylandvideobridge
     # inputs.nixvim.packages."x86_64-linux".default
     wdisplays
     devenv
@@ -29,5 +30,4 @@
     ghostty
     fish
   ];
-
 }

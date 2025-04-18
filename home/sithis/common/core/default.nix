@@ -52,7 +52,7 @@
     wacomtablet
     libwacom
     libsecret
-    signal-desktop
+    signal-desktop-bin
     tailscale
     gh
     du-dust
