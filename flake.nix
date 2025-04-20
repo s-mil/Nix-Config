@@ -39,8 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf.url = "github:notashelf/nvf";
-
     xremap-flake.url = "github:xremap/nix-flake";
 
     # # Personal
@@ -49,10 +47,10 @@
       flake = false;
     };
 
-    #    nixvim = {
-    # url = "github:s-mil/nix-vim";
-    # inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixvim = {
+      url = "github:s-mil/nix-vim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # color scheme - catppuccin
     catppuccin-btop = {
       url = "github:catppuccin/btop";
@@ -80,90 +78,85 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixpkgs-unstable,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
-      system = "x86_64-linux";
-      inherit (nixpkgs) lib;
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      configVars = import ./vars { inherit inputs lib; };
-      configLib = import ./lib { inherit lib; };
-      specialArgs = {
-        inherit
-          inputs
-          outputs
-          configVars
-          configLib
-          nixpkgs
-          unstable
-          ;
-      };
-    in
-    {
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
-
-      # Custom modifications/overrides to upstream packages.
-      overlays = import ./overlays { inherit inputs outputs; };
-
-      nixosConfigurations = {
-        #####################################################
-        # --------------------- ODIN -----------------------#
-        #####################################################
-        odin = nixpkgs.lib.nixosSystem {
-          inherit system specialArgs;
-          modules = [
-            home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = specialArgs; }
-            ./hosts/odin
-            inputs.stylix.nixosModules.stylix
-            inputs.nixos-cosmic.nixosModules.default
-            inputs.nvf.nixosModules.default
-          ];
-        };
-        #####################################################
-        # --------------------- Freya -----------------------#
-        #####################################################
-        freya = nixpkgs.lib.nixosSystem {
-          inherit system specialArgs;
-          modules = [
-            home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = specialArgs; }
-            ./hosts/freya
-            inputs.stylix.nixosModules.stylix
-            inputs.nixos-cosmic.nixosModules.default
-            inputs.nvf.nixosModules.default
-          ];
-        };
-
-        #####################################################
-        # --------------------- THOR -----------------------#
-        #####################################################
-        thor = nixpkgs.lib.nixosSystem {
-          inherit system specialArgs;
-          modules = [
-            home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = specialArgs; }
-            ./hosts/thor
-            inputs.stylix.nixosModules.stylix
-            inputs.nixos-cosmic.nixosModules.default
-            inputs.nvf.nixosModules.default
-          ];
-        };
-
-      };
-
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixpkgs-unstable,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux"];
+    system = "x86_64-linux";
+    inherit (nixpkgs) lib;
+    unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
     };
+
+    configVars = import ./vars {inherit inputs lib;};
+    configLib = import ./lib {inherit lib;};
+    specialArgs = {
+      inherit
+        inputs
+        outputs
+        configVars
+        configLib
+        nixpkgs
+        unstable
+        ;
+    };
+  in {
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+
+    # Custom modifications/overrides to upstream packages.
+    overlays = import ./overlays {inherit inputs outputs;};
+
+    nixosConfigurations = {
+      #####################################################
+      # --------------------- ODIN -----------------------#
+      #####################################################
+      odin = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [
+          home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = specialArgs;}
+          ./hosts/odin
+          inputs.stylix.nixosModules.stylix
+          inputs.nixos-cosmic.nixosModules.default
+          inputs.nvf.nixosModules.default
+        ];
+      };
+      #####################################################
+      # --------------------- Freya -----------------------#
+      #####################################################
+      freya = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [
+          home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = specialArgs;}
+          ./hosts/freya
+          inputs.stylix.nixosModules.stylix
+          inputs.nixos-cosmic.nixosModules.default
+          inputs.nvf.nixosModules.default
+        ];
+      };
+
+      #####################################################
+      # --------------------- THOR -----------------------#
+      #####################################################
+      thor = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules = [
+          home-manager.nixosModules.home-manager
+          {home-manager.extraSpecialArgs = specialArgs;}
+          ./hosts/thor
+          inputs.stylix.nixosModules.stylix
+          inputs.nixos-cosmic.nixosModules.default
+          inputs.nvf.nixosModules.default
+        ];
+      };
+    };
+  };
 }
