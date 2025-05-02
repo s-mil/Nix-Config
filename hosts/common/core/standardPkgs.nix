@@ -1,5 +1,4 @@
-{pkgs, nixvim, ...}: {
-  nixvim.
+{pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
     nano
     git
@@ -29,5 +28,6 @@
     zed-editor
     ghostty
     fish
+    inputs.nixvim.packages.${system}.nixCats
   ];
 }

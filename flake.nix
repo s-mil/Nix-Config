@@ -141,7 +141,6 @@
           ./hosts/freya
           inputs.stylix.nixosModules.stylix
           inputs.nixos-cosmic.nixosModules.default
-          inputs.nixvim.${system}.default
           
         ];
       };
@@ -157,7 +156,6 @@
           ./hosts/thor
           inputs.stylix.nixosModules.stylix
           inputs.nixos-cosmic.nixosModules.default
-          inputs.nixvim.default
           
         ];
       };
