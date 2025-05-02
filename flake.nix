@@ -83,6 +83,7 @@
     nixpkgs,
     home-manager,
     nixpkgs-unstable,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -125,7 +126,8 @@
           ./hosts/odin
           inputs.stylix.nixosModules.stylix
           inputs.nixos-cosmic.nixosModules.default
-          inputs.nvf.nixosModules.default
+
+          
         ];
       };
       #####################################################
@@ -139,7 +141,8 @@
           ./hosts/freya
           inputs.stylix.nixosModules.stylix
           inputs.nixos-cosmic.nixosModules.default
-          inputs.nvf.nixosModules.default
+          inputs.nixvim.${system}.default
+          
         ];
       };
 
@@ -154,7 +157,8 @@
           ./hosts/thor
           inputs.stylix.nixosModules.stylix
           inputs.nixos-cosmic.nixosModules.default
-          inputs.nvf.nixosModules.default
+          inputs.nixvim.default
+          
         ];
       };
     };
