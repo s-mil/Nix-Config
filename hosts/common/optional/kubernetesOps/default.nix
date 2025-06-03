@@ -3,7 +3,6 @@
     kubectl
     kubernetes-helm
     fluxcd
-    fluxctl
     talosctl
   ];
 }
