@@ -1,5 +1,4 @@
 { ... }: {
-  stylix.targets.alacritty.enable = false;
   xdg.configFile."alacritty/theme_catppuccin.toml".text = ''
     [[colors.indexed_colors]]
     color = "#FAB387"

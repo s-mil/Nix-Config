@@ -32,7 +32,7 @@
   };
 
   home.packages = with pkgs; [
-    firefox-devedition-bin
+    firefox-devedition
     spotify
     vlc
     btop
@@ -78,6 +78,7 @@
     atuin
     starship
     brave
+    megasync
   ];
 
   nixpkgs = {

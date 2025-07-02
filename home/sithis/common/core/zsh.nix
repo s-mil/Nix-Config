@@ -8,6 +8,7 @@
       la = "ls -lah";
       update = "just -f ~/Nix-Config/justfile `cat /etc/hostname`";
       dc = "docker compose";
+      nvim = "nixCats";
     };
     history = {
       size = 10000;
