@@ -79,6 +79,9 @@
     starship
     brave
     megasync
+    beets
+    beetsPackages.audible
+    
   ];
 
   nixpkgs = {
