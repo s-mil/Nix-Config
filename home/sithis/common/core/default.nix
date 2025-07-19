@@ -1,4 +1,12 @@
-{ config, lib, pkgs, outputs, unstable, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  outputs,
+  unstable,
+  ...
+}:
+{
   imports = [
     ./bash.nix
     ./zsh.nix
@@ -18,7 +26,10 @@
     username = lib.mkDefault "sithis";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "23.05";
-    sessionPath = [ "$HOME/.local/bin" "$HOME/.cargo/bin" ];
+    sessionPath = [
+      "$HOME/.local/bin"
+      "$HOME/.cargo/bin"
+    ];
     sessionVariables = {
       FLAKE = "$HOME/git/Nix-Config";
       SHELL = "zsh";
@@ -26,14 +37,12 @@
       TERMINAL = "alacritty";
       EDITOR = "nvim";
       MANPAGER = "batman";
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-        "\${HOME}/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     };
   };
 
   home.packages = with pkgs; [
     firefox-devedition
-    spotify
     vlc
     btop
     htop
@@ -79,8 +88,10 @@
     starship
     brave
     megasync
-    beets
-    beetsPackages.audible
+    renameutils
+    zfs-prune-snapshots
+    jq
+    jujutsu
     
   ];
 
@@ -96,12 +107,17 @@
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };
 
-  programs = { home-manager.enable = true; };
+  programs = {
+    home-manager.enable = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
