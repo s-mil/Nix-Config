@@ -21,10 +21,7 @@
       };
     };
     # Cosmic
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     # hyprland
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
@@ -125,7 +122,6 @@
           {home-manager.extraSpecialArgs = specialArgs;}
           ./hosts/odin
           inputs.stylix.nixosModules.stylix
-          inputs.nixos-cosmic.nixosModules.default
 
           
         ];

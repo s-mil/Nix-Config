@@ -23,7 +23,7 @@ in {
       hourly = 24;
       daily = 7;
       frequent = 4;
-
+      flags="-p";
     };
     autoScrub = { enable = true; };
   };

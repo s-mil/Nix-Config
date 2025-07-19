@@ -66,7 +66,7 @@
     discord
     moonlight-qt
     #rustdesk too big needs to only be installed when needed
-    pcmanfm
+    #pcmanfm
     catppuccin-gtk
     catppuccin-kde
     helix
