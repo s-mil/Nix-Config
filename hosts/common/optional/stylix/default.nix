@@ -26,7 +26,7 @@
         popups = 15;
       };
     };
-
+    targets.plymouth.enable = false;
     # cursor = {
     #   package = pkgs.catppuccin-cursors.mochaDark;
     #   name = "Catppuccin-Mocha-Dark-Cursors";

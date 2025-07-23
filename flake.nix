@@ -5,7 +5,7 @@
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable"; # also see 'unstable-packages' overlay at 'overlays/default.nix"
-
+    nur = { url = "github:nix-community/NUR"; };
     hardware.url = "github:nixos/nixos-hardware";
     # Home manager
     home-manager = {

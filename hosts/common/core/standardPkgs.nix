@@ -1,8 +1,7 @@
-{ pkgs, inputs, ... }:
-{
+{pkgs, inputs, unstable,...}: {
   environment.systemPackages = with pkgs; [
-    nano
-    git
+    unstable.nano
+    unstable.git
     tldr
     sshfs
     btop
