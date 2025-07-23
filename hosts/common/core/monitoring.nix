@@ -24,11 +24,11 @@
       }
     ];
   };
-  services.loki = {
-    enable = true;
-    extraFlags = [ "--server.http-listen-port=3101" ];
-
-  };
+#  services.loki = {
+#    enable = true;
+#    extraFlags = [ "--server.http-listen-port=3101" ];
+#
+#  };
 
   # configuration = {
   #   auth_enabled = false;
