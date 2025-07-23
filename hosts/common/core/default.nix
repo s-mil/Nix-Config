@@ -15,6 +15,7 @@
       ./services/syncthing.nix # syncthing for file syncing
       ./fonts.nix # fonts
       ./nh.nix
+      ./monitoring.nix
       #./services/auto-upgrade.nix # auto-upgrade service
     ]
     ++ (builtins.attrValues outputs.nixosModules);

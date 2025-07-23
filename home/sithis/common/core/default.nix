@@ -13,7 +13,6 @@
     ./git.nix
     ./jujutsu.nix
     ./alacritty.nix
-    ./monitoring.nix
     ./bat.nix
     ./zoxide.nix
     ./vscode.nix

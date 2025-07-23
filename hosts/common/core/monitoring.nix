@@ -1,9 +1,5 @@
 {
   config,
-  lib,
-  pkgs,
-  outputs,
-  unstable,
   ...
 }:
 {
@@ -19,9 +15,9 @@
     };
     scrapeConfigs = [
         {
-          job_name = "${toString config.networking.hostName}-scrape";
+          job_name = "${builtins.getEnv "HOSTNAME"}-scrape";
           static_configs = [{
-            targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+            targets = [ "127.0.0.1:9002" ];
           }];
         }
       ];
