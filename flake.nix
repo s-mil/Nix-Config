@@ -75,84 +75,86 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nixpkgs-unstable,
-    nixvim,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux"];
-    system = "x86_64-linux";
-    inherit (nixpkgs) lib;
-    unstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-
-    configVars = import ./vars {inherit inputs lib;};
-    configLib = import ./lib {inherit lib;};
-    specialArgs = {
-      inherit
-        inputs
-        outputs
-        configVars
-        configLib
-        nixpkgs
-        unstable
-        ;
-    };
-  in {
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-
-    # Custom modifications/overrides to upstream packages.
-    overlays = import ./overlays {inherit inputs outputs;};
-
-    nixosConfigurations = {
-      #####################################################
-      # --------------------- ODIN -----------------------#
-      #####################################################
-      odin = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          home-manager.nixosModules.home-manager
-          {home-manager.extraSpecialArgs = specialArgs;}
-          ./hosts/odin
-          inputs.stylix.nixosModules.stylix
-
-          
-        ];
-      };
-      #####################################################
-      # --------------------- Freya -----------------------#
-      #####################################################
-      freya = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          home-manager.nixosModules.home-manager
-          {home-manager.extraSpecialArgs = specialArgs;}
-          ./hosts/freya
-          inputs.stylix.nixosModules.stylix
-          
-        ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixpkgs-unstable,
+      nixvim,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
+      system = "x86_64-linux";
+      inherit (nixpkgs) lib;
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
       };
 
-      #####################################################
-      # --------------------- THOR -----------------------#
-      #####################################################
-      thor = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          home-manager.nixosModules.home-manager
-          {home-manager.extraSpecialArgs = specialArgs;}
-          ./hosts/thor
-          inputs.stylix.nixosModules.stylix
-          
-        ];
+      configVars = import ./vars { inherit inputs lib; };
+      configLib = import ./lib { inherit lib; };
+      specialArgs = {
+        inherit
+          inputs
+          outputs
+          configVars
+          configLib
+          nixpkgs
+          unstable
+          ;
+      };
+    in
+    {
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+
+      # Custom modifications/overrides to upstream packages.
+      overlays = import ./overlays { inherit inputs outputs; };
+
+      nixosConfigurations = {
+        #####################################################
+        # --------------------- ODIN -----------------------#
+        #####################################################
+        odin = nixpkgs.lib.nixosSystem {
+          inherit system specialArgs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/odin
+            inputs.stylix.nixosModules.stylix
+
+          ];
+        };
+        #####################################################
+        # --------------------- Freya -----------------------#
+        #####################################################
+        freya = nixpkgs.lib.nixosSystem {
+          inherit system specialArgs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/freya
+            inputs.stylix.nixosModules.stylix
+
+          ];
+        };
+
+        #####################################################
+        # --------------------- THOR -----------------------#
+        #####################################################
+        thor = nixpkgs.lib.nixosSystem {
+          inherit system specialArgs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/thor
+            inputs.stylix.nixosModules.stylix
+
+          ];
+        };
       };
     };
-  };
 }
