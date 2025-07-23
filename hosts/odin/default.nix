@@ -141,6 +141,8 @@ in {
       /Data/Media/Movies         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
       /Data/Media/Music         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
       /Data/Media/Photos         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+      /Data/homeassistant/       10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+
     '';
   };
 

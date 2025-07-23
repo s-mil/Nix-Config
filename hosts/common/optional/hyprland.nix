@@ -5,7 +5,9 @@
 }: {
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    
     withUWSM = true;
     xwayland.enable = true;
   };
@@ -17,6 +19,7 @@
     hyprlock
     hypridle
     hyprpaper
+    hyprpolkitagent
     wlogout
     swaynotificationcenter
     wofi
@@ -29,6 +32,9 @@
     xfce.thunar
     kdePackages.polkit-kde-agent-1
     xwayland
+    libsForQt5.qt5.qtwayland
+    kdePackages.qtwayland
+
   ];
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland;xcb";
