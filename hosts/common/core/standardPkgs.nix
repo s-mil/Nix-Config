@@ -1,4 +1,5 @@
-{pkgs, inputs, ...}: {
+{ pkgs, inputs, ... }:
+{
   environment.systemPackages = with pkgs; [
     nano
     git

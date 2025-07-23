@@ -1,8 +1,7 @@
-{ inputs, outputs, ... }: {
+{ inputs, outputs, ... }:
+{
   imports = [
     ./nvconfig.nix
   ];
-
-
 
 }
