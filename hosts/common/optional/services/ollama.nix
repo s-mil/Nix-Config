@@ -1,7 +1,8 @@
-{ ... }: {
+{ unstable, ... }: {
 
   services.ollama = {
     enable = true;
+    package = unstable.ollama;
     acceleration = "cuda";
     home = "/llm";
     models = "/llm/models";

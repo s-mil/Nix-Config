@@ -13,6 +13,7 @@
     ./git.nix
     ./jujutsu.nix
     ./alacritty.nix
+    ./monitoring.nix
     ./bat.nix
     ./zoxide.nix
     ./vscode.nix
@@ -74,8 +75,6 @@
     ffmpeg
     discord
     moonlight-qt
-    #rustdesk too big needs to only be installed when needed
-    #pcmanfm
     catppuccin-gtk
     catppuccin-kde
     helix

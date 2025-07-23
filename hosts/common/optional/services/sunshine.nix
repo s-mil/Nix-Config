@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{  unstable, ... }:
 {
   services.sunshine = {
     enable = true;
     capSysAdmin = true;
-    package = pkgs.sunshine.override { cudaSupport = true; };
+    package = unstable.sunshine.override { cudaSupport = true; };
 
   };
 
