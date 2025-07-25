@@ -19,7 +19,6 @@
     nh
     syncthing
     syncthingtray
-    zoom-us
     kdePackages.xwaylandvideobridge
     wdisplays
     devenv
