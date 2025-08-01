@@ -42,6 +42,7 @@ in
     ../common/optional/services/flatpak.nix
     ../common/optional/stylix
     ../common/optional/adb.nix
+    ../common/optional/brother_printer.nix
 
     ../common/optional/sops.nix
     #################### Users to Create ####################
