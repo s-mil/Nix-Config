@@ -57,6 +57,7 @@ in {
     ./hardware-configuration.nix
 
     #################### Host-specific Optional Configs ####################
+    ../common/optional/sddm.nix
     ../common/optional/cosmic.nix
     # ../common/optional/sddm.nix
     ../common/optional/services/openssh.nix # allow remote SSH access
@@ -94,7 +95,11 @@ in {
     initrd.supportedFilesystems = [ "zfs" ];
     supportedFilesystems = [ "zfs" ];
     zfs = { extraPools = [ "Data" "Clio" ]; };
-    plymouth = { enable = true; };
+    plymouth = {
+      enable = true;
+      theme = "catppuccin-mocha";
+      themePackages = [ (pkgs.catppuccin-plymouth.override { variant = "mocha"; }) ];
+    };
     loader = {
       systemd-boot = {
         editor = true;
