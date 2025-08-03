@@ -58,8 +58,7 @@ in {
 
     #################### Host-specific Optional Configs ####################
     ../common/optional/sddm.nix
-    ../common/optional/cosmic.nix
-    # ../common/optional/sddm.nix
+    # ../common/optional/cosmic.nix
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/nvidia.nix
     ../common/optional/steam.nix

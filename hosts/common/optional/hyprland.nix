@@ -24,16 +24,15 @@
     swaynotificationcenter
     wofi
     waybar
-    xdg-desktop-portal-hyprland
     wl-clipboard
     wf-recorder
     pavucontrol
     pulseaudio
-    xfce.thunar
     kdePackages.polkit-kde-agent-1
     xwayland
     libsForQt5.qt5.qtwayland
     kdePackages.qtwayland
+    nautilus
 
   ];
   environment.sessionVariables = {
