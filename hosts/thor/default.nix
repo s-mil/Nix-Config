@@ -29,6 +29,7 @@ in
 
     #################### Host-specific Optional Configs ####################
     # ../common/optional/sddm.nix
+    ../common/optional/cosmic-greeter.nix
     ../common/optional/cosmic.nix
     ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
