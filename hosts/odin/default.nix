@@ -57,20 +57,20 @@ in {
     ./hardware-configuration.nix
 
     #################### Host-specific Optional Configs ####################
-    ../common/optional/sddm.nix
-    # ../common/optional/cosmic.nix
+    #../common/optional/sddm.nix
+    ../common/optional/cosmic.nix
     ../common/optional/services/openssh.nix # allow remote SSH access
     ../common/optional/nvidia.nix
     ../common/optional/steam.nix
     ../common/optional/pipewire.nix # audio
     ../common/optional/emulation.nix
-    ../common/optional/kde.nix
+    #../common/optional/kde.nix
     ../common/optional/hyprland.nix
     ../common/optional/services/sunshine.nix
     ../common/optional/services/docker.nix
     ../common/optional/services/openrgb.nix
     ../common/optional/services/flatpak.nix
-    ../common/optional/services/printing.nix
+    ../common/optional/brother_printer.nix
     ../common/optional/services/ollama.nix
     ../common/optional/services/rustic-container-timer.nix
     ../common/optional/kubernetesOps

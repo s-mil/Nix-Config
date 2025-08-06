@@ -4,5 +4,5 @@
     enable = true;
     xwayland.enable = true;
   };
-  services.displayManager.cosmic-greeter.enable = false;
+  services.displayManager.cosmic-greeter.enable = true;
 }
