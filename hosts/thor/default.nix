@@ -7,8 +7,6 @@
 {
   inputs,
   pkgs,
-  config,
-  lib,
   ...
 }:
 let
@@ -31,7 +29,6 @@ in
 
     #################### Host-specific Optional Configs ####################
     # ../common/optional/sddm.nix
-    ../common/optional/sddm.nix
     ../common/optional/cosmic.nix
     ../common/optional/laptops
     ../common/optional/services/openssh.nix # allow remote SSH access
@@ -90,7 +87,7 @@ in
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
-  services.displayManager.defaultSession = "hyprland";
+
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

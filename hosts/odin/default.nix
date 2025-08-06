@@ -88,7 +88,8 @@ in {
       "quiet"
       "splash"
       "acpi_osi=linux"
-      "processor.max_cstate=1"
+      "idle=nomwait"
+      "processor.max_cstate=5"
       "zfs.zfs_arc_max=21474836480"
     ];
     initrd.supportedFilesystems = [ "zfs" ];
