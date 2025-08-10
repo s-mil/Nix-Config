@@ -5,6 +5,7 @@
     #emulationstation-de #depends on insecure package :(
     pegasus-frontend
     # retroarchFull
-    ryujinx
+    #ryujinx
+    ryubing
   ];
 }
