@@ -1,0 +1,44 @@
+  # services.nfs.server = {
+  #   enable = true;
+  #   lockdPort = 4001;
+  #   mountdPort = 4002;
+  #   statdPort = 4000;
+  #   exports = ''
+  #     /Clio/Media/audiobooks         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Clio/Media/podcasts         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Clio/Media/tv         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Clio/paperless         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Clio/download/pyload         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Clio/download/tdown         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Anime         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Audio-Books         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/AV_Test         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Books         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Manga         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Movies         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Music         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/Media/Photos         10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #     /Data/homeassistant/       10.0.0.0/8(insecure,rw,sync,no_subtree_check)
+  #   '';
+  # };
+    # initrd.supportedFilesystems = [ "zfs" ];
+    # supportedFilesystems = [ "zfs" ];
+    # zfs = { extraPools = [ "Data" "Clio" ]; };
+
+    kernelParams = [
+         # "zfs.zfs_arc_max=21474836480"
+    ]
+  # environment.systemPackages = [ pkgs.zfs pkgs.lz4 ];
+
+  # services.zfs = {
+  #   autoSnapshot = {
+  #     enable = true;
+  #     weekly = 4;
+  #     monthly = 12;
+  #     hourly = 24;
+  #     daily = 7;
+  #     frequent = 4;
+  #     flags="-p";
+  #   };
+  #   autoScrub = { enable = true; };
+  # };
