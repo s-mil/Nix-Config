@@ -5,15 +5,19 @@
 #
 ###############################################################
 
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 let
 
   Hostname = "odin";
   mountPoint = "/boot";
 
-in {
-
-
+in
+{
 
   networking = {
     hostName = Hostname;
@@ -22,17 +26,24 @@ in {
     interfaces = {
       enp4s0 = {
         useDHCP = false;
-        ipv4.addresses = [{
-          address = "10.10.0.64";
-          prefixLength = 8;
-        }];
+        ipv4.addresses = [
+          {
+            address = "10.10.0.64";
+            prefixLength = 8;
+          }
+        ];
       };
     };
     defaultGateway = "10.0.0.1";
-    nameservers = [ "10.10.0.11" "10.10.0.64" ];
+    nameservers = [
+      "10.10.0.11"
+      "10.10.0.64"
+    ];
   };
 
-  fileSystems = { "/".options = [ "compress=zstd" ]; };
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+  };
 
   imports = [
     #################### Hardware Modules ####################
@@ -91,7 +102,9 @@ in {
         enable = true;
         configurationLimit = 10;
       };
-      efi = { efiSysMountPoint = mountPoint; };
+      efi = {
+        efiSysMountPoint = mountPoint;
+      };
     };
   };
   sops.secrets.odin_cache = { };
@@ -110,7 +123,6 @@ in {
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   services.displayManager.defaultSession = "cosmic";
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
