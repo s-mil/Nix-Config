@@ -77,7 +77,6 @@ in
       enable = true;
     };
   };
-
   services.xserver.enable = true;
 
   hardware.bluetooth.enable = true;
@@ -88,7 +87,6 @@ in
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
