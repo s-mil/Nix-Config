@@ -121,7 +121,6 @@ in
   services.displayManager.defaultSession = "cosmic";
 
   services.btrfs = {
-    enable = true;
     autoScrub.enable = true;
     autoScrub.interval = "weekly";
   };
