@@ -21,6 +21,10 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    disko = {
+     url = "github:nix-community/disko/latest";
+     inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Cosmic
     # nixos-cosmic = {
     #   url = "github:lilyinstarlight/nixos-cosmic";
@@ -86,6 +90,7 @@
       home-manager,
       nixpkgs-unstable,
       nixvim,
+      disko,
       ...
     }@inputs:
     let
@@ -129,6 +134,7 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/odin
             inputs.stylix.nixosModules.stylix
+            inputs.disko.nixosModules.disko
             # inputs.nixos-cosmic.nixosModules.default
           ];
         };

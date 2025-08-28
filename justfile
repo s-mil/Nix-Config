@@ -42,27 +42,27 @@ nh-remote:
 
 
 thor:
-	nixos-rebuild switch --flake .#thor --use-remote-sudo
+	nixos-rebuild switch --flake .#thor --sudo
 
 debugThor:
-	nixos-rebuild switch --flake .#thor --use-remote-sudo --show-trace --verbose
+	nixos-rebuild switch --flake .#thor --sudo --show-trace --verbose
 freya:
-	nixos-rebuild switch --flake .#freya --use-remote-sudo
+	nixos-rebuild switch --flake .#freya --sudo
 
 debugFreya:
-	nixos-rebuild switch --flake .#freya --use-remote-sudo --show-trace --verbose
+	nixos-rebuild switch --flake .#freya --sudo --show-trace --verbose
 
 mjolnir:
-	nixos-rebuild switch --flake .#mjolnir --use-remote-sudo
+	nixos-rebuild switch --flake .#mjolnir --sudo
 
 debugmjolnir:
-	nixos-rebuild switch --flake .#mjolnir --use-remote-sudo --show-trace --verbose
+	nixos-rebuild switch --flake .#mjolnir --sudo --show-trace --verbose
 
 odin:
-	nixos-rebuild switch --flake .#odin --use-remote-sudo
+	nixos-rebuild switch --flake .#odin --sudo
 
 debugOdin:
-	nixos-rebuild switch --flake .#odin --use-remote-sudo --show-trace --verbose
+	nixos-rebuild switch --flake .#odin --sudo --show-trace --verbose
 
 
 history:

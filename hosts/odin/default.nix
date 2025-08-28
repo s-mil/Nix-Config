@@ -41,10 +41,6 @@ in
     ];
   };
 
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-  };
-
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-amd
@@ -53,6 +49,7 @@ in
     #################### Required Configs ####################
     ../common/core
     ./hardware-configuration.nix
+    ./disk-config.nix
 
     #################### Host-specific Optional Configs ####################
     #../common/optional/sddm.nix
@@ -70,11 +67,11 @@ in
     ../common/optional/services/openrgb.nix
     ../common/optional/services/flatpak.nix
     ../common/optional/brother_printer.nix
-    ../common/optional/services/ollama.nix
+    #../common/optional/services/ollama.nix
     ../common/optional/services/rustic-container-timer.nix
     ../common/optional/kubernetesOps
     # ../common/optional/services/tabby.nix
-    ../common/optional/sops.nix
+    #../common/optional/sops.nix
     ../common/optional/stylix
 
     #################### Users to Create ####################
@@ -87,7 +84,6 @@ in
       "quiet"
       "splash"
       "acpi_osi=linux"
-      "idle=nomwait"
       "processor.max_cstate=1"
     ];
 
@@ -107,15 +103,15 @@ in
       };
     };
   };
-  sops.secrets.odin_cache = { };
+  #sops.secrets.odin_cache = { };
 
   services.xserver.enable = true;
 
-  services.nix-serve = {
-    enable = true;
-    secretKeyFile = config.sops.secrets.odin_cache.path;
-    port = 22222;
-  };
+  #services.nix-serve = {
+  #  enable = true;
+  #  secretKeyFile = config.sops.secrets.odin_cache.path;
+  #  port = 22222;
+  #};
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
