@@ -11,6 +11,9 @@ in
       inputs.hardware.nixosModules.common-cpu-amd
       inputs.hardware.nixosModules.common-pc-ssd
       ../common/core
+      
+      ../common/optional/cosmic-greeter.nix
+      ../common/optional/cosmic.nix
       ../common/optional/services/openssh.nix # allow remote SSH access
       ../common/optional/pipewire.nix # audio
       ../common/optional/services/docker.nix
