@@ -28,7 +28,7 @@ in
     hostId = "007f0201";
     firewall.enable = false;
     interfaces = {
-      enp4s0 = {
+      ens18 = {
         useDHCP = false;
         ipv4.addresses = [
           {
