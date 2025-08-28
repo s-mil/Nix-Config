@@ -22,8 +22,8 @@
       };
     };
     disko = {
-     url = "github:nix-community/disko/latest";
-     inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Cosmic
     # nixos-cosmic = {
@@ -148,7 +148,7 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/freya
             inputs.stylix.nixosModules.stylix
-           # inputs.nixos-cosmic.nixosModules.default
+            # inputs.nixos-cosmic.nixosModules.default
           ];
         };
 
@@ -162,7 +162,18 @@
             { home-manager.extraSpecialArgs = specialArgs; }
             ./hosts/thor
             inputs.stylix.nixosModules.stylix
-           # inputs.nixos-cosmic.nixosModules.default
+            # inputs.nixos-cosmic.nixosModules.default
+          ];
+        };
+        #####################################################
+        # --------------------- NJORD -----------------------#
+        #####################################################
+        njord = nixpkgs.lib.nixosSystem {
+          inherit system specialArgs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/njord
           ];
         };
       };
