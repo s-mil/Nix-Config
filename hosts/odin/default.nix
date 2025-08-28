@@ -67,11 +67,11 @@ in
     ../common/optional/services/openrgb.nix
     ../common/optional/services/flatpak.nix
     ../common/optional/brother_printer.nix
-    #../common/optional/services/ollama.nix
+    ../common/optional/services/ollama.nix
     ../common/optional/services/rustic-container-timer.nix
     ../common/optional/kubernetesOps
     # ../common/optional/services/tabby.nix
-    #../common/optional/sops.nix
+    ../common/optional/sops.nix
     ../common/optional/stylix
 
     #################### Users to Create ####################
@@ -103,15 +103,15 @@ in
       };
     };
   };
-  #sops.secrets.odin_cache = { };
+  sops.secrets.odin_cache = { };
 
   services.xserver.enable = true;
 
-  #services.nix-serve = {
-  #  enable = true;
-  #  secretKeyFile = config.sops.secrets.odin_cache.path;
-  #  port = 22222;
-  #};
+  services.nix-serve = {
+   enable = true;
+   secretKeyFile = config.sops.secrets.odin_cache.path;
+   port = 22222;
+  };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -119,6 +119,12 @@ in
   security.pam.services.sddm.enableGnomeKeyring = true;
 
   services.displayManager.defaultSession = "cosmic";
+
+  services.btrfs = {
+    enable = true;
+    autoScrub.enable = true;
+    autoScrub.interval = "weekly";
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

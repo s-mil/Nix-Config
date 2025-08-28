@@ -58,8 +58,7 @@
     ffmpeg
     vlc
     xf86_input_wacom
-    wacomtablet
-    libwacom
+
     libsecret
     signal-desktop-bin
     tailscale
