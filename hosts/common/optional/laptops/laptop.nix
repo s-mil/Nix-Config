@@ -1,3 +1,8 @@
-{ pkgs, ... }: { environment.systemPackages = with pkgs; [ brightnessctl ]
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    brightnessctl
     kdePackages.wacomtablet
-    libwacom; }
+    libwacom
+  ];
+}
