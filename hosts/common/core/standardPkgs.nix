@@ -27,6 +27,7 @@
     zed-editor
     ghostty
     fish
+    caligula
     inputs.nixvim.packages.${system}.nixCats
   ];
 }

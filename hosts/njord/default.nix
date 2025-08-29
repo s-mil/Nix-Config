@@ -43,7 +43,7 @@ in
     };
     defaultGateway = "10.0.0.1";
     nameservers = [
-      "10.10.0.11"
+      "10.0.0.102"
       "10.10.0.64"
     ];
   }; 
@@ -127,7 +127,6 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
