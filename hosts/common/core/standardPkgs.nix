@@ -19,6 +19,7 @@
     nh
     syncthing
     syncthingtray
+    beszel
     kdePackages.xwaylandvideobridge
     wdisplays
     devenv

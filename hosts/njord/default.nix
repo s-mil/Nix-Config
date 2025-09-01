@@ -12,8 +12,6 @@ in
       inputs.hardware.nixosModules.common-pc-ssd
       ../common/core
       
-      ../common/optional/cosmic-greeter.nix
-      ../common/optional/cosmic.nix
       ../common/optional/services/openssh.nix # allow remote SSH access
       ../common/optional/pipewire.nix # audio
       ../common/optional/services/docker.nix
@@ -32,6 +30,15 @@ in
     firewall.enable = false;
     interfaces = {
       ens18 = {
+        useDHCP = false;
+        ipv4.addresses = [
+          {
+            address = "10.0.0.102";
+            prefixLength = 8;
+          }
+        ];
+      };
+      ens19 = {
         useDHCP = false;
         ipv4.addresses = [
           {
