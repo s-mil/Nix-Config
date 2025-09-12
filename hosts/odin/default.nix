@@ -23,6 +23,7 @@ in
     hostName = Hostname;
     hostId = "007f0200";
     firewall.enable = false;
+    networkmanager.enable = true;
     interfaces = {
       enp4s0 = {
         useDHCP = false;
