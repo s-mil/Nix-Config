@@ -45,7 +45,17 @@
 
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-cosmic ];
+    config = {
+      common = {
+        default = [ "hyprland" "cosmic" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+      };
+    };
   };
+
+
   programs.waybar.enable = true;
   security.polkit.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).

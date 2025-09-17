@@ -1,22 +1,22 @@
 { inputs, lib, ... }:
 {
   nix = {
-    # buildMachines = [
-    #   {
-    #     hostName = "odin";
-    #     system = "x86_64-linux";
-    #     maxJobs = 6;
-    #     speedFactor = 2;
-    #     supportedFeatures = [
-    #       "nixos-test"
-    #       "benchmark"
-    #       "big-parallel"
-    #       "kvm"
-    #     ];
-    #     mandatoryFeatures = [ ];
-    #   }
-    # ];
-    # distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "njord";
+        system = "x86_64-linux";
+        maxJobs = 6;
+        speedFactor = 2;
+        supportedFeatures = [
+          "nixos-test"
+          "benchmark"
+          "big-parallel"
+          "kvm"
+        ];
+        mandatoryFeatures = [ ];
+      }
+    ];
+    distributedBuilds = true;
 
     settings = {
       trusted-users = [
