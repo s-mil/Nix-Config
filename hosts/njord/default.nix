@@ -61,7 +61,6 @@ in
 
   services.nix-serve = {
    enable = true;
-   package = pkgs.nix-serve-ng;
    secretKeyFile = config.sops.secrets.odin_cache.path;
    port = 22222;
   };
