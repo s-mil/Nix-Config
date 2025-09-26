@@ -18,6 +18,8 @@ in
       ../common/optional/services/rustic-container-timer.nix
       ../common/optional/sops.nix
       ../common/users/sithis
+      ../common/optional/cosmic.nix
+      ../common/optional/hyprland.nix
     ];
 
   # Bootloader.
