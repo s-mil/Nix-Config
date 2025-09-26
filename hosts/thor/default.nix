@@ -16,8 +16,6 @@ let
 
 in
 {
-  networking.hostName = Hostname;
-
   imports = [
     #################### Hardware Modules ####################
     inputs.hardware.nixosModules.common-cpu-intel
@@ -73,18 +71,24 @@ in
   };
 
   networking = {
+    hostName = Hostname;
     networkmanager = {
       enable = true;
     };
   };
-  services.xserver.enable = true;
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  services = {
+    xserver.enable = true;
+    blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  };
+  security = {
+    polkit.enable = true;
+    pam.services.sddm.enableGnomeKeyring = true;
+  };
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
