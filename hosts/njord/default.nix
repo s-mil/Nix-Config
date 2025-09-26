@@ -20,6 +20,8 @@ in
       ../common/users/sithis
       ../common/optional/cosmic.nix
       ../common/optional/hyprland.nix
+      ../common/optional/brother_printer.nix
+
     ];
 
   # Bootloader.
@@ -93,9 +95,6 @@ in
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sithis = {
