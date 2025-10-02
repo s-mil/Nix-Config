@@ -12,7 +12,8 @@
         "codellama:latest"
         "mistral:latest"
         "deepseek-r1:8b"
-                ];
+        "gpt-oss:20b"
+];
   };
 
 }
