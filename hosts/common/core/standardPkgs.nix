@@ -1,4 +1,5 @@
 {pkgs, inputs, unstable,...}: {
+  programs.kdeconnect.enable = true;
   environment.systemPackages = with pkgs; [
     unstable.nano
     unstable.git
