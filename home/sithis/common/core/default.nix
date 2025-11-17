@@ -63,7 +63,7 @@
     signal-desktop-bin
     tailscale
     gh
-    du-dust
+    dust
     bitwarden-cli
     fd
     python311Packages.pynvim
