@@ -4,6 +4,8 @@
     brightnessctl
     kdePackages.wacomtablet
     libwacom
+    sof-firmware
+    alsa-tools
   ];
   hardware.sensor.iio.enable = true;
   hardware.openrazer = {
