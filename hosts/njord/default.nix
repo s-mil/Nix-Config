@@ -54,7 +54,7 @@ in
     };
     defaultGateway = {
       address = "10.0.0.1";
-      interface = "ens18"
+      interface = "ens18";
     };
     nameservers = [
       "1.1.1.1"
