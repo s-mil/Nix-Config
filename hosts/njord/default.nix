@@ -46,16 +46,19 @@ in
         useDHCP = false;
         ipv4.addresses = [
           {
-            address = "10.0.0.102";
-            prefixLength = 8;
+            address = "192.168.1.2";
+            prefixLength = 24;
           }
         ];
       };
     };
-    defaultGateway = "10.0.0.1";
+    defaultGateway = {
+      address = "10.0.0.1";
+      interface = "ens18"
+    };
     nameservers = [
-      "10.0.0.102"
-      "10.10.0.64"
+      "1.1.1.1"
+      "8.8.8.8"
     ];
   }; 
 
