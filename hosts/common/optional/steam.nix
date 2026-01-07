@@ -3,10 +3,10 @@
   environment.systemPackages = with pkgs; [
     steamtinkerlaunch
     sunshine
-    mangohud
-    protonup
+    protonup-ng
     protontricks
-    gamemode
+    steam-run
+    mangohud
   ];
 
    programs.gamemode.enable = true;
@@ -21,10 +21,11 @@
     # localNetworkGameTransfers.openFirewall = true; # Future version
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extest.enable = true;
     gamescopeSession.enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin steamtinkerlaunch ];
 
   };
-
+  hardware.xone.enable = true;
   # programs.gamemode.enable = true;
 }
