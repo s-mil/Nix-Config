@@ -29,6 +29,7 @@
     ghostty
     fish
     caligula
+    openssl
     inputs.nixvim.packages.${system}.nixCats
   ];
 }
