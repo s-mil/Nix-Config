@@ -14,7 +14,7 @@
     dig
     cifs-utils
     ranger
-    nixfmt-rfc-style
+    nixfmt
     nixd
     zellij
     nh

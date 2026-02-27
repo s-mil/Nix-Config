@@ -8,14 +8,16 @@
   programs.git = {
     enable = true;
     package = unstable.gitFull;
-    userName = "Sam Miller";
-    userEmail = "23262411+s-mil@users.noreply.github.com";
     maintenance.enable = true;
     lfs.enable = true;
-    aliases = {
-      fpush = "push --force-with-lease";
-    };
-    extraConfig = {
+    settings = {
+      aliases = {
+        fpush = "push --force-with-lease";
+      };
+      user = {
+        name = "Sam Miller";
+        email = "23262411+s-mil@users.noreply.github.com";
+      };
       credential.helper = "libsecret";
       pull.rebase = true;
       color.ui = true;
