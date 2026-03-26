@@ -60,7 +60,6 @@
     xf86_input_wacom
 
     libsecret
-    signal-desktop-bin
     tailscale
     gh
     dust
