@@ -12,6 +12,7 @@
    programs.gamemode.enable = true;
 
   programs.gamescope = {
+    
     enable = true;
     capSysNice = true;
   };
@@ -24,6 +25,7 @@
     extest.enable = true;
     gamescopeSession.enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin steamtinkerlaunch ];
+
 
   };
   hardware.xone.enable = true;

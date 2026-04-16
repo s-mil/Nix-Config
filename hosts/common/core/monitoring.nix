@@ -94,41 +94,41 @@
     # user, group, dataDir, extraFlags, (configFile)
   };
 
-  services.promtail = {
-    enable = true;
-    configuration = {
-      server = {
-        http_listen_port = 3031;
-        grpc_listen_port = 0;
-      };
-      positions = {
-        filename = "/tmp/positions.yaml";
-      };
-      clients = [
-        {
-          url = "http://127.0.0.1:${toString config.services.loki.configuration.server.http_listen_port}/loki/api/v1/push";
-        }
-      ];
-      scrape_configs = [
-        {
-          job_name = "journal";
-          journal = {
-            max_age = "12h";
-            labels = {
-              job = "systemd-journal";
-              host = "${config.networking.hostName}";
-            };
-          };
-          relabel_configs = [
-            {
-              source_labels = [ "__journal__systemd_unit" ];
-              target_label = "unit";
-            }
-          ];
-        }
-      ];
-    };
-    # extraFlags
-  };
+  # services.promtail = {
+  #   enable = true;
+  #   configuration = {
+  #     server = {
+  #       http_listen_port = 3031;
+  #       grpc_listen_port = 0;
+  #     };
+  #     positions = {
+  #       filename = "/tmp/positions.yaml";
+  #     };
+  #     clients = [
+  #       {
+  #         url = "http://127.0.0.1:${toString config.services.loki.configuration.server.http_listen_port}/loki/api/v1/push";
+  #       }
+  #     ];
+  #     scrape_configs = [
+  #       {
+  #         job_name = "journal";
+  #         journal = {
+  #           max_age = "12h";
+  #           labels = {
+  #             job = "systemd-journal";
+  #             host = "${config.networking.hostName}";
+  #           };
+  #         };
+  #         relabel_configs = [
+  #           {
+  #             source_labels = [ "__journal__systemd_unit" ];
+  #             target_label = "unit";
+  #           }
+  #         ];
+  #       }
+  #     ];
+  #   };
+  #   # extraFlags
+  # };
 }
 #  level=error ts=2025-07-25T14:30:54.58233811Z caller=main.go:70 msg="validating config" err="MULTIPLE CONFIG ERRORS FOUND, PLEASE READ CAREFULLY\nCONFIG ERROR: schema v13 is required to store Structured Metadata and use native OTLP ingestion, your schema version is v11. Set `allow_structured_metadata: false` in the `limits_config` section or set the command line argument `-validation.allow-structured-metadata=false` and restart Loki. Then proceed to update to schema v13 or newer before re-enabling this config, search for 'Storage Schema' in the docs for the schema update procedure\nCONFIG ERROR: `tsdb` index type is required to store Structured Metadata and use native OTLP ingestion, your index type is `tsdb-shipper` (defined in the `store` parameter of the schema_config). Set `allow_structured_metadata: false` in the `limits_config` section or set the command line argument `-validation.allow-structured-metadata=false` and restart Loki. Then proceed to update the schema to use index type `tsdb` before re-enabling this config, search for 'Storage Schema' in the docs for the schema update procedure"
